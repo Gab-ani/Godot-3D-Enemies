@@ -1,0 +1,14 @@
+res://Locations/ProtoLevel.tscn
+res://Player/Player.tscn
+res://Player/HumanoidModel/HumanoidModel.tscn
+res://Enemies/MobFSM/MobFSM.tscn
+res://Enemies/MobFSM/AIMove.gd
+res://Enemies/MobFSM/MobStateMachine.gd
+res://node_3d.tscn
+res://Enemies/MobFSM/Idle.gd
+res://Enemies/MobFSM/MobFSM.gd
+res://Enemies/MobFSM/Pursuit.gd
+res://Enemies/MobFSM/Attack.gd
+res://Enemies/MobFSM/Return.gd
+res://Player/HumanoidModel/Model.gd
+res://Assets/Ready Animations/slash_1.res

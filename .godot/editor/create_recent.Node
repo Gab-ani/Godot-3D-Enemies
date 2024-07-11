@@ -1,0 +1,6 @@
+Node
+Node3D
+CollisionShape3D
+CharacterBody3D
+MeshInstance3D
+AnimationTree
