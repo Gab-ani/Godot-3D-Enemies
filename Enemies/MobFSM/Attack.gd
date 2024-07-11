@@ -15,7 +15,7 @@ func check_transition(delta) -> Array:
 
 
 # wanna be a tracking window
-# for better approach (smooth and easili editable turns) you can watch my MM3 video about tracking
+# for better approach (smooth and easily editable turns) you can watch my MM3 video about tracking
 # and controller series ep.4 for backend animations framework
 func update(delta):
 	if works_less_than(0.2):
