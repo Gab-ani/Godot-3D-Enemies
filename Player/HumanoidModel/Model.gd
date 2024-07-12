@@ -8,6 +8,7 @@ class_name PlayerModel
 @onready var animator = $SkeletonAnimator
 @onready var combat = $Combat as HumanoidCombat
 @onready var resources = $Resources as HumanoidResources
+@onready var hurtbox = $Root/Hurtbox as Hurtbox
 
 @onready var active_weapon : Weapon = $RightWrist/WeaponSocket/Sword as Sword
 #@onready var weapons = {
@@ -25,7 +26,6 @@ func _ready():
 	moves_container.humanoid = player
 	moves_container.accept_moves()
 	current_move = moves_container.moves["idle"]
-
 
 func update(input : InputPackage, delta : float):
 	input = combat.contextualize(input)

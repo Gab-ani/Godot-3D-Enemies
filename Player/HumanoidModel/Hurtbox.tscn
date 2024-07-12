@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://chjl1d5amktti"]
+
+[ext_resource type="Script" path="res://Player/HumanoidModel/HumanoidHitbox.gd" id="1_cc6lf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47cuq"]
+radius = 0.3
+height = 1.85
+
+[node name="Hitbox" type="Area3D"]
+transform = Transform3D(1, 1.86265e-09, 0, 1.86265e-09, 1, 1.49012e-08, -3.72529e-09, 1.49012e-08, 1, 0, -0.055, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_cc6lf")
+ignored_weapon_groups = Array[String](["players_weapon"])
+
+[node name="HitboxCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -1.21072e-08, 3.72529e-09, 9.31323e-10, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_47cuq")

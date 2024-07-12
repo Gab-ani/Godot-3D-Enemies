@@ -16,8 +16,9 @@ func default_lifecycle(input : InputPackage):
 	return best_input_that_can_be_paid(input)
 
 
-func update(_input : InputPackage, _delta : float):
+func update(_input : InputPackage, delta : float):
 	humanoid.move_and_slide()
+	resources.lose_stamina(sprint_stamina_cost * delta)
 
 
 func process_input_vector(input : InputPackage, delta : float):

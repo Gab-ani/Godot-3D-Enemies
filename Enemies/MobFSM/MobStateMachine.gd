@@ -2,6 +2,8 @@ extends Node
 
 @export var animation_player : AnimationPlayer
 @export var character : CharacterBody3D
+@export var right_weapon : Weapon
+@export var resources : EnemyResources
 
 var moves : Dictionary # { String : AIMove }
 var current_move : AIMove
@@ -37,3 +39,5 @@ func accept_states():
 			child.character = character
 			child.player = character.player
 			child.spawn_point = character.spawn_point
+			child.right_weapon = right_weapon
+			child.resources = resources

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://eec5ujuowf51"]
+[gd_scene load_steps=84 format=3 uid="uid://eec5ujuowf51"]
 
 [ext_resource type="Script" path="res://Player/HumanoidModel/Model.gd" id="1_mokw1"]
 [ext_resource type="Animation" uid="uid://q6o7ddogrjmv" path="res://Assets/Ready Animations/jump_sprint.res" id="2_gpv2h"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://Player/HumanoidModel/SkeletonAnimator.gd" id="8_5xwyl"]
 [ext_resource type="Animation" uid="uid://cmcjn7n1ht11v" path="res://Assets/Ready Animations/stagger.res" id="12_40573"]
 [ext_resource type="PackedScene" uid="uid://6t1bl235yea4" path="res://Weapons/Models/Sword.tscn" id="12_km6ig"]
-[ext_resource type="Script" path="res://Player/HumanoidModel/HumanoidHitbox.gd" id="13_etasb"]
 [ext_resource type="Animation" uid="uid://jyjqrq6kiasc" path="res://Assets/Ready Animations/parry.res" id="13_jsfsu"]
 [ext_resource type="Animation" uid="uid://dho7uykss61yg" path="res://Assets/Ready Animations/parried.res" id="14_vnm0i"]
 [ext_resource type="Animation" uid="uid://bvsqnjfp0plnw" path="res://Assets/Ready Animations/idle_warrior.res" id="15_1fpl4"]
@@ -32,6 +31,7 @@
 [ext_resource type="Animation" path="res://Assets/Ready Animations/greatsword_light_4_hackwork_Z_PROJECTED.res" id="26_ls1ai"]
 [ext_resource type="Animation" path="res://Assets/Ready Animations/greatsword_heavy_1_hackwork_Z_PROJECTED.res" id="27_iut3y"]
 [ext_resource type="Animation" path="res://Assets/Ready Animations/greatsword_heavy_2_hackwork_Z_PROJECTED.res" id="28_j4j4j"]
+[ext_resource type="PackedScene" uid="uid://chjl1d5amktti" path="res://Player/HumanoidModel/Hurtbox.tscn" id="30_fw617"]
 [ext_resource type="PackedScene" uid="uid://cvubc08qnq2y" path="res://Player/HumanoidModel/HumanoidStates.tscn" id="30_xkqvj"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/MovesData.gd" id="31_l4eyu"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/MovesDataStorage.gd" id="32_yw3h7"]
@@ -2586,10 +2586,6 @@ _data = {
 "staggered": ExtResource("12_40573")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47cuq"]
-radius = 0.3
-height = 1.85
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djdo1"]
 albedo_color = Color(0, 0.639216, 0, 1)
 
@@ -2918,10 +2914,10 @@ tracks/0/path = NodePath("MoveDatabase:is_parryable")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -2930,10 +2926,10 @@ tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -2942,10 +2938,10 @@ tracks/2/path = NodePath("MoveDatabase:is_interruptable")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -2954,10 +2950,10 @@ tracks/3/path = NodePath("MoveDatabase:is_grabable")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -5492,15 +5488,8 @@ bone_idx = 0
 use_external_skeleton = true
 external_skeleton = NodePath("../GeneralSkeleton")
 
-[node name="Hitbox" type="Area3D" parent="Root"]
-transform = Transform3D(1, 1.86265e-09, 0, 1.86265e-09, 1, 1.49012e-08, -3.72529e-09, 1.49012e-08, 1, 0, -0.055, 0)
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("13_etasb")
-
-[node name="HitboxCollider" type="CollisionShape3D" parent="Root/Hitbox"]
-transform = Transform3D(1, -1.21072e-08, 3.72529e-09, 9.31323e-10, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_47cuq")
+[node name="Hurtbox" parent="Root" node_paths=PackedStringArray("processor") instance=ExtResource("30_fw617")]
+processor = NodePath("../..")
 
 [node name="RightWrist" type="BoneAttachment3D" parent="."]
 transform = Transform3D(-8.0678e-08, -1, 1.19209e-07, -2.79397e-08, -1.19209e-07, -1, 1, -8.0678e-08, -2.79397e-08, -0.713332, 1.44057, -0.0554854)
@@ -5512,7 +5501,7 @@ external_skeleton = NodePath("../GeneralSkeleton")
 [node name="WeaponSocket" type="Node3D" parent="RightWrist"]
 transform = Transform3D(0.325568, 0.945519, 0, -0.945519, 0.325568, 0, 0, 0, 1, 0.0275242, 0.0607529, 0.0400013)
 
-[node name="Sword" parent="RightWrist/WeaponSocket" node_paths=PackedStringArray("holder") instance=ExtResource("12_km6ig")]
+[node name="Sword" parent="RightWrist/WeaponSocket" node_paths=PackedStringArray("holder") groups=["players_weapon"] instance=ExtResource("12_km6ig")]
 transform = Transform3D(0.999593, -0.0284684, -0.00176529, 0.0285111, 0.999059, 0.0326348, 0.000834521, -0.0326719, 0.999466, 0, 0, 0)
 collision_mask = 4
 holder = NodePath("../../..")
@@ -5545,12 +5534,15 @@ libraries = {
 "": SubResource("AnimationLibrary_udg8f")
 }
 script = ExtResource("32_yw3h7")
-root_position = Vector3(-0.131604, 0.795375, 1.9718)
+root_position = Vector3(0.00307628, 0.884409, 0.0549956)
+is_vulnerable = true
+is_interruptable = true
+is_grabable = true
 accepts_tracking_direction = true
 
 [node name="Idle" type="Node" parent="States"]
 script = ExtResource("33_8hd6j")
-animation = "idle_vom_tag"
+animation = "idle_longsword"
 move_name = "idle"
 priority = 1
 backend_animation = "idle_params"
@@ -5635,88 +5627,6 @@ priority = 15
 backend_animation = "longsword_2_params"
 tracking_angular_speed = 15.0
 stamina_cost = 30.0
-
-[node name="GreatswordL1" parent="States" instance=ExtResource("42_bnot5")]
-RELEASES_PRIORITY = 1.8
-animation = "greatsword_light_1_hackwork"
-move_name = "greatsword_light_1"
-priority = 15
-backend_animation = "greatsword_light_1_params"
-tracking_angular_speed = 15.0
-stamina_cost = 20.0
-
-[node name="LightSeries" parent="States/GreatswordL1" instance=ExtResource("43_cefv8")]
-primary_input = "greatsword_light_1"
-triggered_move = "greatsword_light_2"
-
-[node name="HeavyMigration" parent="States/GreatswordL1" instance=ExtResource("43_cefv8")]
-primary_input = "greatsword_heavy_1"
-triggered_move = "greatsword_heavy_1"
-
-[node name="GreatswordL2" parent="States" instance=ExtResource("42_bnot5")]
-RELEASES_PRIORITY = 1.8
-animation = "greatsword_light_2_hackwork"
-move_name = "greatsword_light_2"
-priority = 15
-backend_animation = "greatsword_light_2_params"
-tracking_angular_speed = 15.0
-stamina_cost = 20.0
-
-[node name="LightSeries" parent="States/GreatswordL2" instance=ExtResource("43_cefv8")]
-primary_input = "greatsword_light_1"
-triggered_move = "greatsword_light_3"
-
-[node name="GreatswordL3" parent="States" instance=ExtResource("42_bnot5")]
-RELEASES_PRIORITY = 1.8
-animation = "greatsword_light_3_hackwork"
-move_name = "greatsword_light_3"
-priority = 15
-backend_animation = "greatsword_light_3_params"
-tracking_angular_speed = 15.0
-stamina_cost = 20.0
-
-[node name="LightSeries" parent="States/GreatswordL3" instance=ExtResource("43_cefv8")]
-primary_input = "greatsword_light_1"
-triggered_move = "greatsword_light_4"
-
-[node name="HeavyFinisher" parent="States/GreatswordL3" instance=ExtResource("43_cefv8")]
-primary_input = "greatsword_heavy_1"
-triggered_move = "greatsword_heavy_2"
-
-[node name="GreatswordL4" parent="States" instance=ExtResource("42_bnot5")]
-RELEASES_PRIORITY = 1.8
-animation = "greatsword_light_4_hackwork"
-move_name = "greatsword_light_4"
-priority = 15
-backend_animation = "greatsword_light_4_params"
-tracking_angular_speed = 15.0
-stamina_cost = 20.0
-
-[node name="GreatswordH1" parent="States" instance=ExtResource("42_bnot5")]
-RELEASES_PRIORITY = 2.1
-animation = "greatsword_heavy_1_hackwork"
-move_name = "greatsword_heavy_1"
-priority = 15
-backend_animation = "greatsword_heavy_1_params"
-tracking_angular_speed = 15.0
-stamina_cost = 20.0
-
-[node name="HeavySeries" parent="States/GreatswordH1" instance=ExtResource("43_cefv8")]
-primary_input = "greatsword_heavy_1"
-triggered_move = "greatsword_heavy_2"
-
-[node name="LightMigration" parent="States/GreatswordH1" instance=ExtResource("43_cefv8")]
-primary_input = "greatsword_light_1"
-triggered_move = "greatsword_light_3"
-
-[node name="GreatswordH2" parent="States" instance=ExtResource("42_bnot5")]
-RELEASES_PRIORITY = 1.8
-animation = "greatsword_heavy_2_hackwork"
-move_name = "greatsword_heavy_2"
-priority = 15
-backend_animation = "greatsword_heavy_2_params"
-tracking_angular_speed = 15.0
-stamina_cost = 20.0
 
 [node name="Staggered" type="Node" parent="States"]
 script = ExtResource("46_ywhv4")

@@ -12,6 +12,8 @@ var player : CharacterBody3D
 var character : CharacterBody3D
 var animator : AnimationPlayer
 var spawn_point : Vector3
+var right_weapon : Weapon
+var resources : EnemyResources
 
 var enter_state_time : float
 
@@ -29,6 +31,11 @@ func on_enter():
 
 func on_exit():
 	pass
+
+
+func react_on_hit(hit : HitData):
+	resources.lose_health(hit.damage)
+
 
 # our little timestamps framework to work with timings inside our logic
 func mark_enter_state():

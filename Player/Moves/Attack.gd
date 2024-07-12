@@ -3,7 +3,7 @@ extends Move
 
 @export var RELEASES_PRIORITY : float
 
-var hit_damage = 10 # will be a function of player stats in the future
+var hit_damage = 50 # will be a function of player stats in the future
 
 # this strange construction is here because our animation asset has a long tail transitioning to idle,
 # think of it as of "custom perfect blending" to idle

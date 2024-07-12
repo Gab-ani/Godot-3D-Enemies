@@ -6,7 +6,7 @@ class_name PlayerVisuals
 @onready var beta_joints = $Beta_Joints
 @onready var beta_surface = $Beta_Surface
 
-@onready var sword_visuals_1 = $SwordVisuals1
+@onready var sword_visuals_1 = $SwordVisuals
 @onready var stamina_label = $"Stamina _bar_"
 @onready var health_label = $"Health _bar_"
 

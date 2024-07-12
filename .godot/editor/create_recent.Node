@@ -1,6 +1,9 @@
 Node
-Node3D
+Hurtbox
 CollisionShape3D
+Area3D
+BoneAttachment3D
+Node3D
 CharacterBody3D
 MeshInstance3D
 AnimationTree
