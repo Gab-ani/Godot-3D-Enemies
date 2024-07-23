@@ -6,6 +6,7 @@ class_name HumanoidStates
 @export var animator : AnimationPlayer
 @export var resources : HumanoidResources
 @export var combat : HumanoidCombat
+@export var area_awareness : AreaAwareness
 @onready var moves_data_repo : MovesDataRepository = $MovesData
 
 
@@ -23,6 +24,7 @@ func accept_moves():
 			child.moves_data_repo = moves_data_repo
 			child.container = self
 			child.DURATION = moves_data_repo.get_duration(child.backend_animation)
+			child.area_awareness = area_awareness
 			child.assign_combos()
 
 

@@ -6,7 +6,7 @@ extends Node
 
 func _ready():
 	#DEV_nail_z_coordinate("greatsword_heavy_1_hackwork", "greatsword_heavy_1_params", 0.055)
-	#DEV_nail_z_coordinate("greatsword_heavy_2_hackwork", "greatsword_heavy_2_params", 0.055)
+	#DEV_nail_z_coordinate("pushback", "pushback_params", -0.062)
 	pass
 
 #DEVELOPMENT LEAYER FUNCTIONAL, IT DOES MODIFY ASSETS, UNCOMMENT IF YOU KNOW WHAT YOU ARE DOING

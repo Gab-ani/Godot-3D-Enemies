@@ -5,6 +5,8 @@ var is_parryable : bool
 var damage : float
 var hit_move_animation : String
 
+var effects : Dictionary
+
 var weapon : Weapon
 
 static func blank() -> HitData:

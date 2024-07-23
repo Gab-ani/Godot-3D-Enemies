@@ -1,9 +1,11 @@
 Node
-Hurtbox
 CollisionShape3D
 Area3D
 BoneAttachment3D
-Node3D
-CharacterBody3D
+CSGMesh3D
 MeshInstance3D
+Node3D
+AnimationPlayer
+CharacterBody3D
+Hurtbox
 AnimationTree

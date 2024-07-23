@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vxvqi2f6bri0"]
+
+[ext_resource type="Script" path="res://Enemies/GundyrHFSM/SerialAttack.gd" id="1_t8hus"]
+
+[node name="Attack" type="Node"]
+script = ExtResource("1_t8hus")

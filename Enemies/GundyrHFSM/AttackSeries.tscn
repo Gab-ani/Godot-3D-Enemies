@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5neeid2bg45f"]
+
+[ext_resource type="Script" path="res://Enemies/GundyrHFSM/AttackSeries_1.gd" id="1_2i0e2"]
+
+[node name="AttackSeries" type="Node" node_paths=PackedStringArray("combo_starters")]
+script = ExtResource("1_2i0e2")
+combo_starters = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+move_name = "attack_series"

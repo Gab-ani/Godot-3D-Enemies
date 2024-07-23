@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b6wap3pqq4p8x"]
+
+[ext_resource type="Texture2D" uid="uid://le11pqo52rxe" path="res://Assets/Textures/fancy floor/floor_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dcgrvs1okh58j" path="res://Assets/Textures/fancy floor/floor_orm.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dow3wd88m275q" path="res://Assets/Textures/fancy floor/floor_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dccv73scs35to" path="res://Assets/Textures/fancy floor/floor_heightmap.png" id="4"]
+
+[resource]
+albedo_texture = ExtResource("1")
+roughness_texture = ExtResource("2")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3")
+ao_enabled = true
+ao_texture = ExtResource("2")
+heightmap_enabled = true
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("4")
+uv1_scale = Vector3(20, 20, 20)

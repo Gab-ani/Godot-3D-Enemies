@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6h2mf8m3b8iu"]
+[gd_scene load_steps=9 format=3 uid="uid://b6h2mf8m3b8iu"]
 
 [ext_resource type="PackedScene" uid="uid://drjqcoul7pinv" path="res://Player/Player.tscn" id="1_86wwi"]
-[ext_resource type="Texture2D" uid="uid://cxakm34q14rbi" path="res://Assets/Textures/texture_07.png" id="1_m20ri"]
-[ext_resource type="Texture2D" uid="uid://q67efx1u7rk1" path="res://Assets/Textures/texture_09.png" id="3_ruxjn"]
-[ext_resource type="PackedScene" uid="uid://cpr2otl56mflk" path="res://Enemies/MobFSM/MobFSM.tscn" id="4_8atom"]
+[ext_resource type="Material" uid="uid://b6wap3pqq4p8x" path="res://Assets/Textures/fancy floor/floor.tres" id="3_qhada"]
+[ext_resource type="PackedScene" uid="uid://2msrn7w4y4fg" path="res://Enemies/GundyrHFSM/Gundyr.tscn" id="4_bqs47"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jw8o1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,19 +18,12 @@ tonemap_mode = 3
 sdfgi_enabled = true
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xdhy"]
-albedo_texture = ExtResource("1_m20ri")
-uv1_triplanar = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkxf5"]
 albedo_color = Color(1, 0.113725, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bmwg"]
-albedo_texture = ExtResource("3_ruxjn")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ip2nn"]
-albedo_texture = ExtResource("3_ruxjn")
-uv1_triplanar = true
+[sub_resource type="CylinderMesh" id="CylinderMesh_lahs1"]
+top_radius = 30.0
+bottom_radius = 30.0
 
 [node name="ProtoLevel" type="Node3D"]
 
@@ -42,13 +34,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8ihuv")
-
-[node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -4.37151)
-material_override = SubResource("StandardMaterial3D_4xdhy")
-use_collision = true
-collision_layer = 3
-size = Vector3(20, 1, 30)
 
 [node name="Player" parent="." instance=ExtResource("1_86wwi")]
 transform = Transform3D(0.000680641, 0, 1, 0, 1, 0, -1, 0, 0.000680641, 0, -0.5, -12.4143)
@@ -62,27 +47,13 @@ radius = 0.2
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.918605, 0.395177, 0, -0.395177, 0.918605, 0, 5.32085, 8.02546)
 
-[node name="Box1" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90411, 0.504346, 1.79941)
-material_override = SubResource("StandardMaterial3D_2bmwg")
-use_collision = true
-collision_layer = 3
-size = Vector3(2, 2, 2)
-
-[node name="Box2" type="CSGBox3D" parent="."]
-transform = Transform3D(0.5576, 0, 0.83011, 0, 1, 0, -0.83011, 0, 0.5576, 3.28412, 0.504346, -3.06418)
-material_override = SubResource("StandardMaterial3D_2bmwg")
-use_collision = true
-collision_layer = 3
-size = Vector3(2, 2, 2)
-
-[node name="Box3" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.249653, -0.968335, 0, 0.968335, -0.249653, 0, 0, 0, 1, -4.61402, -0.635017, 2.20094)
-material_override = SubResource("StandardMaterial3D_ip2nn")
-use_collision = true
-collision_layer = 3
-size = Vector3(2, 10, 2)
-
-[node name="Mob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_8atom")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+[node name="Gundyr" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_bqs47")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.5, 0)
 player = NodePath("../Player")
+
+[node name="Floor" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+material_override = ExtResource("3_qhada")
+use_collision = true
+collision_layer = 3
+mesh = SubResource("CylinderMesh_lahs1")

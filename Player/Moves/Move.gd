@@ -7,6 +7,7 @@ var resources : HumanoidResources
 var combat : HumanoidCombat
 var moves_data_repo : MovesDataRepository
 var container : HumanoidStates
+var area_awareness : AreaAwareness
 
 
 @export var animation : String
@@ -162,7 +163,11 @@ func react_on_hit(hit : HitData):
 	if is_vulnerable():
 		resources.lose_health(hit.damage)
 	if is_interruptable():
-		try_force_move("staggered")
+		if hit.effects.has("pushback") and hit.effects["pushback"]:
+			area_awareness.last_pushback_vector = hit.effects["pushback_direction"]
+			try_force_move("pushback")
+		else:
+			try_force_move("staggered")
 	hit.queue_free()
 
 

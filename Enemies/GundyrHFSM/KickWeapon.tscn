@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh7cg8licq77s"]
+
+[ext_resource type="Script" path="res://Enemies/GundyrHFSM/HFSMWeapon.gd" id="1_8w6tc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hwfvy"]
+
+[node name="Kick" type="Area3D"]
+script = ExtResource("1_8w6tc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_hwfvy")

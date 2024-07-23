@@ -1,5 +1,10 @@
-res://Assets/Ready Animations
-res://Player/HumanoidModel
-res://
-res://Enemies/MobFSM
 res://Player/Moves/BackendAnimations
+res://Assets/Ready Animations
+res://Enemies/GundyrHFSM
+res://Assets/Ready Animations/Gundyr/backend
+res://Assets/Ready Animations/Gundyr/moving
+res://Assets/Ready Animations/Gundyr/rooted
+res://Assets/Ready Animations/Gundyr
+res://
+res://Player/HumanoidModel
+res://Enemies/MobFSM

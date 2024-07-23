@@ -4,6 +4,7 @@ class_name Weapon
 var hitbox_ignore_list : Array[Area3D]
 var is_attacking : bool = false
 
+@export var weapon_name : String
 @export var holder : Node
 
 @export var base_damage : float = 10

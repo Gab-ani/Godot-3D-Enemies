@@ -11,11 +11,17 @@ class_name Hurtbox
 # new way of defining allied weapons to not trigger on owned weapon etc.
 @export var ignored_weapon_groups : Array[String]
 
-func _ready():
-	area_entered.connect(on_contact)
+#func _ready():
+	#area_entered.connect(on_contact)
+
+func _physics_process(_delta):
+	if has_overlapping_areas():
+		for area in get_overlapping_areas():
+			on_contact(area)
 
 
 func on_contact(area : Node3D):
+	print(area.name)
 	if is_eligible_attacking_weapon(area):
 		area.hitbox_ignore_list.append(self)
 		processor.current_move.react_on_hit(area.get_hit_data())
