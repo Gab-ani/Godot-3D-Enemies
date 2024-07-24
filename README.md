@@ -1,4 +1,3 @@
-# Godot-3D-Enemies Ep.2
+# Godot-3D-Enemies Ep.3
 
-First repo for AI series. It is founded on character controller series code base, but you don't need to watch it to understand the code. The folder that will be the focus of this repo is Enemies folder. Currently there are three subfolders there: Humanoid, MobUnstructured and MobFM. Humanoid contains the oldest makeshift approach of highjacking the control of player's scene. MobUnstrutured contains the ugly abomination of a script that I used to illustrate the point in the end of the first video. MobFSM contains the subject of the second episode, where the same behaviour implemented with better practices.
- 
+In this episode we'll discuss HFSM some more, we'll create a class to build complex HFSMs, and we'll showcase it's abilities building a boss for a 3d game.
