@@ -28,8 +28,15 @@ func _ready():
 	_accept_substates()
 
 # TransitionData has comments in class definition file
+# This is a base implementation that fails fast if you forgot to specify the logic.
+# Alternatively, you can make the base implementation "lazy" and lock it transitioning nowhere never.
+# The plus is that you won't need do specify the method in heirs, the downside is 
+# that the failing fast will be lost. Untill you really embraced the workflow, I recommend spamming
+# the empty logics in new heirs, then just refactor it into the locked base method when you 
+# start to feel comfortable thinking in HFSM designs.
 func check_transition(_delta) -> TransitionData:
 	return TransitionData.new(true, "implement transition logic for " + move_name) # failing fast
+	#return TransitioData.new(false, "")
 
 func choose_internal_move() -> TransitionData:
 	return TransitionData.new(true, "implement first move choice logic for " + move_name) # failing fast
@@ -194,3 +201,32 @@ func shoulder_hurts() -> bool:
 
 func aura_hurts() -> bool:
 	return moves_data_repo.get_halberd_hurts(backend_animation, get_progress())
+
+
+
+
+# So, how to use all this?
+# First, I recommend to design something on paper or in other non-code frameworks.
+# Then create a node and attach a new heir of HFSM to it, and select the new HFSM template.
+# Then start from defining export fields: move_name always and animation + backed animation if needed.
+# Then work with methods template suggests you: 
+# First, if you new heir is a container, feel in the choose_internal_move() method
+# or delete it if the new heir is bottom-level state.
+# Then write down the transition logic for the new heir in check_transition.
+# Then if you need, put some custom initializations or destructors in on_enter() and on_exit() methods
+# Then lastly, write the update logic. 
+
+# This is the most correct pipeline in my opinion, because the most important thing 
+# for any state machine is its transtion logic, 
+# and you can test those prior to having any actual updates, if you wrote other methods.
+
+# General code guidelines are: use a shit ton of proxies.
+# Ideally, your transition logic needs to consist of several if statements that check
+# some single function calls with human readable names, almost like a sentence in english.
+# I have a bunch of proxies already in this class under the section of syntaxic sugar, don't
+# be ashamed to add your own, and define your own proxies in classes if you need. 
+# Check the phase one Combat_1 script for example.
+# If you need more complex behaviours, try to find a way to solve your problem
+# using backend animations framework. You can learn how attacks lifecycle works to
+# get the idea, in short, if you need some data, it's probably beneficial for you
+# to work with that data with backend animations.
