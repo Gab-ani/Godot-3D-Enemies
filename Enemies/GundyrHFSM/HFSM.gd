@@ -1,6 +1,8 @@
 extends Node
 class_name HFSM
 
+# The global export fields section. You don't need to set them up for each state,
+# do only for the top layer single state that contains the whole state machine.
 @export_group("Container Fields")
 @export var animator : AnimationPlayer
 @export var character : CharacterBody3D
@@ -9,6 +11,8 @@ class_name HFSM
 @export var resources : HFSMResources
 @export var weapons : Array[Weapon]
 
+# These fields must be set for each state indivdually.
+# states without animation and backend animation (containers) don't need animation field
 @export_group("Move Fields")
 @export var move_name : String
 @export var animation : String
@@ -23,14 +27,17 @@ var is_container : bool = false  # automatically sets to true if we have HFSM ch
 func _ready():
 	_accept_substates()
 
-
+# TransitionData has comments in class definition file
 func check_transition(_delta) -> TransitionData:
 	return TransitionData.new(true, "implement transition logic for " + move_name) # failing fast
 
 func choose_internal_move() -> TransitionData:
 	return TransitionData.new(true, "implement first move choice logic for " + move_name) # failing fast
 
-#
+# This is being called on physics updates (probably).
+# The top level state machine needs the method called from somewhere,
+# in this demo we call it from physics update in the top level node Gundyr.
+# This is internal method, to override updates use the update(delta) one.
 func _update(delta : float):
 	update(delta)
 	if is_container:
@@ -73,12 +80,16 @@ func on_exit():
 func on_enter():
 	pass
 
+# I called on initialization phase, automatically builds the inner tree of HFSM
 func _accept_substates():
 	for child in get_children():
 		if child is HFSM:
 			is_container = true
 			moves[child.move_name] = child
 
+# Due to Godot's scene tree building mechanics (from bottom to top) this method needs
+# to be called when the whole HFSM is initialized, so, in @ready of the top level node outside
+# of the whole HFSM.
 func _accept_export_fields():
 	for move in moves.values():
 		move.animator = animator
@@ -103,13 +114,14 @@ func _react_on_hit(hit : HitData):
 func react_on_hit(hit : HitData):
 	resources.lose_health(hit.damage)
 
-
+# call this in update method int states that use weapons anyhow
 func manage_weapons():
-	#print(move_name + " " + str(weapons.size()))
 	for weapon in weapons:
 		weapon.is_attacking = moves_data_repo.is_attacking(weapon.weapon_name, backend_animation, get_progress())
-		#print(weapon.name + str(weapon.is_attacking))
 
+# this needs to be called on_exit of every state that touches weapons
+# thanks to how our weapon collision detection works, we have a list of ignored victims for
+# an attack. We clear that list on exit from an attack, plus also we deactivate weapons.
 func deactivate_weapons():
 	for weapon in weapons:
 		weapon.hitbox_ignore_list.clear()
