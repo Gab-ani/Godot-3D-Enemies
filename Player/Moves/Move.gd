@@ -2,13 +2,16 @@ extends Node
 class_name Move
 
 var humanoid : CharacterBody3D
-var animator : AnimationPlayer
+#var base_animator : AnimationPlayer
+var animator : SplitBodyAnimator
+var skeleton : Skeleton3D
 var resources : HumanoidResources
 var combat : HumanoidCombat
 var moves_data_repo : MovesDataRepository
 var container : HumanoidStates
 var area_awareness : AreaAwareness
-
+var legs : Legs
+var left_wrist : BoneAttachment3D
 
 @export var animation : String
 @export var move_name : String
@@ -66,10 +69,10 @@ func best_input_that_can_be_paid(input : InputPackage) -> String:
 
 
 func _update(input : InputPackage, delta : float):
-	update_resources(delta)
 	if tracks_input_vector():
 		process_input_vector(input, delta)
 	update(input, delta)
+
 
 func update(_input : InputPackage, _delta : float):
 	pass
@@ -141,8 +144,15 @@ func default_lifecycle(input : InputPackage):
 	return "okay"
 
 
+func _on_enter_state():
+	on_enter_state()
+	animator.update_body_animations()
+
 func on_enter_state():
 	pass
+
+func _on_exit_state():
+	on_exit_state()
 
 func on_exit_state():
 	pass
@@ -163,12 +173,22 @@ func react_on_hit(hit : HitData):
 	if is_vulnerable():
 		resources.lose_health(hit.damage)
 	if is_interruptable():
+		# TODO rewrite for better effects processing, this scales badly
 		if hit.effects.has("pushback") and hit.effects["pushback"]:
 			area_awareness.last_pushback_vector = hit.effects["pushback_direction"]
 			try_force_move("pushback")
 		else:
 			try_force_move("staggered")
 	hit.queue_free()
+
+
+func react_on_spell(spell_hit : SpellHitData):
+	if is_vulnerable():
+		resources.lose_health(spell_hit.damage)
+	if is_interruptable():
+		try_force_move("staggered")
+	spell_hit.queue_free()
+	spell_hit.spell.target_contacted(humanoid)
 
 
 func react_on_parry(_hit : HitData):

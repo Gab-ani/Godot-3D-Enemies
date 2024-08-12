@@ -1,28 +1,11 @@
-res://Locations/ProtoLevel.tscn
+res://Player/HumanoidModel/HumanoidModel.tscn
 res://Enemies/GundyrHFSM/SerialAttack.gd
 res://Assets/Textures/fancy floor/floor.tres
-res://Assets/Ready Animations/Gundyr/backend/scare_off_backend.res
+res://Locations/ProtoLevel.tscn
 res://Player/Player.tscn
-res://Player/HumanoidModel/HumanoidModel.tscn
-res://Enemies/MobFSM/MobFSM.tscn
 res://Player/Visuals/PlayerVisuals.tscn
-res://Enemies/GundyrHFSM/Gundyr.tscn
-res://node_3d.tscn
-res://Enemies/GundyrHFSM/ShoulderWeapon.tscn
-res://Enemies/GundyrHFSM/Combat_1.gd
-res://Enemies/GundyrHFSM/Death.gd
-res://Enemies/GundyrHFSM/Phase_2.gd
-res://Enemies/GundyrHFSM/SerieslessAttack.gd
-res://Enemies/GundyrHFSM/HFSM.gd
-res://Player/HumanoidModel/HumanoidHitbox.gd
-res://Assets/Ready Animations/pushback_exp.res
-res://Player/HumanoidModel/Pushback.gd
-res://Player/HumanoidModel/DEV_ROOTFORGE.gd
-res://Weapons/HitData.gd
-res://Player/Moves/Move.gd
-res://Enemies/GundyrHFSM/Hurtbox.gd
-res://Player/HumanoidModel/AreaAwareness.gd
-res://Player/HumanoidModel/HumanoidStates.gd
-res://Assets/Ready Animations/Gundyr/backend/kick_backend.res
-res://Enemies/GundyrHFSM/Pursuit_1.gd
-res://Enemies/GundyrHFSM/Orbiting.gd
+res://Player/Spells/ShieldShot.tscn
+res://Player/HumanoidModel/Combat.gd
+res://Player/Moves/ShieldShot.gd
+res://Player/Moves/ShieldShotReload.gd
+res://Enemies/MobFSM/MobFSM.tscn

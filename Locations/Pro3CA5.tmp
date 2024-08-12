@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6h2mf8m3b8iu"]
+
+[ext_resource type="PackedScene" uid="uid://drjqcoul7pinv" path="res://Player/Player.tscn" id="1_86wwi"]
+[ext_resource type="Material" uid="uid://b6wap3pqq4p8x" path="res://Assets/Textures/fancy floor/floor.tres" id="3_qhada"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jw8o1"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_t1f0q"]
+sky_material = SubResource("ProceduralSkyMaterial_jw8o1")
+
+[sub_resource type="Environment" id="Environment_8ihuv"]
+background_mode = 2
+sky = SubResource("Sky_t1f0q")
+tonemap_mode = 3
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkxf5"]
+albedo_color = Color(1, 0.113725, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lahs1"]
+top_radius = 30.0
+bottom_radius = 30.0
+
+[node name="ProtoLevel" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8ihuv")
+
+[node name="Player" parent="." instance=ExtResource("1_86wwi")]
+transform = Transform3D(0.534544, 0, 0.845141, 0, 1, 0, -0.845141, 0, 0.534544, -1.27882, -0.5, -2.60028)
+
+[node name="player_debug_sphere" type="CSGSphere3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974622, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_qkxf5")
+radius = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.918605, 0.395177, 0, -0.395177, 0.918605, 0, 5.32085, 8.02546)
+
+[node name="Floor" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+material_override = ExtResource("3_qhada")
+use_collision = true
+collision_layer = 3
+mesh = SubResource("CylinderMesh_lahs1")

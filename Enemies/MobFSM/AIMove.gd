@@ -36,6 +36,10 @@ func on_exit():
 func react_on_hit(hit : HitData):
 	resources.lose_health(hit.damage)
 
+func react_on_spell(hit : SpellHitData):
+	print("dummy got spell")
+	hit.spell.target_contacted(character)
+
 
 # our little timestamps framework to work with timings inside our logic
 func mark_enter_state():

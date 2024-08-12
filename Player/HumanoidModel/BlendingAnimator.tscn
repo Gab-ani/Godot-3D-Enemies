@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt2k1nustqvgh"]
+
+[ext_resource type="Script" path="res://Player/HumanoidModel/HumanoidAnimator.gd" id="1_7clc2"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_427pq"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fj26j"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ntaik"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cn76a"]
+nodes/Legs/node = SubResource("AnimationNodeAnimation_427pq")
+nodes/Legs/position = Vector2(260, 260)
+nodes/Torso/node = SubResource("AnimationNodeAnimation_fj26j")
+nodes/Torso/position = Vector2(260, 80)
+nodes/WholeCharacter/node = SubResource("AnimationNodeBlend2_ntaik")
+nodes/WholeCharacter/position = Vector2(500, 160)
+nodes/output/position = Vector2(720, 160)
+node_connections = [&"WholeCharacter", 0, &"Torso", &"WholeCharacter", 1, &"Legs", &"output", 0, &"WholeCharacter"]
+
+[node name="Animator" type="AnimationPlayer"]
+script = ExtResource("1_7clc2")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeBlendTree_cn76a")
+anim_player = NodePath("..")
+parameters/WholeCharacter/blend_amount = 0

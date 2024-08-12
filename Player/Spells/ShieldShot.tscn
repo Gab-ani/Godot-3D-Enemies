@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0dnm0bpjbeuc"]
+
+[ext_resource type="Script" path="res://Player/Spells/ShieldShot.gd" id="1_og8i8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aei0g"]
+albedo_color = Color(1, 0.392157, 0, 1)
+metallic = 0.46
+emission_enabled = true
+emission = Color(1, 0.541176, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ogtqp"]
+height = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7liu0"]
+height = 0.3
+
+[node name="ShieldShot" type="CharacterBody3D"]
+top_level = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_og8i8")
+
+[node name="Visuals" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_aei0g")
+mesh = SubResource("CylinderMesh_ogtqp")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_7liu0")

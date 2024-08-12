@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6h2mf8m3b8iu"]
 
 [ext_resource type="PackedScene" uid="uid://drjqcoul7pinv" path="res://Player/Player.tscn" id="1_86wwi"]
+[ext_resource type="PackedScene" uid="uid://cpr2otl56mflk" path="res://Enemies/MobFSM/MobFSM.tscn" id="1_ce62o"]
 [ext_resource type="Material" uid="uid://b6wap3pqq4p8x" path="res://Assets/Textures/fancy floor/floor.tres" id="3_qhada"]
-[ext_resource type="PackedScene" uid="uid://2msrn7w4y4fg" path="res://Enemies/GundyrHFSM/Gundyr.tscn" id="4_bqs47"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jw8o1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,6 +27,10 @@ bottom_radius = 30.0
 
 [node name="ProtoLevel" type="Node3D"]
 
+[node name="Mob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_ce62o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.14991, -0.5, 0.749156)
+player = NodePath("../Player")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 light_energy = 0.8
@@ -36,7 +40,7 @@ shadow_enabled = true
 environment = SubResource("Environment_8ihuv")
 
 [node name="Player" parent="." instance=ExtResource("1_86wwi")]
-transform = Transform3D(0.000680641, 0, 1, 0, 1, 0, -1, 0, 0.000680641, 0, -0.5, -12.4143)
+transform = Transform3D(0.534544, 0, 0.845141, 0, 1, 0, -0.845141, 0, 0.534544, -1.27882, -0.5, -2.60028)
 
 [node name="player_debug_sphere" type="CSGSphere3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974622, 0)
@@ -46,10 +50,6 @@ radius = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.918605, 0.395177, 0, -0.395177, 0.918605, 0, 5.32085, 8.02546)
-
-[node name="Gundyr" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_bqs47")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.5, 0)
-player = NodePath("../Player")
 
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)

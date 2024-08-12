@@ -64,7 +64,7 @@ func _switch_to(move):
 	current_move = moves[move]
 	current_move._on_enter()
 	if not current_move.is_container:
-		print(current_move.animation)
+		print(current_move.animation) 
 		animator.play(current_move.animation)
 
 # this function is internal, it works and don't touch it, use on_enter() for customisation

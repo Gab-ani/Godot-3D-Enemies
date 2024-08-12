@@ -29,8 +29,8 @@ func process_input_vector(input : InputPackage, delta : float):
 	else:
 		humanoid.velocity = face_direction.rotated(Vector3.UP, angle) * SPEED
 		humanoid.rotate_y(angle)
-	animator.speed_scale = humanoid.velocity.length() / SPEED
+	#animator.set_speed_scale(humanoid.velocity.length() / SPEED)
 
 # TODO implement better speed/animation behaviour in locomotion states
-func on_exit_state():
-	animator.speed_scale = 1
+#func on_exit_state():
+	#animator.set_speed_scale(1)

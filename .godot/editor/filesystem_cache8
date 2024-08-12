@@ -1,14 +1,17 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1721725499
+::res://::1723489403
 icon.svg::CompressedTexture2D::1754559909037393553::1716413077::1716449032::1::::<><>::
-node_3d.tscn::PackedScene::5991500225214159836::1721725499::0::1::::<><>::uid://b1hdfkkch5pfs::::res://Assets/Ready Animations/Gundyr/moving/death.res
-README.md::TextFile::-1::1720797412::0::1::::<><>::
-::res://Assets/::1720649252
+node_3d.tscn::PackedScene::5991500225214159836::1723309696::0::1::::<><>::
+README.md::TextFile::-1::1721817810::0::1::::<><>::
+::res://Assets/::1723390570
 Imagine using animations.tscn::PackedScene::5112179767787927919::1716413077::0::1::::<><>::res://Node3D.gd
-::res://Assets/GLB-packed Animations/::1721727045
-Dance and jumps.glb::PackedScene::1951435633109563853::1716413077::1716449046::1::::<><>::
-Death.glb::PackedScene::4874355285639402351::1716413077::1716449045::1::::<><>::
-greatsword_heavy_1_hackwork.glb::PackedScene::2510178121982013835::1716992362::1716992373::1::::<><>::
+mixamo_split_skeleton_postimport.gd::GDScript::-1::1723390570::0::1::::<>EditorScenePostImport<>::
+::res://Assets/GLB-packed Animations/::1723485837
+block.glb::PackedScene::5672763811952515148::1723237212::1723237241::1::::<><>::
+block_reaction.glb::PackedScene::8053897686269693702::1723485803::1723485837::1::::<><>::
+Dance and jumps.glb::PackedScene::1951435633109563853::1716413077::1723019595::1::::<><>::
+Death.glb::PackedScene::4874355285639402351::1716413077::1722983833::1::::<><>::
+greatsword_heavy_1_hackwork.glb::PackedScene::2510178121982013835::1716992362::1723026171::1::::<><>::
 greatsword_heavy_2_hackwork.glb::PackedScene::3125154665229673734::1716992362::1716992421::1::::<><>::
 greatsword_light_1_hackwork.glb::PackedScene::7421604818151138038::1716973762::1716973775::1::::<><>::
 greatsword_light_2_hackwork.glb::PackedScene::8690913431324624671::1716976401::1716976410::1::::<><>::
@@ -20,23 +23,30 @@ idle_vom_tag.glb::PackedScene::8504026808434005770::1716939118::1716939140::1:::
 jump_run.glb::PackedScene::8115857067264337083::1716413077::1716449043::1::::<><>::
 landing_run.glb::PackedScene::2597219912615470615::1716413077::1716449042::1::::<><>::
 landing_sprint_glb.glb::PackedScene::5826366138691127001::1716413077::1716449041::1::::<><>::
-longsword_1_1h.glb::PackedScene::5631743782047584071::1716413077::1716449041::1::::<><>::
+longsword_1_1h.glb::PackedScene::5631743782047584071::1716413077::1723030571::1::::<><>::
 longsword_2_1h.glb::PackedScene::6692702666923461080::1716413077::1716449040::1::::<><>::
 midair.glb::PackedScene::3251777171590456080::1716413077::1716449039::1::::<><>::
 Mixamo BoneMap.tres::BoneMap::669624810488455992::1716413077::0::1::::<><>::
 Parried.glb::PackedScene::8384964386314990121::1716413077::1716449038::1::::<><>::
 Parry.glb::PackedScene::174694267091652923::1716413077::1716449038::1::::<><>::
-pushback.glb::PackedScene::3622205755652385367::1721727045::1721727047::1::::<><>::
+pushback.glb::PackedScene::3622205755652385367::1721727045::1721727063::1::::<><>::
+roll.glb::PackedScene::3912166052170637353::1723228689::1723228803::1::::<><>::
 Sad_Idle(Ripost).glb::PackedScene::6762548324232758452::1716413077::1716449037::1::::<><>::
 ShieldIdle.glb::PackedScene::4846754873575733685::1716413077::1716449036::1::::<><>::
+shield_shot.glb::PackedScene::6417370892747730119::1723300815::1723300871::1::::<><>::
+shield_shot_reload.glb::PackedScene::246109266575551409::1723298295::1723298338::1::::<><>::
 slashes.glb::PackedScene::2852022446405455158::1716413077::1716449035::1::::<><>::
 Stagger.glb::PackedScene::3325770176470549554::1716413077::1716449034::1::::<><>::
 Thrust(Ripost).glb::PackedScene::1585429098471919126::1716413077::1716449034::1::::<><>::
+walk and withdraw.glb::PackedScene::3993996019392596026::1722424570::1722424625::1::::<><>::
+weapon_block.glb::PackedScene::2569154840429847057::1722421948::1722423832::1::::<><>::uid://bdlt13swd1pjo::::res://Assets/Ready Animations/weapon_block.res
+withdraw.glb::PackedScene::6574883530302113301::1723029684::1723037751::1::::<><>::
 XBot.glb::PackedScene::8690779857723920609::1716413077::1716449033::1::::<><>::
-::res://Assets/GLB-packed Animations/Gundyr/::1721668175
+::res://Assets/GLB-packed Animations/Gundyr/::1722424588
 anim_exp.glb::PackedScene::6788493593270801345::1721566830::1721566859::1::::<><>::
 battle cry.glb::PackedScene::8737479349078667165::1721318961::1721318976::1::::<><>::
 death.glb::PackedScene::1093481348056910134::1721668166::1721668175::1::::<><>::
+Dirty Gundir Standing.glb::PackedScene::2232967621402225501::1721153486::1721938900::1::::<><>::
 elbow strike.glb::PackedScene::5671974804098976506::1721574623::1721574635::1::::<><>::
 Gapclose and 3 slashes.glb::PackedScene::7210672504026952780::1721307750::1721307760::1::::<><>::
 kick and 3 strikes.glb::PackedScene::4548620338922095179::1721559559::1721559570::1::::<><>::
@@ -45,7 +55,7 @@ shoulder_kick.glb::PackedScene::2453502675979470285::1721569684::1721569692::1::
 slash combo 1.glb::PackedScene::5362529281142398063::1721309419::1721309428::1::::<><>::
 slash combo 2.glb::PackedScene::7813901323282663285::1721309661::1721309673::1::::<><>::
 slash combo 3.glb::PackedScene::4593802572258444291::1721311479::1721311487::1::::<><>::
-standing, orbit.glb::PackedScene::8113697234955690883::1721206332::1721206345::1::::<><>::
+standing, orbit.glb::PackedScene::8113697234955690883::1721843261::1721206345::1::::<><>::
 taunt and scare off.glb::PackedScene::2714661372483346161::1721571739::1721571746::1::::<><>::
 walk with.glb::PackedScene::7314755985111362551::1721208904::1721208917::1::::<><>::
 ::res://Assets/Models/::1721481107
@@ -65,8 +75,10 @@ Halberd.glb::PackedScene::2361618954912927503::1721481751::1721481752::1::::<><>
 Halberd_c5110out_020.png::CompressedTexture2D::7735987339759271992::1721481751::1721481752::1::::<><>::
 Halberd_c5110out_025_N.png::CompressedTexture2D::5523955842496295420::1721481751::1721481752::1::::<><>::
 Halberd_c5110out_026.png::CompressedTexture2D::8382009518009956020::1721481752::1721481752::1::::<><>::
-::res://Assets/Ready Animations/::1721150896
+::res://Assets/Ready Animations/::1723230721
+AnimationsTorsoSplitter.gd::GDScript::-1::1723196145::0::1::::<>EditorScript<>::
 awaiting_ripost.res::Animation::3020843266013645008::1716413077::0::1::::<><>::
+controller_lib.res::AnimationLibrary::5201986684230187068::1723104421::0::1::::<><>::uid://cvpiiqokxohra::::res://Assets/Ready Animations/dance.res<>uid://ddosojhrnxc3p::::res://Assets/Ready Animations/death.res<>uid://dhghfp5evtdy0::::res://Assets/Ready Animations/idle_longsword.res<>uid://bf1d4282m1ryw::::res://Assets/Ready Animations/jump_run.res<>uid://q6o7ddogrjmv::::res://Assets/Ready Animations/jump_sprint.res<>uid://dcklgh1qspg7t::::res://Assets/Ready Animations/landing_run.res<>uid://cjry5u8re5msd::::res://Assets/Ready Animations/landing_sprint.res<>uid://cdqyr4vcns7am::::res://Assets/Ready Animations/longsword_Z_PROJECTED.res<>uid://kux8ogygvefj::::res://Assets/Ready Animations/longsword_2_Z_PROJECTED.res<>uid://bll6etjl7wd6m::::res://Assets/Ready Animations/midair.res<>uid://dho7uykss61yg::::res://Assets/Ready Animations/parried.res<>uid://jyjqrq6kiasc::::res://Assets/Ready Animations/parry.res<>res://Assets/Ready Animations/pushback_Z_PROJECTED.res<>uid://bmqy70w024rc::::res://Assets/Ready Animations/ripost.res<>uid://cmcjn7n1ht11v::::res://Assets/Ready Animations/stagger.res<>uid://c7t1k3irq6bwj::::res://Assets/Ready Animations/withdraw.res<>uid://df4d51appc10k::::res://Assets/Ready Animations/walk.res<>uid://cl8x1njerc4w5::::res://Assets/Ready Animations/mixamo_torso_animations/withdraw_torso.res<>uid://bdlt13swd1pjo::::res://Assets/Ready Animations/weapon_block.res<>uid://bvsqnjfp0plnw::::res://Assets/Ready Animations/idle_warrior.res
 dance.res::Animation::6278273634875662718::1716413077::0::1::::<><>::
 death.res::Animation::7399848261849166135::1716413077::0::1::::<><>::
 greatsword_heavy_1_hackwork.res::Animation::7132387134049367911::1716992552::0::1::::<><>::
@@ -98,11 +110,14 @@ longsword_1_Z_PROJECTED.res::Animation::-1::1716413077::0::1::::<><>::
 longsword_2_1h.res::Animation::1980603670828067082::1716413077::0::1::::<><>::
 longsword_2_1h_Z_PROJECTED.res::Animation::-1::1716413077::0::1::::<><>::
 longsword_2_Z_PROJECTED.res::Animation::744632159189036491::1716413077::0::1::::<><>::
-longsword_Z_PROJECTED.res::Animation::5017927064415068652::1716413077::0::1::::<><>::
+longsword_Z_PROJECTED.res::Animation::5017927064415068652::1723020318::0::1::::<><>::
 midair.res::Animation::3183096501347808902::1716413077::0::1::::<><>::
 parried.res::Animation::7681465181600580086::1716413077::0::1::::<><>::
 parry.res::Animation::681820603513102246::1716413077::0::1::::<><>::
+pushback_exp.res::Animation::63160185440815092::1721727462::0::1::::<><>::
+pushback_Z_PROJECTED.res::Animation::-1::1721727598::0::1::::<><>::
 ripost.res::Animation::95977428026128672::1716413077::0::1::::<><>::
+roll_legs_Z_PROJECTED.res::Animation::1221385280289974284::1723230721::0::1::::<><>::
 run.res::Animation::8570206479263180523::1720178377::0::1::::<><>::
 sdfsdfsdfsdf.res::Animation::9059507598110838747::1716413077::0::1::::<><>::
 slash_1.res::Animation::7714608413413730527::1720708730::0::1::::<><>::
@@ -110,16 +125,19 @@ slash_2.res::Animation::5070752664747156251::1716413077::0::1::::<><>::
 slash_3.res::Animation::3865768014442074565::1716413077::0::1::::<><>::
 slash_3_Z_PROJECTED.res::Animation::6840039887730300856::1716413077::0::1::::<><>::
 stagger.res::Animation::5619807616827487225::1716413077::0::1::::<><>::
+walk.res::Animation::7570310315241434532::1723104421::0::1::::<><>::
+weapon_block.res::Animation::2620896922870857276::1722423832::0::1::::<><>::
+withdraw.res::Animation::7059705524688594449::1722424625::0::1::::<><>::
 ::res://Assets/Ready Animations/Gundyr/::1721582371
 phase_switch.res::Animation::6012794922445386764::1721323979::0::1::::<><>::
 pursuit_run.res::Animation::4297920682148515336::1721582371::0::1::::<><>::
 walk forward.res::Animation::6492685300354409949::1721209073::0::1::::<><>::
-::res://Assets/Ready Animations/Gundyr/backend/::1721668627
+::res://Assets/Ready Animations/Gundyr/backend/::1721731037
 elbow_backend.res::Animation::572018214788654205::1721661311::0::1::::<><>::
 gapclose_1_backend.res::Animation::1400602804669075435::1721661311::0::1::::<><>::
 gapclose_2_backend.res::Animation::6747526460383961475::1721661311::0::1::::<><>::
-kick_backend.res::Animation::1641324684598561052::1721661311::0::1::::<><>::
-scare_off_backend.res::Animation::3737904131609506926::1721668627::0::1::::<><>::
+kick_backend.res::Animation::1641324684598561052::1721730895::0::1::::<><>::
+scare_off_backend.res::Animation::3737904131609506926::1721731037::0::1::::<><>::
 shoulder_kick_backend.res::Animation::8474114477758045529::1721661311::0::1::::<><>::
 shoulder_kick_placeholder_backend.res::Animation::2330196790978130643::1721582596::0::1::::<><>::
 slash_1_backend.res::Animation::7169124030679855871::1721661311::0::1::::<><>::
@@ -162,6 +180,20 @@ slash_5_Z_PROJECTED.res::Animation::6533729608661720637::1721463347::0::1::::<><
 slash_6_Z_PROJECTED.res::Animation::8614942005775689410::1721463354::0::1::::<><>::
 slash_7_Z_PROJECTED.res::Animation::68140666657242498::1721573270::0::1::::<><>::
 slash_8_Z_PROJECTED.res::Animation::3858838009712880793::1721573293::0::1::::<><>::
+::res://Assets/Ready Animations/mixamo_legs_animations/::1723486019
+block_legs.res::Animation::5102401969780600911::1723237241::0::1::::<><>::
+block_reaction_legs.res::Animation::6228639504982647437::1723485837::0::1::::<><>::
+legs_controller_lib.res::AnimationLibrary::1061948976452799781::1723486019::0::1::::<><>::uid://fc1r2rewxqal::::res://Assets/Ready Animations/mixamo_legs_animations/shield_shot_legs.res<>uid://bns7s2taujboc::::res://Assets/Ready Animations/mixamo_legs_animations/shield_shot_reload_legs.res
+roll_legs.res::Animation::4564538254277238203::1723229199::0::1::::<><>::
+shield_shot_legs.res::Animation::356683418610785315::1723300871::0::1::::<><>::
+shield_shot_reload_legs.res::Animation::3338010986128232874::1723298338::0::1::::<><>::
+::res://Assets/Ready Animations/mixamo_torso_animations/::1723486019
+block_reaction_torso.res::Animation::5991131205232803990::1723485837::0::1::::<><>::
+block_torso.res::Animation::2408879797596241184::1723237241::0::1::::<><>::
+roll_torso.res::Animation::7675388726711132967::1723229199::0::1::::<><>::
+shield_shot_reload_torso.res::Animation::3636366986330949142::1723298338::0::1::::<><>::
+shield_shot_torso.res::Animation::8931748035081167428::1723300871::0::1::::<><>::
+torso_controller_lib.res::AnimationLibrary::6413963001897469084::1723486019::0::1::::<><>::uid://d0iut5qote53e::::res://Assets/Ready Animations/mixamo_torso_animations/shield_shot_torso.res
 ::res://Assets/Templates/::1720538855
 ::res://Assets/Templates/Node/::1721232899
 HFSMTemplate.gd::GDScript::-1::1721232899::0::1::::<>HFSM<>::
@@ -171,125 +203,153 @@ texture_04.png::CompressedTexture2D::5988690700944044533::1716413077::1716449032
 texture_07.png::CompressedTexture2D::6387814886731473462::1716413077::1716449032::1::::<><>::
 texture_08.png::CompressedTexture2D::6958849455122653944::1716413077::1716449032::1::::<><>::
 texture_09.png::CompressedTexture2D::1188967594885095410::1716413077::1716449032::1::::<><>::
-::res://Assets/Textures/fancy floor/::1721668627
-floor.tres::StandardMaterial3D::4607719428545370205::1721668627::0::1::::<><>::uid://le11pqo52rxe::::res://Assets/Textures/fancy floor/floor_albedo.png<>uid://dcgrvs1okh58j::::res://Assets/Textures/fancy floor/floor_orm.png<>uid://dow3wd88m275q::::res://Assets/Textures/fancy floor/floor_normal.png<>uid://dccv73scs35to::::res://Assets/Textures/fancy floor/floor_heightmap.png
+::res://Assets/Textures/fancy floor/::1723489171
+floor.tres::StandardMaterial3D::4607719428545370205::1723489171::0::1::::<><>::uid://le11pqo52rxe::::res://Assets/Textures/fancy floor/floor_albedo.png<>uid://dcgrvs1okh58j::::res://Assets/Textures/fancy floor/floor_orm.png<>uid://dow3wd88m275q::::res://Assets/Textures/fancy floor/floor_normal.png<>uid://dccv73scs35to::::res://Assets/Textures/fancy floor/floor_heightmap.png
 floor_albedo.png::CompressedTexture2D::781960676732441166::1721485795::1721485796::1::::<><>::
 floor_heightmap.png::CompressedTexture2D::7305102194692884172::1721484867::1721484873::1::::<><>::
 floor_normal.png::CompressedTexture2D::8189061745929540740::1721484867::1721484873::1::::<><>::
 floor_orm.png::CompressedTexture2D::7313096681663746939::1721484867::1721484873::1::::<><>::
 ::res://Enemies/::1721127435
-::res://Enemies/GundyrHFSM/::1721725499
+::res://Enemies/GundyrHFSM/::1723489171
 Attack.tscn::PackedScene::1522750496457812165::1721313818::0::1::::<><>::res://Enemies/GundyrHFSM/SerialAttack.gd
 AttackSeries.tscn::PackedScene::2132752657140011605::1721557378::0::1::::<><>::res://Enemies/GundyrHFSM/AttackSeries_1.gd
-AttackSeries_1.gd::GDScript::-1::1721584363::0::1::::<>HFSM<>::
+AttackSeries_1.gd::GDScript::-1::1721927060::0::1::::<>HFSM<>::
+AuraWeapon.tscn::PackedScene::5409810734909939639::1721669148::0::1::::<><>::res://Enemies/GundyrHFSM/HFSMWeapon.gd
 Awakening.gd::GDScript::-1::1721477351::0::1::::<>HFSM<>::
 Chill_1.gd::GDScript::-1::1721553136::0::1::::<>HFSM<>::
 Combat_1.gd::GDScript::-1::1721669620::0::1::::<>HFSM<>::
 Database.gd::GDScript::-1::1721662376::0::1::::<>AnimationPlayer<>::
-Death.gd::GDScript::-1::1721669527::0::1::::<>HFSM<>::
-DEV_RootForge.gd::GDScript::-1::1721668410::0::1::::<>EditorScript<>::
+Death.gd::GDScript::-1::1721728066::0::1::::<>HFSM<>::
+DEV_RootForge.gd::GDScript::-1::1723230041::0::1::::<>EditorScript<>::
 Gapclose2.gd::GDScript::-1::1721660780::0::1::::<>HFSM<>::
 GapClose.gd::GDScript::-1::1721660780::0::1::::<>HFSM<>::
 Grab.gd::GDScript::-1::1721298804::0::1::::<>HFSM<>::
 Gundyr.gd::GDScript::-1::1721225592::0::1::::<>CharacterBody3D<>::
-Gundyr.tscn::PackedScene::1920995308918374516::1721725499::0::1::::<><>::res://Enemies/GundyrHFSM/Gundyr.gd<>uid://c6oxrmx4ca1tw::::res://Assets/Models/Deboned/Albedo.png<>uid://lp4tiwonooic::::res://Assets/Models/Deboned/GundyrDeboned_c5110out_019.png<>uid://bm3dhye28pi22::::res://Assets/Models/Deboned/GundyrDeboned_c5110out_018_N.png<>uid://cyrdtwrv8hwgr::::res://Assets/Ready Animations/Gundyr/walk forward.res<>res://Enemies/GundyrHFSM/GundyrHFSM.gd<>res://Enemies/GundyrHFSM/Idle.gd<>res://Enemies/GundyrHFSM/Awakening.gd<>res://Enemies/GundyrHFSM/Phase_1.gd<>res://Enemies/GundyrHFSM/Life.gd<>res://Enemies/GundyrHFSM/Chill_1.gd<>res://Enemies/GundyrHFSM/Orbiting.gd<>res://Enemies/GundyrHFSM/Pursuit_1.gd<>res://Enemies/GundyrHFSM/Combat_1.gd<>res://Enemies/GundyrHFSM/Scareoff.gd<>uid://btgdixm3mmn6b::::res://Assets/Ready Animations/Gundyr/rooted/gapclose_Z_PROJECTED.res<>uid://c4j428oxjv6h4::::res://Assets/Ready Animations/Gundyr/moving/kick.res<>res://Enemies/GundyrHFSM/HFSMResources.gd<>res://Enemies/GundyrHFSM/Hurtbox.gd<>uid://cjyfcsjj1li61::::res://Assets/Ready Animations/Gundyr/rooted/slash_2_Z_PROJECTED.res<>res://Enemies/GundyrHFSM/GapClose.gd<>uid://7x76gb50rq80::::res://Assets/Ready Animations/Gundyr/rooted/slash_1_Z_PROJECTED.res<>uid://ckco2cfx6b2h8::::res://Enemies/GundyrHFSM/Halberd.tscn<>uid://bot65me010kss::::res://Assets/Ready Animations/Gundyr/rooted/slash_3_Z_PROJECTED.res<>res://Enemies/GundyrHFSM/AttackSeries_1.gd<>uid://ckh01wkiv7fg8::::res://Enemies/GundyrHFSM/HalberdVisuals.tscn<>uid://8ajcpjalhbm::::res://Assets/Ready Animations/Gundyr/rooted/slash_7_Z_PROJECTED.res<>uid://bcxv500vrgt6f::::res://Assets/Ready Animations/Gundyr/rooted/slash_4_Z_PROJECTED.res<>uid://dihj3g5w8tbmp::::res://Assets/Ready Animations/Gundyr/rooted/elbow_Z_PROJECTED.res<>uid://5r2fbac4td2q::::res://Assets/Ready Animations/Gundyr/moving/phase_switch.res<>uid://bu8iq67xu53tt::::res://Assets/Ready Animations/Gundyr/rooted/slash_8_Z_PROJECTED.res<>uid://c0c8tpko2qay4::::res://Assets/Ready Animations/Gundyr/rooted/slash_5_Z_PROJECTED.res<>uid://bwlxeufit5567::::res://Assets/Ready Animations/Gundyr/moving/scare_off.res<>uid://bve6hxhj12t8n::::res://Assets/Ready Animations/Gundyr/rooted/shoulder_kick_placeholder_Z_PROJECTED.res<>uid://du0e3ovcs3shm::::res://Assets/Ready Animations/Gundyr/rooted/slash_6_Z_PROJECTED.res<>res://Enemies/GundyrHFSM/Database.gd<>uid://d1ct0trvhqmaj::::res://Assets/Ready Animations/Gundyr/rooted/gapclose_2_Z_PROJECTED.res<>uid://dae1opyqd5dn0::::res://Assets/Ready Animations/Gundyr/backend/slash_1_backend.res<>uid://b2h7ejkswn2l5::::res://Assets/Ready Animations/Gundyr/pursuit_run.res<>uid://iws415p864dl::::res://Assets/Ready Animations/Gundyr/backend/slash_2_backend.res<>uid://t7pyuo5kqlod::::res://Assets/Ready Animations/Gundyr/backend/gapclose_1_backend.res<>uid://b1hdfkkch5pfs::::res://Assets/Ready Animations/Gundyr/moving/death.res<>uid://crutq3mnbpno8::::res://Assets/Ready Animations/Gundyr/backend/slash_3_backend.res<>uid://dl50lgg8f45v::::res://Assets/Ready Animations/Gundyr/backend/slash_4_backend.res<>uid://p2co05vwr4ih::::res://Assets/Ready Animations/Gundyr/backend/slash_5_backend.res<>res://Enemies/GundyrHFSM/HFSMWeapon.gd<>uid://vxvqi2f6bri0::::res://Enemies/GundyrHFSM/Attack.tscn<>uid://bkpayrknqq58h::::res://Assets/Ready Animations/Gundyr/backend/slash_6_backend.res<>res://Enemies/GundyrHFSM/PhaseSwitch.gd<>uid://j1g3ife1731q::::res://Enemies/GundyrHFSM/ShoulderWeapon.tscn<>uid://dh7cg8licq77s::::res://Enemies/GundyrHFSM/KickWeapon.tscn<>uid://cjcs17bklx6cp::::res://Enemies/GundyrHFSM/AuraWeapon.tscn<>uid://cxqok182rtyjn::::res://Assets/Ready Animations/Gundyr/backend/slash_7_backend.res<>uid://d0q841kdv0ghr::::res://Assets/Ready Animations/Gundyr/backend/slash_8_backend.res<>res://Enemies/GundyrHFSM/GundyrMovesData.gd<>uid://c3es1l4xdcg1x::::res://Assets/Ready Animations/Gundyr/backend/gapclose_2_backend.res<>uid://xncm3xjlsnyy::::res://Assets/Ready Animations/Gundyr/backend/kick_backend.res<>uid://dsy6osbfkqq54::::res://Assets/Ready Animations/Gundyr/backend/shoulder_kick_backend.res<>uid://ifdb6hykpda0::::res://Assets/Ready Animations/Gundyr/backend/elbow_backend.res<>uid://btiwy8t2ntp6m::::res://Assets/Ready Animations/Gundyr/backend/scare_off_backend.res<>res://Enemies/GundyrHFSM/Phase_2.gd<>uid://cgatuxck35e8::::res://Enemies/GundyrHFSM/SerieslessAttack.tscn<>res://Enemies/GundyrHFSM/Pursuit_2.gd<>res://Enemies/GundyrHFSM/Gapclose2.gd<>res://Enemies/GundyrHFSM/Death.gd
+Gundyr.tscn::PackedScene::1920995308918374516::1722074491::0::1::::<><>::res://Enemies/GundyrHFSM/Gundyr.gd<>uid://c6oxrmx4ca1tw::::res://Assets/Models/Deboned/Albedo.png<>uid://lp4tiwonooic::::res://Assets/Models/Deboned/GundyrDeboned_c5110out_019.png<>uid://bm3dhye28pi22::::res://Assets/Models/Deboned/GundyrDeboned_c5110out_018_N.png<>uid://cyrdtwrv8hwgr::::res://Assets/Ready Animations/Gundyr/walk forward.res<>res://Enemies/GundyrHFSM/GundyrHFSM.gd<>res://Enemies/GundyrHFSM/Idle.gd<>res://Enemies/GundyrHFSM/Awakening.gd<>res://Enemies/GundyrHFSM/Phase_1.gd<>res://Enemies/GundyrHFSM/Life.gd<>res://Enemies/GundyrHFSM/Chill_1.gd<>res://Enemies/GundyrHFSM/Orbiting.gd<>res://Enemies/GundyrHFSM/Pursuit_1.gd<>res://Enemies/GundyrHFSM/Combat_1.gd<>res://Enemies/GundyrHFSM/Scareoff.gd<>uid://btgdixm3mmn6b::::res://Assets/Ready Animations/Gundyr/rooted/gapclose_Z_PROJECTED.res<>uid://c4j428oxjv6h4::::res://Assets/Ready Animations/Gundyr/moving/kick.res<>res://Enemies/GundyrHFSM/HFSMResources.gd<>res://Enemies/GundyrHFSM/Hurtbox.gd<>uid://cjyfcsjj1li61::::res://Assets/Ready Animations/Gundyr/rooted/slash_2_Z_PROJECTED.res<>res://Enemies/GundyrHFSM/GapClose.gd<>uid://7x76gb50rq80::::res://Assets/Ready Animations/Gundyr/rooted/slash_1_Z_PROJECTED.res<>uid://ckco2cfx6b2h8::::res://Enemies/GundyrHFSM/Halberd.tscn<>uid://bot65me010kss::::res://Assets/Ready Animations/Gundyr/rooted/slash_3_Z_PROJECTED.res<>res://Enemies/GundyrHFSM/AttackSeries_1.gd<>uid://ckh01wkiv7fg8::::res://Enemies/GundyrHFSM/HalberdVisuals.tscn<>uid://8ajcpjalhbm::::res://Assets/Ready Animations/Gundyr/rooted/slash_7_Z_PROJECTED.res<>uid://bcxv500vrgt6f::::res://Assets/Ready Animations/Gundyr/rooted/slash_4_Z_PROJECTED.res<>uid://dihj3g5w8tbmp::::res://Assets/Ready Animations/Gundyr/rooted/elbow_Z_PROJECTED.res<>uid://5r2fbac4td2q::::res://Assets/Ready Animations/Gundyr/moving/phase_switch.res<>uid://bu8iq67xu53tt::::res://Assets/Ready Animations/Gundyr/rooted/slash_8_Z_PROJECTED.res<>uid://c0c8tpko2qay4::::res://Assets/Ready Animations/Gundyr/rooted/slash_5_Z_PROJECTED.res<>uid://bwlxeufit5567::::res://Assets/Ready Animations/Gundyr/moving/scare_off.res<>uid://bve6hxhj12t8n::::res://Assets/Ready Animations/Gundyr/rooted/shoulder_kick_placeholder_Z_PROJECTED.res<>uid://du0e3ovcs3shm::::res://Assets/Ready Animations/Gundyr/rooted/slash_6_Z_PROJECTED.res<>res://Enemies/GundyrHFSM/Database.gd<>uid://d1ct0trvhqmaj::::res://Assets/Ready Animations/Gundyr/rooted/gapclose_2_Z_PROJECTED.res<>uid://dae1opyqd5dn0::::res://Assets/Ready Animations/Gundyr/backend/slash_1_backend.res<>uid://b2h7ejkswn2l5::::res://Assets/Ready Animations/Gundyr/pursuit_run.res<>uid://iws415p864dl::::res://Assets/Ready Animations/Gundyr/backend/slash_2_backend.res<>uid://t7pyuo5kqlod::::res://Assets/Ready Animations/Gundyr/backend/gapclose_1_backend.res<>uid://b1hdfkkch5pfs::::res://Assets/Ready Animations/Gundyr/moving/death.res<>uid://crutq3mnbpno8::::res://Assets/Ready Animations/Gundyr/backend/slash_3_backend.res<>uid://dl50lgg8f45v::::res://Assets/Ready Animations/Gundyr/backend/slash_4_backend.res<>uid://p2co05vwr4ih::::res://Assets/Ready Animations/Gundyr/backend/slash_5_backend.res<>res://Enemies/GundyrHFSM/HFSMWeapon.gd<>uid://vxvqi2f6bri0::::res://Enemies/GundyrHFSM/Attack.tscn<>uid://bkpayrknqq58h::::res://Assets/Ready Animations/Gundyr/backend/slash_6_backend.res<>res://Enemies/GundyrHFSM/PhaseSwitch.gd<>uid://j1g3ife1731q::::res://Enemies/GundyrHFSM/ShoulderWeapon.tscn<>uid://dh7cg8licq77s::::res://Enemies/GundyrHFSM/KickWeapon.tscn<>uid://cjcs17bklx6cp::::res://Enemies/GundyrHFSM/AuraWeapon.tscn<>uid://cxqok182rtyjn::::res://Assets/Ready Animations/Gundyr/backend/slash_7_backend.res<>uid://d0q841kdv0ghr::::res://Assets/Ready Animations/Gundyr/backend/slash_8_backend.res<>res://Enemies/GundyrHFSM/GundyrMovesData.gd<>uid://c3es1l4xdcg1x::::res://Assets/Ready Animations/Gundyr/backend/gapclose_2_backend.res<>uid://xncm3xjlsnyy::::res://Assets/Ready Animations/Gundyr/backend/kick_backend.res<>uid://dsy6osbfkqq54::::res://Assets/Ready Animations/Gundyr/backend/shoulder_kick_backend.res<>uid://ifdb6hykpda0::::res://Assets/Ready Animations/Gundyr/backend/elbow_backend.res<>uid://btiwy8t2ntp6m::::res://Assets/Ready Animations/Gundyr/backend/scare_off_backend.res<>res://Enemies/GundyrHFSM/Phase_2.gd<>uid://cgatuxck35e8::::res://Enemies/GundyrHFSM/SerieslessAttack.tscn<>res://Enemies/GundyrHFSM/Pursuit_2.gd<>res://Enemies/GundyrHFSM/Gapclose2.gd<>res://Enemies/GundyrHFSM/Death.gd
 GundyrHFSM.gd::GDScript::-1::1721477351::0::1::::<>HFSM<>::
 GundyrMovesData.gd::GDScript::-1::1721660089::0::1::::GundyrMovesData<>Node<>::
 Halberd.gd::GDScript::-1::1721660089::0::1::::<>Weapon<>::
 Halberd.tscn::PackedScene::5479756927466042515::1721488572::0::1::::<><>::res://Enemies/GundyrHFSM/Halberd.gd
 HalberdVisuals.tscn::PackedScene::5490745974860190801::1721489005::0::1::::<><>::uid://dihmt06hg4d3m::::res://Assets/Models/halberd/Halberd_c5110out_020.png<>uid://drokqb11uuurc::::res://Assets/Models/halberd/Halberd_c5110out_026.png<>uid://ckx30l8we0f0o::::res://Assets/Models/halberd/Halberd_c5110out_025_N.png
-HFSM.gd::GDScript::-1::1721725396::0::1::::HFSM<>Node<>::
+HFSM.gd::GDScript::-1::1721914797::0::1::::HFSM<>Node<>::
 HFSMResources.gd::GDScript::-1::1721478564::0::1::::HFSMResources<>Node<>::
 HFSMWeapon.gd::GDScript::-1::1721660089::0::1::::HFSMWeapon<>Weapon<>::
-Hurtbox.gd::GDScript::-1::1721666558::0::1::::<>Area3D<>::
+Hurtbox.gd::GDScript::-1::1721728066::0::1::::<>Area3D<>::
 Idle.gd::GDScript::-1::1721477351::0::1::::<>HFSM<>::
+KickWeapon.tscn::PackedScene::7716777944054631346::1721668923::0::1::::<><>::res://Enemies/GundyrHFSM/HFSMWeapon.gd
 Life.gd::GDScript::-1::1721574158::0::1::::<>HFSM<>::
-Orbiting.gd::GDScript::-1::1721584363::0::1::::<>HFSM<>::
+Orbiting.gd::GDScript::-1::1721732500::0::1::::<>HFSM<>::
 PhaseSwitch.gd::GDScript::-1::1721477352::0::1::::<>HFSM<>::
 Phase_1.gd::GDScript::-1::1721479835::0::1::::<>HFSM<>::
 Phase_2.gd::GDScript::-1::1721674578::0::1::::<>HFSM<>::
-Pursuit_1.gd::GDScript::-1::1721564218::0::1::::<>HFSM<>::
+Pursuit_1.gd::GDScript::-1::1721732152::0::1::::<>HFSM<>::
 Pursuit_2.gd::GDScript::-1::1721584363::0::1::::<>HFSM<>::
-KickWeapon.tscn::PackedScene::7716777944054631346::1721668923::0::1::::<><>::res://Enemies/GundyrHFSM/HFSMWeapon.gd
-AuraWeapon.tscn::PackedScene::5409810734909939639::1721669148::0::1::::<><>::res://Enemies/GundyrHFSM/HFSMWeapon.gd
-ShoulderWeapon.tscn::PackedScene::685788146662382164::1721668852::0::1::::<><>::res://Enemies/GundyrHFSM/HFSMWeapon.gd
 Scareoff.gd::GDScript::-1::1721668410::0::1::::<>HFSM<>::
-SerialAttack.gd::GDScript::-1::1721668627::0::1::::<>HFSM<>::
-SerieslessAttack.gd::GDScript::-1::1721674899::0::1::::<>HFSM<>::
+SerialAttack.gd::GDScript::-1::1723489171::0::1::::<>HFSM<>::
+SerieslessAttack.gd::GDScript::-1::1721732152::0::1::::<>HFSM<>::
 SerieslessAttack.tscn::PackedScene::152798969987490465::1721576718::0::1::::<><>::res://Enemies/GundyrHFSM/SerieslessAttack.gd
+ShoulderWeapon.tscn::PackedScene::685788146662382164::1721668852::0::1::::<><>::res://Enemies/GundyrHFSM/HFSMWeapon.gd
 TransitionData.gd::GDScript::-1::1721128729::0::1::::TransitionData<>Resource<>::
 ::res://Enemies/Humanoid/::1720538855
 Enemy.gd::GDScript::-1::1716413077::0::1::::<>CharacterBody3D<>::
 Enemy.tscn::PackedScene::2401069623825798171::1716413077::0::1::::<><>::res://Enemies/Humanoid/Enemy.gd<>res://Enemies/Humanoid/HumanoidAI.gd<>uid://eec5ujuowf51::::res://Player/HumanoidModel/HumanoidModel.tscn<>res://Player/Visuals/PlayerVisuals.gd<>uid://bb0o3byg0f0uh::::res://Weapons/Skins/SwordVisuals1.tscn
 HumanoidAI.gd::GDScript::-1::1716413077::0::1::::<>Node<>::
-::res://Enemies/MobFSM/::1721725497
-AIMove.gd::GDScript::-1::1720786573::0::1::::AIMove<>Node<>::
+::res://Enemies/MobFSM/::1723452806
+AIMove.gd::GDScript::-1::1723452806::0::1::::AIMove<>Node<>::
 Attack.gd::GDScript::-1::1720724860::0::1::::<>AIMove<>::
 Death.gd::GDScript::-1::1720786702::0::1::::<>AIMove<>::
 Idle.gd::GDScript::-1::1720707109::0::1::::<>AIMove<>::
 MobFSM.gd::GDScript::-1::1720707570::0::1::::<>CharacterBody3D<>::
-MobFSM.tscn::PackedScene::5862433820036535396::1721725497::0::1::::<><>::res://Enemies/MobFSM/MobStateMachine.gd<>res://Enemies/MobFSM/MobFSM.gd<>uid://dh6aqdkq8sbfr::::res://Assets/Ready Animations/slash_1.res<>uid://dudqbwf2n1fih::::res://Assets/Ready Animations/run.res<>res://Enemies/MobFSM/Idle.gd<>uid://c64nn2dioo6c2::::res://Assets/Ready Animations/idle_shield.res<>res://Enemies/MobFSM/Pursuit.gd<>res://Enemies/MobFSM/Attack.gd<>uid://ddosojhrnxc3p::::res://Assets/Ready Animations/death.res<>res://Enemies/MobFSM/MobVisuals.gd<>res://Enemies/MobFSM/Return.gd<>uid://bb0o3byg0f0uh::::res://Weapons/Skins/SwordVisuals1.tscn<>uid://chjl1d5amktti::::res://Player/HumanoidModel/Hurtbox.tscn<>uid://6t1bl235yea4::::res://Weapons/Models/Sword.tscn<>res://Enemies/MobFSM/Resources.gd<>res://Enemies/MobFSM/Death.gd
-MobStateMachine.gd::GDScript::-1::1720786551::0::1::::<>Node<>::
+MobFSM.tscn::PackedScene::5862433820036535396::1723408927::0::1::::<><>::res://Enemies/MobFSM/MobStateMachine.gd<>res://Enemies/MobFSM/MobFSM.gd<>uid://dh6aqdkq8sbfr::::res://Assets/Ready Animations/slash_1.res<>uid://dudqbwf2n1fih::::res://Assets/Ready Animations/run.res<>res://Enemies/MobFSM/Idle.gd<>uid://c64nn2dioo6c2::::res://Assets/Ready Animations/idle_shield.res<>res://Enemies/MobFSM/Pursuit.gd<>res://Enemies/MobFSM/Attack.gd<>uid://ddosojhrnxc3p::::res://Assets/Ready Animations/death.res<>res://Enemies/MobFSM/MobVisuals.gd<>res://Enemies/MobFSM/Return.gd<>uid://bb0o3byg0f0uh::::res://Weapons/Skins/SwordVisuals1.tscn<>uid://chjl1d5amktti::::res://Player/HumanoidModel/Hurtbox.tscn<>uid://6t1bl235yea4::::res://Weapons/Models/Sword.tscn<>res://Enemies/MobFSM/Resources.gd<>res://Enemies/MobFSM/Death.gd
+MobStateMachine.gd::GDScript::-1::1723406145::0::1::::<>Node<>::
 MobVisuals.gd::GDScript::-1::1720723306::0::1::::<>Node3D<>::
 Pursuit.gd::GDScript::-1::1720708529::0::1::::<>AIMove<>::
 Resources.gd::GDScript::-1::1720786387::0::1::::EnemyResources<>Node<>::
 Return.gd::GDScript::-1::1720708200::0::1::::<>AIMove<>::
 ::res://Enemies/MobUnstructured/::1720538932
 Mob.gd::GDScript::-1::1720538932::0::1::::<>CharacterBody3D<>::
-::res://Locations/::1721725496
-ProtoLevel.tscn::PackedScene::4578386583260093360::1721725496::0::1::::<><>::uid://drjqcoul7pinv::::res://Player/Player.tscn<>uid://b6wap3pqq4p8x::::res://Assets/Textures/fancy floor/floor.tres<>uid://2msrn7w4y4fg::::res://Enemies/GundyrHFSM/Gundyr.tscn
-::res://Player/::1721725496
+::res://Locations/::1723489199
+ProtoLevel.tscn::PackedScene::4578386583260093360::1723489199::0::1::::<><>::uid://drjqcoul7pinv::::res://Player/Player.tscn<>uid://cpr2otl56mflk::::res://Enemies/MobFSM/MobFSM.tscn<>uid://b6wap3pqq4p8x::::res://Assets/Textures/fancy floor/floor.tres
+::res://Player/::1723489199
 Camera.gd::GDScript::-1::1716413077::0::1::::<>Node3D<>::
 Player.gd::GDScript::-1::1720781530::0::1::::<>CharacterBody3D<>::
-Player.tscn::PackedScene::8372027602950606919::1721725496::0::1::::<><>::res://Player/Player.gd<>uid://dkl1i7wju7vba::::res://Player/Visuals/PlayerVisuals.tscn<>uid://eec5ujuowf51::::res://Player/HumanoidModel/HumanoidModel.tscn<>res://Player/Input/Input.gd<>res://Player/Camera.gd
-::res://Player/HumanoidModel/::1721725496
-Combat.gd::GDScript::-1::1716413077::0::1::::HumanoidCombat<>Node<>::
+Player.tscn::PackedScene::8372027602950606919::1723489199::0::1::::<><>::res://Player/Player.gd<>uid://dkl1i7wju7vba::::res://Player/Visuals/PlayerVisuals.tscn<>uid://eec5ujuowf51::::res://Player/HumanoidModel/HumanoidModel.tscn<>res://Player/Input/Input.gd<>res://Player/Camera.gd
+::res://Player/HumanoidModel/::1723489200
+AreaAwareness.gd::GDScript::-1::1723402189::0::1::::AreaAwareness<>Node<>::
+BlendingAnimator.tscn::PackedScene::8549242594674245911::1722074983::0::1::::<><>::res://Player/HumanoidModel/HumanoidAnimator.gd
+BodyPartsBlender.gd::GDScript::-1::1722794049::0::1::::BodyPartsBlender<>AnimationTree<>::
+Combat.gd::GDScript::-1::1723489171::0::1::::HumanoidCombat<>Node<>::
 DefaultReactions.gd::GDScript::-1::1716413077::0::1::::<>Node<>::
-DEV_ROOTFORGE.gd::GDScript::-1::1716992816::0::1::::<>Node<>::
+DEV_ROOTFORGE.gd::GDScript::-1::1723230721::0::1::::<>Node<>::
 Downcast.gd::GDScript::-1::1716413077::0::1::::<>RayCast3D<>::
-HumanoidHitbox.gd::GDScript::-1::1721725396::0::1::::Hurtbox<>Area3D<>::
-HumanoidModel.tscn::PackedScene::289188958669579770::1721725496::0::1::::<><>::res://Player/HumanoidModel/Model.gd<>uid://q6o7ddogrjmv::::res://Assets/Ready Animations/jump_sprint.res<>res://Player/HumanoidModel/DEV_ROOTFORGE.gd<>res://Player/HumanoidModel/Resources.gd<>res://Player/HumanoidModel/Combat.gd<>uid://bf1d4282m1ryw::::res://Assets/Ready Animations/jump_run.res<>uid://cvpiiqokxohra::::res://Assets/Ready Animations/dance.res<>uid://cjry5u8re5msd::::res://Assets/Ready Animations/landing_sprint.res<>uid://dcklgh1qspg7t::::res://Assets/Ready Animations/landing_run.res<>uid://bll6etjl7wd6m::::res://Assets/Ready Animations/midair.res<>res://Player/HumanoidModel/SkeletonAnimator.gd<>uid://cmcjn7n1ht11v::::res://Assets/Ready Animations/stagger.res<>uid://6t1bl235yea4::::res://Weapons/Models/Sword.tscn<>uid://jyjqrq6kiasc::::res://Assets/Ready Animations/parry.res<>uid://dho7uykss61yg::::res://Assets/Ready Animations/parried.res<>uid://bvsqnjfp0plnw::::res://Assets/Ready Animations/idle_warrior.res<>res://Player/HumanoidModel/Downcast.gd<>uid://bjbk32n7ai2oi::::res://Assets/Ready Animations/awaiting_ripost.res<>uid://bmqy70w024rc::::res://Assets/Ready Animations/ripost.res<>uid://ddosojhrnxc3p::::res://Assets/Ready Animations/death.res<>uid://c64nn2dioo6c2::::res://Assets/Ready Animations/idle_shield.res<>uid://dhghfp5evtdy0::::res://Assets/Ready Animations/idle_longsword.res<>uid://cvdgrnnj1bx2d::::res://Assets/Ready Animations/idle_vom_tag.res<>uid://dwtlqdf36pih8::::res://Assets/Ready Animations/greatsword_light_1_hackwork_Z_PROJECTED.res<>uid://cdqyr4vcns7am::::res://Assets/Ready Animations/longsword_Z_PROJECTED.res<>uid://dujxtpgurlj7t::::res://Assets/Ready Animations/greatsword_light_2_hackwork_Z_PROJECTED.res<>uid://drusgufmn32iy::::res://Assets/Ready Animations/greatsword_light_3_hackwork_Z_PROJECTED.res<>uid://kux8ogygvefj::::res://Assets/Ready Animations/longsword_2_Z_PROJECTED.res<>res://Assets/Ready Animations/greatsword_light_4_hackwork_Z_PROJECTED.res<>res://Assets/Ready Animations/greatsword_heavy_1_hackwork_Z_PROJECTED.res<>res://Assets/Ready Animations/greatsword_heavy_2_hackwork_Z_PROJECTED.res<>uid://chjl1d5amktti::::res://Player/HumanoidModel/Hurtbox.tscn<>uid://cvubc08qnq2y::::res://Player/HumanoidModel/HumanoidStates.tscn<>res://Player/HumanoidModel/MovesData.gd<>res://Player/HumanoidModel/MovesDataStorage.gd<>res://Player/Moves/Idle.gd<>uid://bjxvmgetwrvkc::::res://Player/Moves/Combos/RiposteCombo.tscn<>res://Player/Moves/Run.gd<>res://Player/Moves/Sprint.gd<>res://Player/Moves/JumpRun.gd<>res://Player/Moves/JumpSprint.gd<>res://Player/Moves/Midair.gd<>res://Player/Moves/LandingRun.gd<>res://Player/Moves/LandingSprint.gd<>uid://d4bm1ogsxjkhx::::res://Player/Moves/Attack.tscn<>uid://bg5gwofry0vww::::res://Player/Moves/Combos/ConsecutiveAttack.tscn<>res://Player/Moves/Staggered.gd<>res://Player/HumanoidModel/Parry.gd<>res://Player/Moves/Parried.gd<>res://Player/Moves/Death.gd<>res://Player/Moves/Ripost.gd
-HumanoidStates.gd::GDScript::-1::1716413077::0::1::::HumanoidStates<>Node<>::
+GeneralSkeleton.gd::GDScript::-1::1723152730::0::1::::MixamoSkeleton<>Skeleton3D<>::
+HumanoidAnimator.gd::GDScript::-1::1722074471::0::1::::<>AnimationPlayer<>::
+HumanoidHitbox.gd::GDScript::-1::1723452690::0::1::::Hurtbox<>Area3D<>::
+HumanoidModel.tscn::PackedScene::289188958669579770::1723489200::0::1::::<><>::res://Player/HumanoidModel/Model.gd<>res://Player/HumanoidModel/DEV_ROOTFORGE.gd<>res://Player/HumanoidModel/Resources.gd<>res://Player/HumanoidModel/Combat.gd<>res://Player/HumanoidModel/AreaAwareness.gd<>res://Player/HumanoidModel/Legs.gd<>res://Player/Moves/Legs/WalkableGesture.gd<>res://Player/Moves/Legs/AmmunitionManagement.gd<>res://Player/HumanoidModel/BodyPartsBlender.gd<>res://Player/HumanoidModel/GeneralSkeleton.gd<>uid://cxm8be1vpcuqm::::res://Assets/Ready Animations/mixamo_torso_animations/torso_controller_lib.res<>uid://6t1bl235yea4::::res://Weapons/Models/Sword.tscn<>uid://bdlt13swd1pjo::::res://Assets/Ready Animations/weapon_block.res<>uid://peoe6bari4ir::::res://Assets/Ready Animations/mixamo_legs_animations/legs_controller_lib.res<>res://Player/HumanoidModel/SplitBodyAnimator.gd<>res://Player/HumanoidModel/Downcast.gd<>res://Player/Moves/Walk.gd<>res://Player/Moves/TorsoMove.gd<>uid://chjl1d5amktti::::res://Player/HumanoidModel/Hurtbox.tscn<>uid://cvubc08qnq2y::::res://Player/HumanoidModel/HumanoidStates.tscn<>res://Player/HumanoidModel/MovesData.gd<>res://Player/HumanoidModel/MovesDataStorage.gd<>res://Player/Moves/Idle.gd<>uid://bjxvmgetwrvkc::::res://Player/Moves/Combos/RiposteCombo.tscn<>uid://b0dnm0bpjbeuc::::res://Player/Spells/ShieldShot.tscn<>res://Player/Moves/Roll.gd<>res://Player/Moves/ShieldShot.gd<>res://Player/Moves/Block.gd<>res://Player/Moves/Run.gd<>res://Player/Moves/ShieldShotReload.gd<>res://Player/Moves/Sprint.gd<>res://Player/Moves/JumpRun.gd<>res://Player/Moves/BlockReaction.gd<>res://Player/Moves/JumpSprint.gd<>res://Player/Moves/Midair.gd<>res://Player/Moves/LandingRun.gd<>res://Player/Moves/LandingSprint.gd<>uid://d4bm1ogsxjkhx::::res://Player/Moves/Attack.tscn<>uid://bg5gwofry0vww::::res://Player/Moves/Combos/ConsecutiveAttack.tscn<>res://Player/Moves/Staggered.gd<>res://Player/HumanoidModel/Parry.gd<>res://Player/Moves/Parried.gd<>res://Player/Moves/Death.gd<>res://Player/Moves/Ripost.gd<>res://Player/HumanoidModel/Pushback.gd
+HumanoidStates.gd::GDScript::-1::1723411154::0::1::::HumanoidStates<>Node<>::
 HumanoidStates.tscn::PackedScene::184945890948645686::1716413077::0::1::::<><>::res://Player/HumanoidModel/HumanoidStates.gd
 Hurtbox.tscn::PackedScene::5283457194131559786::1720780167::0::1::::<><>::res://Player/HumanoidModel/HumanoidHitbox.gd
-Model.gd::GDScript::-1::1720781012::0::1::::PlayerModel<>Node<>::
+Legs.gd::GDScript::-1::1723060599::0::1::::Legs<>Node<>::
+Model.gd::GDScript::-1::1723408894::0::1::::PlayerModel<>Node<>::
 MovesData.gd::GDScript::-1::1716908872::0::1::::MovesDataRepository<>Node<>::
 MovesDataStorage.gd::GDScript::-1::1716908872::0::1::::<>AnimationPlayer<>::
 Parry.gd::GDScript::-1::1716413077::0::1::::<>Move<>::
-Resources.gd::GDScript::-1::1716413077::0::1::::HumanoidResources<>Node<>::
-SkeletonAnimator.gd::GDScript::-1::1717055188::0::1::::<>AnimationPlayer<>::
-::res://Player/Input/::1720781517
-Input.gd::GDScript::-1::1720781517::0::1::::InputGatherer<>Node<>::
+Pushback.gd::GDScript::-1::1721731528::0::1::::<>Move<>::
+Resources.gd::GDScript::-1::1723408565::0::1::::HumanoidResources<>Node<>::
+SkeletonAnimator.gd::GDScript::-1::1723196501::0::1::::<>AnimationPlayer<>::
+SplitBodyAnimator.gd::GDScript::-1::1723203780::0::1::::SplitBodyAnimator<>Node<>::
+::res://Player/Input/::1723300629
+Input.gd::GDScript::-1::1723300629::0::1::::InputGatherer<>Node<>::
 InputPackage.gd::GDScript::-1::1716413077::0::1::::InputPackage<>Node<>::
-::res://Player/Moves/::1720786638
+::res://Player/Moves/::1723488871
 Attack.gd::GDScript::-1::1720786638::0::1::::<>Move<>::
 Attack.tscn::PackedScene::9197578674335694373::1716413077::0::1::::<><>::res://Player/Moves/Attack.gd
+Block.gd::GDScript::-1::1723486081::0::1::::<>TorsoPartialMove<>::
+BlockReaction.gd::GDScript::-1::1723487266::0::1::::<>Move<>::
 Death.gd::GDScript::-1::1716413077::0::1::::<>Move<>::
-Idle.gd::GDScript::-1::1716413077::0::1::::<>Move<>::
+Idle.gd::GDScript::-1::1722608982::0::1::::<>Move<>::
 JumpRun.gd::GDScript::-1::1716924354::0::1::::<>Move<>::
 JumpSprint.gd::GDScript::-1::1716924354::0::1::::<>Move<>::
 LandingRun.gd::GDScript::-1::1716490766::0::1::::<>Move<>::
 LandingSprint.gd::GDScript::-1::1716487811::0::1::::<>Move<>::
+LegsMove.gd::GDScript::-1::1722591620::0::1::::LegsMove<>Move<>::
 Midair.gd::GDScript::-1::1716931103::0::1::::<>Move<>::
-Move.gd::GDScript::-1::1716932640::0::1::::Move<>Node<>::
+Move.gd::GDScript::-1::1723451197::0::1::::Move<>Node<>::
 Move.tscn::PackedScene::6984501729078367543::1716413077::0::1::::<><>::res://Player/Moves/Move.gd
 Parried.gd::GDScript::-1::1716413077::0::1::::<>Move<>::
 Ripost.gd::GDScript::-1::1716413077::0::1::::<>Move<>::
-Run.gd::GDScript::-1::1716905187::0::1::::<>Move<>::
-Sprint.gd::GDScript::-1::1720775685::0::1::::<>Move<>::
+Roll.gd::GDScript::-1::1723403864::0::1::::<>Move<>::
+Run.gd::GDScript::-1::1723197349::0::1::::<>Move<>::
+ShieldShot.gd::GDScript::-1::1723488871::0::1::::<>Move<>::
+ShieldShotReload.gd::GDScript::-1::1723306610::0::1::::<>Move<>::
+Sprint.gd::GDScript::-1::1723197349::0::1::::<>Move<>::
 Staggered.gd::GDScript::-1::1716413077::0::1::::<>Move<>::
-::res://Player/Moves/BackendAnimations/::1716992684
+TorsoMove.gd::GDScript::-1::1723200002::0::1::::TorsoPartialMove<>Move<>::
+Walk.gd::GDScript::-1::1723309157::0::1::::<>Move<>::
+Withdraw.gd::GDScript::-1::1722603689::0::1::::<>TorsoPartialMove<>::
+::res://Player/Moves/BackendAnimations/::1723230721
+pushback_params_WITH_ROOT.res::Animation::-1::1721727598::0::1::::<><>::
+roll_params_WITH_ROOT.res::Animation::8396722909530199431::1723230721::0::1::::<><>::
 ::res://Player/Moves/Combos/::1720538856
 Combo.gd::GDScript::-1::1716413077::0::1::::Combo<>Node<>::
 ConsecutiveAttack.gd::GDScript::-1::1716413077::0::1::::ConsecutiveAttack<>Combo<>::
 ConsecutiveAttack.tscn::PackedScene::2869889411422001150::1720164826::0::1::::<><>::res://Player/Moves/Combos/ConsecutiveAttack.gd
 Ripost.gd::GDScript::-1::1716413077::0::1::::<>Combo<>::
 RiposteCombo.tscn::PackedScene::3066897773366405618::1716413077::0::1::::<><>::res://Player/Moves/Combos/Ripost.gd
-::res://Player/Visuals/::1721725498
+::res://Player/Moves/Legs/::1723129712
+AmmunitionManagement.gd::GDScript::-1::1723060850::0::1::::<>LegsBehaviour<>::
+LegsBehaviour.gd::GDScript::-1::1723129712::0::1::::LegsBehaviour<>Node<>::
+WalkableGesture.gd::GDScript::-1::1723060850::0::1::::<>LegsBehaviour<>::
+::res://Player/Spells/::1723489200
+ShieldShot.gd::GDScript::-1::1723453720::0::1::::ShieldShot<>Spell<>::
+ShieldShot.tscn::PackedScene::4148146973661073778::1723489200::0::1::::<><>::res://Player/Spells/ShieldShot.gd
+Spell.gd::GDScript::-1::1723451185::0::1::::Spell<>CharacterBody3D<>::
+SpellHitData.gd::GDScript::-1::1723451125::0::1::::SpellHitData<>Resource<>::
+::res://Player/Visuals/::1723489200
 PlayerVisuals.gd::GDScript::-1::1720723231::0::1::::PlayerVisuals<>Node3D<>::
-PlayerVisuals.tscn::PackedScene::7885453286087281110::1721725498::0::1::::<><>::res://Player/Visuals/PlayerVisuals.gd<>uid://bb0o3byg0f0uh::::res://Weapons/Skins/SwordVisuals1.tscn
-::res://Weapons/::1720538857
-HitData.gd::GDScript::-1::1716413077::0::1::::HitData<>Node<>::
+PlayerVisuals.tscn::PackedScene::7885453286087281110::1723489200::0::1::::<><>::res://Player/Visuals/PlayerVisuals.gd<>uid://bb0o3byg0f0uh::::res://Weapons/Skins/SwordVisuals1.tscn
+::res://Weapons/::1721728707
+HitData.gd::GDScript::-1::1721728707::0::1::::HitData<>Node<>::
 ::res://Weapons/Models/::1721667969
 node_3d.tscn::PackedScene::7359455109924274114::1716413077::0::1::::<><>::
 Sword.gd::GDScript::-1::1720781562::0::1::::Sword<>Weapon<>::
