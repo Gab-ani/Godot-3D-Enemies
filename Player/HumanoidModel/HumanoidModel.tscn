@@ -22,14 +22,14 @@
 [ext_resource type="PackedScene" uid="uid://cvubc08qnq2y" path="res://Player/HumanoidModel/HumanoidStates.tscn" id="30_xkqvj"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/MovesData.gd" id="31_l4eyu"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/MovesDataStorage.gd" id="32_yw3h7"]
+[ext_resource type="Script" path="res://Player/Moves/CheesThrow.gd" id="33_3s7al"]
 [ext_resource type="Script" path="res://Player/Moves/Idle.gd" id="33_8hd6j"]
 [ext_resource type="PackedScene" uid="uid://bjxvmgetwrvkc" path="res://Player/Moves/Combos/RiposteCombo.tscn" id="34_05627"]
-[ext_resource type="PackedScene" uid="uid://b0dnm0bpjbeuc" path="res://Player/Spells/ShieldShot.tscn" id="34_hdrng"]
 [ext_resource type="Script" path="res://Player/Moves/Roll.gd" id="34_khd04"]
-[ext_resource type="Script" path="res://Player/Moves/ShieldShot.gd" id="34_oyq3m"]
 [ext_resource type="Script" path="res://Player/Moves/Block.gd" id="34_puydy"]
+[ext_resource type="PackedScene" uid="uid://b0dnm0bpjbeuc" path="res://Player/Spells/CheesThrow.tscn" id="34_t40ba"]
 [ext_resource type="Script" path="res://Player/Moves/Run.gd" id="35_61fud"]
-[ext_resource type="Script" path="res://Player/Moves/ShieldShotReload.gd" id="35_o7rb3"]
+[ext_resource type="Script" path="res://Player/Moves/CheesThrowReload.gd" id="35_r8xsd"]
 [ext_resource type="Script" path="res://Player/Moves/Sprint.gd" id="36_ep40x"]
 [ext_resource type="Script" path="res://Player/Moves/JumpRun.gd" id="37_x72nu"]
 [ext_resource type="Script" path="res://Player/Moves/BlockReaction.gd" id="38_g0m17"]
@@ -2440,206 +2440,6 @@ tracks/7/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_webtw"]
-resource_name = "shield_shot_params"
-length = 1.9667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MoveDatabase:is_parryable")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoveDatabase:is_interruptable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoveDatabase:is_grabable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MoveDatabase:root_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MoveDatabase:tracks_input_vector")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.660493, 0.853524),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_t60oo"]
-resource_name = "shield_shot_reload_params"
-length = 3.6667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MoveDatabase:is_parryable")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoveDatabase:is_interruptable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoveDatabase:is_grabable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MoveDatabase:root_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MoveDatabase:tracks_input_vector")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_8w4kj"]
 resource_name = "slash_3_params"
 length = 1.9667
@@ -3239,10 +3039,212 @@ tracks/7/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_webtw"]
+resource_name = "shield_shot_params"
+length = 1.9667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveDatabase:is_parryable")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoveDatabase:is_interruptable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoveDatabase:is_grabable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MoveDatabase:root_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.660493, 0.853524),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_t60oo"]
+resource_name = "shield_shot_reload_params"
+length = 3.6667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveDatabase:is_parryable")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoveDatabase:is_interruptable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoveDatabase:is_grabable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MoveDatabase:root_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_udg8f"]
 _data = {
 "block_params": SubResource("Animation_2o315"),
 "block_reaction_params": SubResource("Animation_kinm8"),
+"cheese_throw_params": SubResource("Animation_webtw"),
+"cheese_throw_reload_params": SubResource("Animation_t60oo"),
 "death_params": SubResource("Animation_62tvw"),
 "greatsword_heavy_1_params": SubResource("Animation_xnxe5"),
 "greatsword_heavy_2_params": SubResource("Animation_rb110"),
@@ -3264,8 +3266,6 @@ _data = {
 "riposte_params": SubResource("Animation_24p3a"),
 "roll_params": SubResource("Animation_n6x2j"),
 "run_params": SubResource("Animation_knkca"),
-"shield_shot_params": SubResource("Animation_webtw"),
-"shield_shot_reload_params": SubResource("Animation_t60oo"),
 "slash_3_params": SubResource("Animation_8w4kj"),
 "sprint_params": SubResource("Animation_np6q6"),
 "staggered_params": SubResource("Animation_4hl1x"),
@@ -3310,7 +3310,7 @@ input_1/auto_advance = false
 input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tydsu"]
-graph_offset = Vector2(-197.769, 105.033)
+graph_offset = Vector2(76.1157, 132.165)
 nodes/BodyBlend/node = SubResource("AnimationNodeBlend2_0wjol")
 nodes/BodyBlend/position = Vector2(960, 360)
 nodes/Legs1/node = SubResource("AnimationNodeAnimation_l2dlw")
@@ -3381,8 +3381,8 @@ bones/0/name = "Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72729e-08, 1.04275, 0.0155432)
 bones/0/enabled = true
-bones/0/position = Vector3(-0.0381105, 1.02656, 0.137264)
-bones/0/rotation = Quaternion(0.0509622, 0.0129818, 0.00327572, 0.998611)
+bones/0/position = Vector3(6.39434e-08, 1.04271, 0.0155426)
+bones/0/rotation = Quaternion(1.44355e-08, 1.9984e-15, -3.38271e-17, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Spine"
 bones/1/parent = 0
@@ -3767,28 +3767,28 @@ bones/55/parent = 0
 bones/55/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, -0.0820778, -0.0675166, -0.0159956)
 bones/55/enabled = true
 bones/55/position = Vector3(-0.0820778, -0.0675166, -0.0159956)
-bones/55/rotation = Quaternion(-0.0621391, -0.0408965, 0.993474, 0.0864617)
+bones/55/rotation = Quaternion(-2.25963e-08, 0.000672018, 1, -6.98558e-07)
 bones/55/scale = Vector3(1, 1, 1)
 bones/56/name = "RightLowerLeg"
 bones/56/parent = 55
 bones/56/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1.39782e-08, 0.443701, 0.00345939)
 bones/56/enabled = true
 bones/56/position = Vector3(1.39782e-08, 0.443701, 0.00345939)
-bones/56/rotation = Quaternion(4.52344e-05, 0.967026, -0.254677, 0.000166454)
+bones/56/rotation = Quaternion(3.07413e-10, 0.999999, -0.00134145, -5.58367e-10)
 bones/56/scale = Vector3(1, 1, 1)
 bones/57/name = "RightFoot"
 bones/57/parent = 56
 bones/57/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 2.09612e-08, 0.444237, 0.0304354)
 bones/57/enabled = true
 bones/57/position = Vector3(2.09612e-08, 0.444237, 0.0304354)
-bones/57/rotation = Quaternion(0.112281, 0.772154, -0.618276, -0.0943746)
+bones/57/rotation = Quaternion(-1.11062e-08, 0.706633, -0.70758, 1.28135e-08)
 bones/57/scale = Vector3(1, 1, 1)
 bones/58/name = "RightToes"
 bones/58/parent = 57
 bones/58/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3.29817e-08, 0.107106, -0.0872867)
 bones/58/enabled = true
 bones/58/position = Vector3(3.29817e-08, 0.107106, -0.0872867)
-bones/58/rotation = Quaternion(6.60466e-06, 0.985225, 0.171266, 7.77363e-06)
+bones/58/rotation = Quaternion(1.7585e-14, 1, -1.19209e-07, -7.53644e-15)
 bones/58/scale = Vector3(1, 1, 1)
 bones/59/name = "mixamorig_RightToe_End"
 bones/59/parent = 58
@@ -3802,28 +3802,28 @@ bones/60/parent = 0
 bones/60/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, 0.0820779, -0.0675169, -0.0159956)
 bones/60/enabled = true
 bones/60/position = Vector3(0.0820779, -0.0675169, -0.0159956)
-bones/60/rotation = Quaternion(0.0909428, 0.115117, 0.987419, -0.0590046)
+bones/60/rotation = Quaternion(-2.27274e-08, 0.000650286, 1, -7.08998e-07)
 bones/60/scale = Vector3(1, 1, 1)
 bones/61/name = "LeftLowerLeg"
 bones/61/parent = 60
 bones/61/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2.46084e-08, 0.4437, 0.00346958)
 bones/61/enabled = true
 bones/61/position = Vector3(2.46084e-08, 0.4437, 0.00346958)
-bones/61/rotation = Quaternion(-1.9337e-08, 0.995531, -0.0944403, -3.35332e-07)
+bones/61/rotation = Quaternion(-9.88598e-10, 0.999999, -0.00129878, 1.41578e-08)
 bones/61/scale = Vector3(1, 1, 1)
 bones/62/name = "LeftFoot"
 bones/62/parent = 61
 bones/62/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 2.91411e-09, 0.444237, 0.0304439)
 bones/62/enabled = true
 bones/62/position = Vector3(2.91411e-09, 0.444237, 0.0304439)
-bones/62/rotation = Quaternion(-0.115719, 0.680726, -0.722591, -0.0329192)
+bones/62/rotation = Quaternion(-1.10564e-08, 0.706648, -0.707565, 1.30727e-08)
 bones/62/scale = Vector3(1, 1, 1)
 bones/63/name = "LeftToes"
 bones/63/parent = 62
 bones/63/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3.50223e-08, 0.107106, -0.0872867)
 bones/63/enabled = true
 bones/63/position = Vector3(3.50223e-08, 0.107106, -0.0872867)
-bones/63/rotation = Quaternion(-1.90729e-06, 1, -5.00977e-05, -1.47205e-06)
+bones/63/rotation = Quaternion(1.38168e-14, 1, -2.98023e-08, 2.63776e-14)
 bones/63/scale = Vector3(1, 1, 1)
 bones/64/name = "mixamorig_LeftToe_End"
 bones/64/parent = 63
@@ -3835,7 +3835,7 @@ bones/64/scale = Vector3(1, 1, 1)
 script = ExtResource("11_chgqi")
 
 [node name="Root" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.999641, -0.00521918, 0.0262614, 0.0078655, 0.994784, -0.101698, -0.0255937, 0.101868, 0.994469, -0.0381105, 1.02656, 0.137264)
+transform = Transform3D(1, 6.76543e-17, 3.9968e-15, -6.76541e-17, 1, -2.8871e-08, -3.9968e-15, 2.8871e-08, 1, 6.39434e-08, 1.04271, 0.0155426)
 bone_name = "Hips"
 bone_idx = 0
 use_external_skeleton = true
@@ -3846,7 +3846,7 @@ processor = NodePath("../..")
 ignored_spell_groups = Array[String](["players_spell"])
 
 [node name="RightWrist" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.0262613, -0.999641, 0.0052193, -0.101698, -0.00786561, -0.994784, 0.994469, 0.0255936, -0.101868, -0.755128, 1.42396, 0.125415)
+transform = Transform3D(-8.0678e-08, -1, 1.19209e-07, -2.79397e-08, -1.19209e-07, -1, 1, -8.0678e-08, -2.79397e-08, -0.713332, 1.44057, -0.0554854)
 bone_name = "RightHand"
 bone_idx = 10
 use_external_skeleton = true
@@ -3861,7 +3861,7 @@ collision_mask = 4
 holder = NodePath("../../..")
 
 [node name="LeftWrist" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-0.0262615, 0.999641, 0.00521924, 0.101698, 0.00786557, -0.994784, -0.994469, -0.0255937, -0.101868, 0.671023, 1.43518, 0.088902)
+transform = Transform3D(-5.96045e-08, 1, 5.96045e-08, -3.16649e-08, 5.96045e-08, -1, -1, -5.96045e-08, 3.16649e-08, 0.713332, 1.44057, -0.055485)
 bone_name = "LeftHand"
 bone_idx = 34
 use_external_skeleton = true
@@ -4018,28 +4018,28 @@ backend_animation = "longsword_2_params"
 tracking_angular_speed = 20.0
 stamina_cost = 20.0
 
-[node name="ShieldShot" type="Node" parent="States"]
-script = ExtResource("34_oyq3m")
+[node name="CheeseThrow" type="Node" parent="States"]
+script = ExtResource("33_3s7al")
 spell_release_timing = 0.919
-spell = ExtResource("34_hdrng")
-animation = "shield_shot"
-move_name = "shield_shot"
+spell = ExtResource("34_t40ba")
+animation = "cheese_throw"
+move_name = "cheese_throw"
 priority = 16
-backend_animation = "shield_shot_params"
+backend_animation = "cheese_throw_params"
 tracking_angular_speed = 45.0
 stamina_cost = 20.0
 
-[node name="ShieldShotReload" type="Node" parent="States"]
-script = ExtResource("35_o7rb3")
-animation = "shield_shot_reload"
-move_name = "shield_shot_reload"
+[node name="CheeseThrowtReload" type="Node" parent="States"]
+script = ExtResource("35_r8xsd")
+animation = "cheese_throw_reload"
+move_name = "cheese_throw_reload"
 priority = 17
-backend_animation = "shield_shot_reload_params"
+backend_animation = "cheese_throw_reload_params"
 tracking_angular_speed = 0.0
 
 [node name="Block" type="Node" parent="States" node_paths=PackedStringArray("legs_behaviour")]
 script = ExtResource("34_puydy")
-legs_behaviour = NodePath("../../Legs/WalkableGesture")
+legs_behaviour = NodePath("../../Legs/AmmunitionManagement")
 animation = "block"
 move_name = "block"
 priority = 20
@@ -4051,6 +4051,7 @@ animation = "roll"
 move_name = "roll"
 priority = 21
 backend_animation = "roll_params"
+tracking_angular_speed = 0.0
 stamina_cost = 25.0
 
 [node name="BlockReaction" type="Node" parent="States"]

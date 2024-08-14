@@ -3,7 +3,7 @@ class_name Move
 
 var humanoid : CharacterBody3D
 #var base_animator : AnimationPlayer
-var animator : SplitBodyAnimator
+var animator : SplitBodyAnimator # or BodyPartsBlender
 var skeleton : Skeleton3D
 var resources : HumanoidResources
 var combat : HumanoidCombat

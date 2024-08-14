@@ -6,7 +6,7 @@ var reloaded = false
 
 func update(_input, _delta):
 	if works_longer_than(charge_restore_timing) and not reloaded:
-		combat.shield_shot_charges = combat.shield_shot_charges + 1
+		combat.cheese_throw_charges = combat.cheese_throw_charges + 1
 		reloaded = true
 
 

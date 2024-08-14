@@ -1,11 +1,17 @@
-res://Player/HumanoidModel/HumanoidModel.tscn
-res://Enemies/GundyrHFSM/SerialAttack.gd
-res://Assets/Textures/fancy floor/floor.tres
 res://Locations/ProtoLevel.tscn
+res://Enemies/GundyrHFSM/SerialAttack.gd
+res://Assets/Ready Animations/mixamo_torso_animations/torso_controller_lib.res
+res://Assets/Ready Animations/mixamo_legs_animations/legs_controller_lib.res
+res://Assets/Textures/fancy floor/floor.tres
+res://Player/HumanoidModel/Combat.gd
 res://Player/Player.tscn
+res://Player/HumanoidModel/HumanoidModel.tscn
 res://Player/Visuals/PlayerVisuals.tscn
 res://Player/Spells/ShieldShot.tscn
-res://Player/HumanoidModel/Combat.gd
+res://Enemies/MobFSM/MobFSM.tscn
+res://Player/Input/Input.gd
 res://Player/Moves/ShieldShot.gd
 res://Player/Moves/ShieldShotReload.gd
-res://Enemies/MobFSM/MobFSM.tscn
+res://Player/Spells/CheesThrow.gd
+res://Player/Spells/CheesThrow.tscn
+res://Player/Moves/CheesThrow.gd

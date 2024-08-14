@@ -11,14 +11,14 @@ func update(_input : InputPackage, _delta : float):
 
 
 func spawn_spell():
-	var new_shield_shot : ShieldShot = spell.instantiate()
+	var new_shield_shot : CheesThrow = spell.instantiate()
 	new_shield_shot.caster = humanoid
 	new_shield_shot.add_to_group("players_spell")
 	add_child(new_shield_shot)
 	new_shield_shot.global_position = left_wrist.global_position
 	new_shield_shot.set_direction(humanoid.basis.z)
 	casted = true
-	combat.shield_shot_charges = combat.shield_shot_charges - 1
+	combat.cheese_throw_charges = combat.cheese_throw_charges - 1
 	#print(combat.shield_shot_charges)
 
 

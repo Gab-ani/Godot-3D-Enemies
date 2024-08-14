@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0dnm0bpjbeuc"]
 
-[ext_resource type="Script" path="res://Player/Spells/ShieldShot.gd" id="1_og8i8"]
+[ext_resource type="Script" path="res://Player/Spells/CheesThrow.gd" id="1_ab410"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aei0g"]
 albedo_color = Color(1, 0.392157, 0, 1)
@@ -18,7 +18,7 @@ height = 0.3
 top_level = true
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("1_og8i8")
+script = ExtResource("1_ab410")
 
 [node name="Visuals" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_aei0g")

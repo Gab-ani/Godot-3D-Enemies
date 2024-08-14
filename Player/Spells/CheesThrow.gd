@@ -1,5 +1,5 @@
 extends Spell
-class_name ShieldShot
+class_name CheesThrow
 
 
 @export var speed : float = 20

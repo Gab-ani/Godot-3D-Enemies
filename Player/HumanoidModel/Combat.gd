@@ -4,8 +4,8 @@ class_name HumanoidCombat
 @onready var model = $".." as PlayerModel
 
 @export_group("spellbook")
-@export var shield_shot_charges : int = 1
-@export var max_shield_shot_charges : int = 1
+@export var cheese_throw_charges : int = 1
+@export var max_cheese_throw_charges : int = 1
 
 
 static var inputs_priority : Dictionary = {
@@ -41,10 +41,10 @@ func filter_with_resources(input : InputPackage):
 # Generally, of course spellbook must be a separate layer, and combat must filter the inputs using
 # delegate calls to spellbook logic.
 func TEMP_actualise_shieldshot(new_input : InputPackage):
-	if shield_shot_charges < 1:
-		new_input.actions.erase("shield_shot")
-	if shield_shot_charges == max_shield_shot_charges:
-		new_input.actions.erase("shield_shot_reload")
+	if cheese_throw_charges < 1:
+		new_input.actions.erase("cheese_throw")
+	if cheese_throw_charges == max_cheese_throw_charges:
+		new_input.actions.erase("cheese_throw_reload")
 
 
 static func combat_action_priority_sort(a : String, b : String):

@@ -24,11 +24,11 @@ func gather_input() -> InputPackage:
 	if Input.is_action_pressed("block"):
 		new_input.actions.append("block")
 	
-	if Input.is_action_pressed("shield_shot"):
-		new_input.actions.append("shield_shot")
+	if Input.is_action_pressed("cheese_throw"):
+		new_input.actions.append("cheese_throw")
 	
-	if Input.is_action_pressed("shield_shot_reload"):
-		new_input.actions.append("shield_shot_reload")
+	if Input.is_action_pressed("cheese_throw_reload"):
+		new_input.actions.append("cheese_throw_reload")
 	
 	if Input.is_action_pressed("jump"):
 		if new_input.actions.has("sprint"):
