@@ -35,6 +35,7 @@ func on_area_contact(area : Node3D):
 
 
 func on_body_contact(body : PhysicsBody3D):
+	#print(body.name)
 	if is_eligible_attacking_spell(body):
 		body.hitbox_ignore_list.append(self)
 		processor.current_move.react_on_spell(body.get_hit_data())
@@ -48,7 +49,7 @@ func is_eligible_attacking_weapon(area : Node3D) -> bool:
 
 func is_eligible_attacking_spell(body : PhysicsBody3D) -> bool:
 	if body is Spell and is_not_ignored(body) and not body.hitbox_ignore_list.has(self):
-		print("eligible spell " + body.name)
+		#print("eligible spell " + body.name)
 		return true
 	return false
 

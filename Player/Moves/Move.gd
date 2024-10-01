@@ -26,6 +26,8 @@ var left_wrist : BoneAttachment3D
 @onready var combos : Array[Combo] 
 
 var enter_state_time : float
+var initial_position : Vector3
+var frame_length = 0.016
 
 var has_queued_move : bool = false
 var queued_move : String = "nonexistent queued move, drop error please"
@@ -119,8 +121,36 @@ func accepts_queueing() -> bool:
 func tracks_input_vector() -> bool:
 	return moves_data_repo.tracks_input_vector(backend_animation, get_progress())
 
-func accepts_tracking_direction() -> bool:
-	return moves_data_repo.accepts_tracking_direction(backend_animation, get_progress())
+# works, algorithm is correct, but stuns the game, need some other approach(
+#func get_guaranteed_positions_list() -> Array[Array]:
+	#var positions : Array[Array] = []
+	#
+	#if tracks_input_vector():
+		#return positions
+	#
+	#var delta_positions = get_guaranteed_movements()
+	#for i in delta_positions.size():
+		#var future_time = delta_positions[i][0]
+		#var future_pos = humanoid.global_position + delta_positions[i][1]
+		#positions.append([future_time, future_pos])
+	#
+	#return positions
+#
+#func get_guaranteed_movements():
+	#var delta_movements = []
+	#var i : int = 0
+	##print(moves_data_repo.tracks_input_vector(backend_animation, get_progress() + frame_length * i))
+	#while not moves_data_repo.tracks_input_vector(backend_animation, get_progress() + frame_length * i):
+		#var d_t = frame_length * i
+		#var d_pos = moves_data_repo.get_root_delta_pos(backend_animation, get_progress() + d_t, d_t)
+		#delta_movements.append([Time.get_unix_time_from_system() + d_t, d_pos])
+		#i += 1
+	#return delta_movements
+
+func time_til_unlocking() -> float:
+	if tracks_input_vector():
+		return 0
+	return moves_data_repo.time_til_next_controllable_frame(backend_animation, get_progress())
 
 func is_vulnerable() -> bool:
 	return moves_data_repo.get_vulnerable(backend_animation, get_progress())
@@ -145,6 +175,9 @@ func default_lifecycle(input : InputPackage):
 
 
 func _on_enter_state():
+	initial_position = humanoid.global_position
+	resources.pay_resource_cost(self)
+	mark_enter_state()
 	on_enter_state()
 	animator.update_body_animations()
 
@@ -170,6 +203,8 @@ func form_hit_data(_weapon : Weapon) -> HitData:
 
 
 func react_on_hit(hit : HitData):
+	if not is_vulnerable():
+		print("hit is here, but still the roll")
 	if is_vulnerable():
 		resources.lose_health(hit.damage)
 	if is_interruptable():
@@ -179,7 +214,6 @@ func react_on_hit(hit : HitData):
 			try_force_move("pushback")
 		else:
 			try_force_move("staggered")
-	hit.queue_free()
 
 
 func react_on_spell(spell_hit : SpellHitData):
@@ -187,7 +221,7 @@ func react_on_spell(spell_hit : SpellHitData):
 		resources.lose_health(spell_hit.damage)
 	if is_interruptable():
 		try_force_move("staggered")
-	spell_hit.queue_free()
+	#spell_hit.queue_free()
 	spell_hit.spell.target_contacted(humanoid)
 
 

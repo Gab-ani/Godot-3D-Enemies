@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bggf4lmwt6vfq"]
+
+[ext_resource type="Script" path="res://Enemies/Opponent/OpponentWeapon.gd" id="1_6whoi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gam6w"]
+radius = 0.2
+height = 1.5
+
+[node name="OppSword" type="Area3D"]
+script = ExtResource("1_6whoi")
+
+[node name="Handle" type="CSGBox3D" parent="."]
+size = Vector3(0.05, 0.2, 0.05)
+
+[node name="HitZone" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.560329, 0)
+shape = SubResource("CapsuleShape3D_gam6w")

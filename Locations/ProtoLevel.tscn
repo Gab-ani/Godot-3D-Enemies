@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6h2mf8m3b8iu"]
 
 [ext_resource type="PackedScene" uid="uid://drjqcoul7pinv" path="res://Player/Player.tscn" id="1_86wwi"]
-[ext_resource type="PackedScene" uid="uid://cpr2otl56mflk" path="res://Enemies/MobFSM/MobFSM.tscn" id="1_ce62o"]
+[ext_resource type="PackedScene" uid="uid://dm3t5ale8pmho" path="res://Enemies/Opponent/Opponent.tscn" id="3_ma22g"]
 [ext_resource type="Material" uid="uid://b6wap3pqq4p8x" path="res://Assets/Textures/fancy floor/floor.tres" id="3_qhada"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jw8o1"]
@@ -26,10 +26,6 @@ top_radius = 30.0
 bottom_radius = 30.0
 
 [node name="ProtoLevel" type="Node3D"]
-
-[node name="Mob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_ce62o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.14991, -0.5, 0.749156)
-player = NodePath("../Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -57,3 +53,7 @@ material_override = ExtResource("3_qhada")
 use_collision = true
 collision_layer = 3
 mesh = SubResource("CylinderMesh_lahs1")
+
+[node name="Opponent" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_ma22g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48921, -0.5, -1.14818)
+player = NodePath("../Player")

@@ -1,9 +1,20 @@
 extends Move
+class_name AttackMove
+
 
 
 @export var RELEASES_PRIORITY : float
 
-var hit_damage = 50 # will be a function of player stats in the future
+@export_group("enemy communication")
+# in reality is a dynamic parameter, but for now I just return the maximum attacking radius
+# when looking forward, ie root bone Z delta 
+# plus the length of the weapon in "the extremum pose"
+# (eye-measured in animator's interface)
+@export var attack_radius : float 
+@export var extremum_timing : float
+@export var posttracking_radius : float
+
+var hit_damage = 20 # will be a function of player stats in the future
 
 # this strange construction is here because our animation asset has a long tail transitioning to idle,
 # think of it as of "custom perfect blending" to idle
@@ -44,3 +55,6 @@ func form_hit_data(weapon : Weapon) -> HitData:
 func on_exit_state():
 	humanoid.model.active_weapon.hitbox_ignore_list.clear()
 	humanoid.model.active_weapon.is_attacking = false
+
+func time_til_priority_release() -> float:
+	return RELEASES_PRIORITY - get_progress()

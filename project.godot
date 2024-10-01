@@ -15,10 +15,6 @@ run/main_scene="res://Locations/ProtoLevel.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/mode=3
-
 [editor]
 
 script/templates_search_path="res://Assets/Templates"

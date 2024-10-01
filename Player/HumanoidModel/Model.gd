@@ -47,5 +47,3 @@ func switch_to(state : String):
 	current_move._on_exit_state()
 	current_move = moves_container.moves[state]
 	current_move._on_enter_state()
-	current_move.mark_enter_state()
-	resources.pay_resource_cost(current_move)
