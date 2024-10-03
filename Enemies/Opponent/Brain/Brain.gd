@@ -25,7 +25,6 @@ func get_most_intended_behaviour() -> String:
 			return reaction.behaviour_name
 	return most_intended_proaction()
 
-
 func most_intended_proaction() -> String:
 	brain_debug_panel.text = ""                 # <-----DEV-----
 	var current_best_choice = default_proaction # which is set to Idle, i.e. do nothing

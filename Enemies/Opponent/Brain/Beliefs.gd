@@ -147,7 +147,7 @@ func players_roll_end_is_attackable() -> bool:
 
 func player_position_position_after(time : float) -> Vector3:
 	var future_pos = player.get_current_move_position_after(time)
-	$"../debug_sphere".global_position = future_pos
+	#$"../debug_sphere".global_position = future_pos
 	return future_pos
 
 func player_attack_is_punishable() -> bool:

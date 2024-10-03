@@ -7,3 +7,6 @@ res://Player/Player.tscn
 res://Player/HumanoidModel/HumanoidModel.tscn
 res://Enemies/Opponent/Behaviours/GuaranteedStrike.gd
 res://Enemies/Opponent/Brain/Brain.gd
+res://Enemies/Opponent/Behaviours/Block.gd
+res://Enemies/Opponent/Brain/Beliefs.gd
+res://Enemies/Opponent/Brain/ReactionIntentions/GuaranteedStrike.gd

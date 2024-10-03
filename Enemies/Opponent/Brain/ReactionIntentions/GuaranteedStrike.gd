@@ -2,8 +2,8 @@ extends OpponentReactionIntention
 
 
 func is_triggered() -> bool:
-	if can_roll_punish():
-		print("can roll punish")
+	#if can_roll_punish():
+		#print("can roll punish")
 	return (can_roll_punish() or can_strike_punish()) and beliefs.have_stamina_for_strike()
 
 # if player is rolling

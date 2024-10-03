@@ -11,6 +11,8 @@ extends OpponentBehaviour
 # This approach seems to be a complete overkill for a behaviour with consistent
 # three-step plan, but I think it's important to document it, because we can have much
 # broader behaviours in theory, and one day if-spam just won't cut it. 
+
+# TODO test and benchmark to decide between instantiation and having in memory
 class BlockSubbehaviour :
 	var block_behaviour : OpponentBehaviour
 	
