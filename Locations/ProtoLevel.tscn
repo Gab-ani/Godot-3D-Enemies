@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drjqcoul7pinv" path="res://Player/Player.tscn" id="1_86wwi"]
 [ext_resource type="Script" path="res://Locations/ProtoLevel.gd" id="1_qmiuj"]
-[ext_resource type="PackedScene" uid="uid://cpr2otl56mflk" path="res://Enemies/MobFSM/MobFSM.tscn" id="3_cpjya"]
+[ext_resource type="PackedScene" uid="uid://dm3t5ale8pmho" path="res://Enemies/Opponent/Opponent.tscn" id="3_ma22g"]
 [ext_resource type="Material" uid="uid://b6wap3pqq4p8x" path="res://Assets/Textures/fancy floor/floor.tres" id="3_qhada"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jw8o1"]
@@ -56,6 +56,6 @@ use_collision = true
 collision_layer = 3
 mesh = SubResource("CylinderMesh_lahs1")
 
-[node name="Mob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_cpjya")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.62239, -0.500001, 3.54115)
+[node name="Opponent" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_ma22g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0352197, -0.500001, 0.233718)
 player = NodePath("../Player")
