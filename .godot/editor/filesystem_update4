@@ -10,3 +10,8 @@ res://Enemies/Opponent/Brain/Brain.gd
 res://Enemies/Opponent/Behaviours/Block.gd
 res://Enemies/Opponent/Brain/Beliefs.gd
 res://Enemies/Opponent/Brain/ReactionIntentions/GuaranteedStrike.gd
+res://Enemies/MobFSM/MobFSM.gd
+res://Locations/ProtoLevel.gd
+res://Enemies/MobFSM/MobFSM.tscn
+res://Enemies/MobFSM/Idle.gd
+res://Enemies/MobFSM/MobStateMachine.gd

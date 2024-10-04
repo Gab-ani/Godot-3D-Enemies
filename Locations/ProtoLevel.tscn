@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6h2mf8m3b8iu"]
+[gd_scene load_steps=10 format=3 uid="uid://b6h2mf8m3b8iu"]
 
 [ext_resource type="PackedScene" uid="uid://drjqcoul7pinv" path="res://Player/Player.tscn" id="1_86wwi"]
-[ext_resource type="PackedScene" uid="uid://dm3t5ale8pmho" path="res://Enemies/Opponent/Opponent.tscn" id="3_ma22g"]
+[ext_resource type="Script" path="res://Locations/ProtoLevel.gd" id="1_qmiuj"]
+[ext_resource type="PackedScene" uid="uid://cpr2otl56mflk" path="res://Enemies/MobFSM/MobFSM.tscn" id="3_cpjya"]
 [ext_resource type="Material" uid="uid://b6wap3pqq4p8x" path="res://Assets/Textures/fancy floor/floor.tres" id="3_qhada"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jw8o1"]
@@ -26,6 +27,7 @@ top_radius = 30.0
 bottom_radius = 30.0
 
 [node name="ProtoLevel" type="Node3D"]
+script = ExtResource("1_qmiuj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -36,7 +38,7 @@ shadow_enabled = true
 environment = SubResource("Environment_8ihuv")
 
 [node name="Player" parent="." instance=ExtResource("1_86wwi")]
-transform = Transform3D(0.534544, 0, 0.845141, 0, 1, 0, -0.845141, 0, 0.534544, -1.27882, -0.5, -2.60028)
+transform = Transform3D(0.534544, 0, 0.845141, 0, 1, 0, -0.845141, 0, 0.534544, -7.9867, -0.5, -2.60028)
 
 [node name="player_debug_sphere" type="CSGSphere3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974622, 0)
@@ -54,6 +56,6 @@ use_collision = true
 collision_layer = 3
 mesh = SubResource("CylinderMesh_lahs1")
 
-[node name="Opponent" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_ma22g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48921, -0.5, -1.14818)
+[node name="Mob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_cpjya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.62239, -0.500001, 3.54115)
 player = NodePath("../Player")

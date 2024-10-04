@@ -1,3 +1,4 @@
+res://Locations
 res://Enemies/Opponent/Behaviours
 res://Enemies/Opponent/Brain/ProactiveIntention
 res://Enemies/Opponent/Actions
@@ -19,4 +20,3 @@ res://Assets/Ready Animations/Gundyr/moving
 res://Assets/Ready Animations/Gundyr
 res://Enemies/GundyrHFSM
 res://Assets/Ready Animations/Gundyr/backend
-res://Assets/Ready Animations/Gundyr/rooted

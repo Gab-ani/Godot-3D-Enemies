@@ -38,6 +38,11 @@ func accept_states():
 			child.animator = animation_player
 			child.character = character
 			child.player = character.player
-			child.spawn_point = character.spawn_point
 			child.right_weapon = right_weapon
 			child.resources = resources
+
+
+func accept_spawn_point():
+	for child in get_children():
+		if child is AIMove:
+			child.spawn_point = character.spawn_point

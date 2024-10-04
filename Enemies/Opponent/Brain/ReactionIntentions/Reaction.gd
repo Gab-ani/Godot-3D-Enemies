@@ -22,7 +22,6 @@ func can_pay_competence_cost() -> bool:
 	return beliefs.character_resources.competence > competence_cost
 
 func didnt_fail() -> bool:
-	print(behaviour_name + " " + str(brainfart_counter))
 	if brainfart_counter > 0:
 		brainfart_counter -= 1
 		return false

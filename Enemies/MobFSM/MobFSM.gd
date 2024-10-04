@@ -12,5 +12,6 @@ extends CharacterBody3D
 var spawn_point : Vector3
 
 
-func _ready():
+func accept_spawn_point():
 	spawn_point = global_position
+	$StateMachine.accept_spawn_point()
