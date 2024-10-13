@@ -20,9 +20,9 @@ func gather_input() -> InputPackage:
 	
 	if Input.is_action_pressed("roll"):
 		new_input.actions.append("roll")
-	
-	if Input.is_action_pressed("block"):
-		new_input.actions.append("block")
+	#
+	#if Input.is_action_pressed("block"):
+		#new_input.actions.append("block")
 	
 	if Input.is_action_pressed("cheese_throw"):
 		new_input.actions.append("cheese_throw")
@@ -38,8 +38,8 @@ func gather_input() -> InputPackage:
 	
 	if Input.is_action_just_pressed("light_attack"):
 		new_input.combat_actions.append("light_attack_pressed")
-	#if Input.is_action_just_pressed("heavy_attack"):
-		#new_input.combat_actions.append("heavy_attack_pressed")
+	if Input.is_action_just_pressed("heavy_attack"):
+		new_input.combat_actions.append("heavy_attack_pressed")
 	
 	#print(new_input.input_direction)
 	return new_input

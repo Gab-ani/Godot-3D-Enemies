@@ -1,10 +1,11 @@
-[gd_scene load_steps=88 format=3 uid="uid://eec5ujuowf51"]
+[gd_scene load_steps=90 format=3 uid="uid://eec5ujuowf51"]
 
 [ext_resource type="Script" path="res://Player/HumanoidModel/Model.gd" id="1_mokw1"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/DEV_ROOTFORGE.gd" id="2_uavh5"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/Resources.gd" id="2_v2u5j"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/Combat.gd" id="2_vd0q8"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/AreaAwareness.gd" id="5_mjhxp"]
+[ext_resource type="Script" path="res://Player/HumanoidModel/FreeFlowCombat.gd" id="6_4f0n5"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/Legs.gd" id="6_rt6e3"]
 [ext_resource type="Script" path="res://Player/Moves/Legs/WalkableGesture.gd" id="7_7ctd3"]
 [ext_resource type="Script" path="res://Player/Moves/Legs/AmmunitionManagement.gd" id="7_o3ewm"]
@@ -19,6 +20,7 @@
 [ext_resource type="Script" path="res://Player/Moves/TorsoMove.gd" id="25_5twrp"]
 [ext_resource type="PackedScene" uid="uid://chjl1d5amktti" path="res://Player/HumanoidModel/Hurtbox.tscn" id="30_fw617"]
 [ext_resource type="PackedScene" uid="uid://cvubc08qnq2y" path="res://Player/HumanoidModel/HumanoidStates.tscn" id="30_xkqvj"]
+[ext_resource type="PackedScene" uid="uid://dbxlcaerwq186" path="res://Player/Moves/FFAttack.tscn" id="31_jqukw"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/MovesData.gd" id="31_l4eyu"]
 [ext_resource type="Script" path="res://Player/HumanoidModel/MovesDataStorage.gd" id="32_yw3h7"]
 [ext_resource type="Script" path="res://Player/Moves/CheesThrow.gd" id="33_3s7al"]
@@ -55,6 +57,58 @@ albedo_color = Color(0, 0.639216, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsr0n"]
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_0wjol"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftIndexDistal", "%GeneralSkeleton:LeftIndexIntermediate", "%GeneralSkeleton:LeftIndexProximal", "%GeneralSkeleton:LeftLittleDistal", "%GeneralSkeleton:LeftLittleIntermediate", "%GeneralSkeleton:LeftLittleProximal", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftMiddleDistal", "%GeneralSkeleton:LeftMiddleIntermediate", "%GeneralSkeleton:LeftMiddleProximal", "%GeneralSkeleton:LeftRingDistal", "%GeneralSkeleton:LeftRingIntermediate", "%GeneralSkeleton:LeftRingProximal", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftThumbDistal", "%GeneralSkeleton:LeftThumbMetacarpal", "%GeneralSkeleton:LeftThumbProximal", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightIndexDistal", "%GeneralSkeleton:RightIndexIntermediate", "%GeneralSkeleton:RightIndexProximal", "%GeneralSkeleton:RightLittleDistal", "%GeneralSkeleton:RightLittleIntermediate", "%GeneralSkeleton:RightLittleProximal", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightMiddleDistal", "%GeneralSkeleton:RightMiddleIntermediate", "%GeneralSkeleton:RightMiddleProximal", "%GeneralSkeleton:RightRingDistal", "%GeneralSkeleton:RightRingIntermediate", "%GeneralSkeleton:RightRingProximal", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightThumbDistal", "%GeneralSkeleton:RightThumbMetacarpal", "%GeneralSkeleton:RightThumbProximal", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", "%GeneralSkeleton:UpperChest", "%GeneralSkeleton:mixamorig_HeadTop_End", "%GeneralSkeleton:mixamorig_LeftHandIndex1", "%GeneralSkeleton:mixamorig_LeftHandMiddle1", "%GeneralSkeleton:mixamorig_LeftHandPinky1", "%GeneralSkeleton:mixamorig_LeftHandRing1", "%GeneralSkeleton:mixamorig_LeftHandThumb1", "%GeneralSkeleton:mixamorig_RightHandIndex1", "%GeneralSkeleton:mixamorig_RightHandMiddle1", "%GeneralSkeleton:mixamorig_RightHandPinky1", "%GeneralSkeleton:mixamorig_RightHandRing1", "%GeneralSkeleton:mixamorig_RightHandThumb1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l2dlw"]
+animation = &"idle_longsword"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tnvjr"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_nid50"]
+xfade_time = 0.15
+input_0/name = "Legs1"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "Legs2"
+input_1/auto_advance = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cirkj"]
+animation = &"withdraw"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nb8c0"]
+animation = &"idle_longsword"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_kya4w"]
+xfade_time = 0.15
+input_0/name = "Torso1"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "Torso2"
+input_1/auto_advance = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tydsu"]
+nodes/BodyBlend/node = SubResource("AnimationNodeBlend2_0wjol")
+nodes/BodyBlend/position = Vector2(960, 360)
+nodes/Legs1/node = SubResource("AnimationNodeAnimation_l2dlw")
+nodes/Legs1/position = Vector2(460, 220)
+nodes/Legs2/node = SubResource("AnimationNodeAnimation_tnvjr")
+nodes/Legs2/position = Vector2(500, 360)
+nodes/LegsTransition/node = SubResource("AnimationNodeTransition_nid50")
+nodes/LegsTransition/position = Vector2(720, 260)
+nodes/Torso1/node = SubResource("AnimationNodeAnimation_cirkj")
+nodes/Torso1/position = Vector2(520, 500)
+nodes/Torso2/node = SubResource("AnimationNodeAnimation_nb8c0")
+nodes/Torso2/position = Vector2(480, 640)
+nodes/TorsoTransition/node = SubResource("AnimationNodeTransition_kya4w")
+nodes/TorsoTransition/position = Vector2(720, 520)
+nodes/output/position = Vector2(1180, 420)
+node_connections = [&"BodyBlend", 0, &"LegsTransition", &"BodyBlend", 1, &"TorsoTransition", &"LegsTransition", 0, &"Legs1", &"LegsTransition", 1, &"Legs2", &"TorsoTransition", 0, &"Torso1", &"TorsoTransition", 1, &"Torso2", &"output", 0, &"BodyBlend"]
 
 [sub_resource type="Animation" id="Animation_2o315"]
 resource_name = "block_params"
@@ -550,107 +604,119 @@ length = 2.6333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MoveDatabase:is_parryable")
+tracks/0/path = NodePath("MoveDatabase:root_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoveDatabase:is_interruptable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoveDatabase:is_grabable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MoveDatabase:root_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1, 1.03333, 1.06667, 1.1, 1.13333, 1.16667, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.6, 1.63333, 1.66667, 1.70434, 1.73333, 1.76667, 1.8, 1.86667, 1.9, 1.93333, 1.96667, 2, 2.03333, 2.06667, 2.1, 2.13333, 2.16667, 2.26667, 2.3, 2.33333, 2.36667, 2.4, 2.43333, 2.46667, 2.5, 2.53333, 2.56667, 2.6, 2.63333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.24634, 0.755841, 0.90908), Vector3(-0.24655, 0.754638, 0.909034), Vector3(-0.246802, 0.753198, 0.909028), Vector3(-0.247142, 0.751255, 0.909079), Vector3(-0.247563, 0.748851, 0.909222), Vector3(-0.248057, 0.746029, 0.909491), Vector3(-0.248616, 0.742831, 0.909921), Vector3(-0.249234, 0.739301, 0.910545), Vector3(-0.249902, 0.73548, 0.911399), Vector3(-0.250614, 0.73141, 0.912517), Vector3(-0.251361, 0.727135, 0.913933), Vector3(-0.252137, 0.722695, 0.915682), Vector3(-0.252933, 0.718133, 0.917798), Vector3(-0.253743, 0.713491, 0.920315), Vector3(-0.25456, 0.708808, 0.923269), Vector3(-0.255375, 0.704127, 0.926693), Vector3(-0.256181, 0.699489, 0.930622), Vector3(-0.256972, 0.694932, 0.935089), Vector3(-0.25774, 0.690499, 0.94013), Vector3(-0.258477, 0.686228, 0.945778), Vector3(-0.259178, 0.68216, 0.952069), Vector3(-0.259834, 0.678333, 0.959035), Vector3(-0.260438, 0.674789, 0.966711), Vector3(-0.260985, 0.671565, 0.975132), Vector3(-0.261467, 0.668701, 0.984331), Vector3(-0.261876, 0.666237, 0.994343), Vector3(-0.262207, 0.66421, 1.0052), Vector3(-0.262452, 0.662662, 1.01694), Vector3(-0.262604, 0.661631, 1.0296), Vector3(-0.262656, 0.661157, 1.0432), Vector3(-0.254139, 0.679481, 1.08335), Vector3(-0.232198, 0.727058, 1.16506), Vector3(-0.202334, 0.792257, 1.27252), Vector3(-0.170109, 0.863425, 1.38957), Vector3(-0.140947, 0.92884, 1.4995), Vector3(-0.119936, 0.976699, 1.58515), Vector3(-0.111869, 0.995137, 1.62918), Vector3(-0.111869, 0.994305, 1.64544), Vector3(-0.111869, 0.992338, 1.65936), Vector3(-0.111869, 0.989356, 1.67113), Vector3(-0.111869, 0.985477, 1.68092), Vector3(-0.111869, 0.98082, 1.68892), Vector3(-0.111869, 0.975502, 1.6953), Vector3(-0.111869, 0.969642, 1.70025), Vector3(-0.111869, 0.963359, 1.70395), Vector3(-0.111869, 0.956772, 1.70657), Vector3(-0.111869, 0.949999, 1.7083), Vector3(-0.111869, 0.943158, 1.70931), Vector3(-0.111869, 0.936367, 1.70979), Vector3(-0.111869, 0.929746, 1.70991), Vector3(-0.111869, 0.923413, 1.70986), Vector3(-0.11146, 0.917554, 1.70954), Vector3(-0.110273, 0.912258, 1.70876), Vector3(-0.105785, 0.90325, 1.70598), Vector3(-0.102589, 0.899483, 1.70403), Vector3(-0.0988267, 0.896171, 1.70176), Vector3(-0.0945474, 0.893288, 1.6992), Vector3(-0.0898015, 0.890806, 1.69638), Vector3(-0.0846399, 0.888699, 1.69334), Vector3(-0.0791159, 0.88694, 1.69012), Vector3(-0.0732849, 0.885501, 1.68675), Vector3(-0.0672054, 0.884358, 1.6833), Vector3(-0.0609397, 0.883482, 1.67979), Vector3(-0.0417078, 0.882198, 1.66938), Vector3(-0.0354, 0.882129, 1.6661), Vector3(-0.029277, 0.882195, 1.66298), Vector3(-0.0234238, 0.882369, 1.66005), Vector3(-0.0179274, 0.882625, 1.65737), Vector3(-0.0128766, 0.882934, 1.65495), Vector3(-0.00836109, 0.883272, 1.65282), Vector3(-0.00447079, 0.883609, 1.65102), Vector3(-0.00129491, 0.883918, 1.64957), Vector3(0.00107848, 0.884173, 1.6485), Vector3(0.00256333, 0.884346, 1.64784), Vector3(0.00307628, 0.884409, 1.64761)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoveDatabase:transitions_to_queued")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.90257),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoveDatabase:accepts_queueing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0998031),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6591, 0.7853),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MoveDatabase:is_parryable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MoveDatabase:is_vulnerable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MoveDatabase:is_interruptable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/8/path = NodePath("MoveDatabase:is_grabable")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.468641, 0.681265),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MoveDatabase:ff_gapcloses")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.796116, 1.37871),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -662,107 +728,119 @@ length = 2.6333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MoveDatabase:is_parryable")
+tracks/0/path = NodePath("MoveDatabase:root_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoveDatabase:is_interruptable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoveDatabase:is_grabable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MoveDatabase:root_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.666667, 0.7, 0.766667, 0.866667, 0.9, 0.933333, 0.966667, 1, 1.03333, 1.06667, 1.1, 1.13333, 1.16667, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.6, 1.63333, 1.66667, 1.7, 1.73333, 1.76667, 1.8, 1.83333, 1.86667, 1.9, 1.93333, 1.96667, 2, 2.03333, 2.06667, 2.1, 2.13333, 2.23333, 2.26667, 2.3, 2.33333, 2.36667, 2.4, 2.43333, 2.46667, 2.5, 2.53333, 2.56667, 2.6, 2.63333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.111869, 0.923413, 1.70986), Vector3(-0.111762, 0.92312, 1.70948), Vector3(-0.111457, 0.922285, 1.70843), Vector3(-0.110985, 0.920975, 1.70678), Vector3(-0.110383, 0.919259, 1.70465), Vector3(-0.109689, 0.917208, 1.70213), Vector3(-0.108943, 0.914894, 1.69932), Vector3(-0.108181, 0.912385, 1.69631), Vector3(-0.107438, 0.909752, 1.69319), Vector3(-0.106745, 0.907064, 1.69006), Vector3(-0.106123, 0.904385, 1.68698), Vector3(-0.105588, 0.901782, 1.68404), Vector3(-0.105146, 0.899314, 1.6813), Vector3(-0.104795, 0.897042, 1.67885), Vector3(-0.104523, 0.89502, 1.67674), Vector3(-0.104311, 0.893302, 1.67504), Vector3(-0.104132, 0.891939, 1.67383), Vector3(-0.103956, 0.890978, 1.67318), Vector3(-0.103476, 0.890447, 1.67382), Vector3(-0.103257, 0.890746, 1.67475), Vector3(-0.10324, 0.891529, 1.67598), Vector3(-0.103476, 0.892258, 1.67656), Vector3(-0.103463, 0.890119, 1.68426), Vector3(-0.103422, 0.884238, 1.70593), Vector3(-0.103349, 0.875488, 1.73943), Vector3(-0.103238, 0.864786, 1.78263), Vector3(-0.103096, 0.853025, 1.83346), Vector3(-0.102936, 0.841021, 1.88987), Vector3(-0.102786, 0.829474, 1.94987), Vector3(-0.102677, 0.818942, 2.01147), Vector3(-0.102637, 0.809845, 2.07266), Vector3(-0.102689, 0.802483, 2.13135), Vector3(-0.102845, 0.797075, 2.18538), Vector3(-0.103108, 0.793804, 2.23253), Vector3(-0.103476, 0.792865, 2.27056), Vector3(-0.103865, 0.794256, 2.30085), Vector3(-0.104194, 0.79758, 2.32652), Vector3(-0.104469, 0.802487, 2.34795), Vector3(-0.104694, 0.808625, 2.36553), Vector3(-0.104874, 0.815645, 2.37964), Vector3(-0.105014, 0.823198, 2.39066), Vector3(-0.105119, 0.830937, 2.39896), Vector3(-0.105195, 0.838513, 2.40494), Vector3(-0.105246, 0.84558, 2.40897), Vector3(-0.105276, 0.851791, 2.41144), Vector3(-0.105292, 0.856799, 2.41274), Vector3(-0.105298, 0.860257, 2.41323), Vector3(-0.105299, 0.86182, 2.41332), Vector3(-0.104841, 0.862359, 2.41211), Vector3(-0.103516, 0.862971, 2.40859), Vector3(-0.101394, 0.863651, 2.40294), Vector3(-0.0985478, 0.864392, 2.39537), Vector3(-0.0950515, 0.86519, 2.38605), Vector3(-0.0909786, 0.86604, 2.37518), Vector3(-0.0864035, 0.866939, 2.36295), Vector3(-0.0814007, 0.867882, 2.34954), Vector3(-0.0760445, 0.868865, 2.33515), Vector3(-0.070409, 0.869884, 2.31996), Vector3(-0.0645672, 0.870935, 2.30415), Vector3(-0.0585913, 0.872012, 2.28791), Vector3(-0.040559, 0.87534, 2.23842), Vector3(-0.0347378, 0.876453, 2.22226), Vector3(-0.0291187, 0.877552, 2.20656), Vector3(-0.0237633, 0.878623, 2.19151), Vector3(-0.0187313, 0.879653, 2.17728), Vector3(-0.0140808, 0.880626, 2.16404), Vector3(-0.00986854, 0.881527, 2.15199), Vector3(-0.00615053, 0.882337, 2.14129), Vector3(-0.00298215, 0.883039, 2.13213), Vector3(-0.000418829, 0.883614, 2.12469), Vector3(0.00148356, 0.884046, 2.11915), Vector3(0.00266807, 0.884316, 2.11569), Vector3(0.00307628, 0.884409, 2.1145)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoveDatabase:transitions_to_queued")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.05641),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoveDatabase:accepts_queueing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0998031),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6591, 0.7853),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MoveDatabase:is_parryable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MoveDatabase:is_vulnerable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MoveDatabase:is_interruptable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/8/path = NodePath("MoveDatabase:is_grabable")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.468641, 0.681265),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MoveDatabase:ff_gapcloses")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.930327, 1.35736),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -874,7 +952,19 @@ tracks/8/path = NodePath("MoveDatabase:tracks_input_vector")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.468641, 0.681265),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MoveDatabase:ff_gapcloses")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.613101, 1.04929),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -886,107 +976,119 @@ length = 2.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MoveDatabase:is_parryable")
+tracks/0/path = NodePath("MoveDatabase:root_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoveDatabase:is_interruptable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoveDatabase:is_grabable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MoveDatabase:root_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.2, 0.233333, 0.266667, 0.3, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.9, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.6, 1.63333, 1.66667, 1.8, 1.83333, 1.86667, 1.9, 1.93333, 1.96667, 2, 2.03333, 2.06667, 2.1, 2.13333, 2.16667, 2.2, 2.23333, 2.26667, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.16515, 0.781398, 1.02819), Vector3(-0.16515, 0.781398, 1.02819), Vector3(-0.164899, 0.781568, 1.0292), Vector3(-0.164237, 0.782016, 1.03187), Vector3(-0.163301, 0.782649, 1.03565), Vector3(-0.161149, 0.784101, 1.04429), Vector3(-0.160209, 0.784735, 1.04806), Vector3(-0.159543, 0.785183, 1.05073), Vector3(-0.159291, 0.785353, 1.05174), Vector3(-0.159291, 0.785353, 1.05174), Vector3(-0.158827, 0.785757, 1.08293), Vector3(-0.157392, 0.786841, 1.16653), Vector3(-0.154832, 0.788397, 1.28769), Vector3(-0.151115, 0.790184, 1.43173), Vector3(-0.146537, 0.791946, 1.58394), Vector3(-0.141734, 0.793471, 1.72943), Vector3(-0.137478, 0.794618, 1.85287), Vector3(-0.134422, 0.795309, 1.93863), Vector3(-0.133005, 0.795488, 1.9709), Vector3(-0.13204, 0.795309, 1.97147), Vector3(-0.131207, 0.795595, 1.97202), Vector3(-0.130147, 0.796258, 1.97252), Vector3(-0.128466, 0.797336, 1.97327), Vector3(-0.126204, 0.7988, 1.97426), Vector3(-0.123404, 0.800622, 1.97548), Vector3(-0.120105, 0.802775, 1.9769), Vector3(-0.116352, 0.80523, 1.9785), Vector3(-0.112186, 0.807958, 1.98027), Vector3(-0.107649, 0.810932, 1.98219), Vector3(-0.102785, 0.814124, 1.98423), Vector3(-0.0976367, 0.817506, 1.98639), Vector3(-0.0922468, 0.821049, 1.98864), Vector3(-0.0866586, 0.824727, 1.99096), Vector3(-0.0809152, 0.82851, 1.99334), Vector3(-0.0750598, 0.832372, 1.99576), Vector3(-0.0513687, 0.848046, 2.00551), Vector3(-0.0455884, 0.851883, 2.00788), Vector3(-0.0399474, 0.855634, 2.01019), Vector3(-0.0344857, 0.85927, 2.01244), Vector3(-0.0292432, 0.862765, 2.01459), Vector3(-0.0242587, 0.866092, 2.01664), Vector3(-0.0195707, 0.869225, 2.01857), Vector3(-0.0152174, 0.872138, 2.02037), Vector3(-0.0112363, 0.874804, 2.02202), Vector3(-0.00766484, 0.877198, 2.0235), Vector3(-0.0045402, 0.879294, 2.0248), Vector3(-0.00189945, 0.881067, 2.0259), Vector3(0.000220158, 0.88249, 2.02678), Vector3(0.00178128, 0.883539, 2.02744), Vector3(0.00274605, 0.884187, 2.02784), Vector3(0.00307629, 0.884409, 2.02798)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoveDatabase:transitions_to_queued")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.11519),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoveDatabase:accepts_queueing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0954638),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6591, 0.7853),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MoveDatabase:is_parryable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MoveDatabase:is_vulnerable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MoveDatabase:is_interruptable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/8/path = NodePath("MoveDatabase:is_grabable")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.490337, 0.616176),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MoveDatabase:ff_gapcloses")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.576498, 0.866272),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -998,107 +1100,119 @@ length = 2.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MoveDatabase:is_parryable")
+tracks/0/path = NodePath("MoveDatabase:root_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoveDatabase:is_interruptable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoveDatabase:is_grabable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MoveDatabase:root_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 1, 1.03333, 1.06667, 1.1, 1.13333, 1.16667, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.73333, 1.76667, 1.8, 1.83333, 1.86667, 1.9, 1.93333, 1.96667, 2, 2.03333, 2.06667, 2.1, 2.13333, 2.16667, 2.2, 2.23333, 2.26667, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.131604, 0.795375, 1.9718), Vector3(-0.131604, 0.795375, 1.9718), Vector3(-0.13033, 0.793366, 2.05879), Vector3(-0.128015, 0.787619, 2.27159), Vector3(-0.124964, 0.778443, 2.53718), Vector3(-0.120647, 0.767537, 2.7781), Vector3(-0.118229, 0.75762, 2.91415), Vector3(-0.118367, 0.749173, 2.96046), Vector3(-0.118486, 0.741516, 2.9883), Vector3(-0.118577, 0.735275, 3.00238), Vector3(-0.118634, 0.731073, 3.00739), Vector3(-0.118655, 0.729533, 3.00801), Vector3(-0.118655, 0.729533, 3.00801), Vector3(-0.118439, 0.729835, 3.00956), Vector3(-0.117808, 0.730718, 3.01409), Vector3(-0.116782, 0.732152, 3.02145), Vector3(-0.115381, 0.734106, 3.03148), Vector3(-0.113624, 0.736547, 3.044), Vector3(-0.111531, 0.739444, 3.05888), Vector3(-0.10912, 0.742766, 3.07593), Vector3(-0.106409, 0.746482, 3.095), Vector3(-0.103418, 0.750559, 3.11594), Vector3(-0.100166, 0.754966, 3.13858), Vector3(-0.0966706, 0.759672, 3.16276), Vector3(-0.092952, 0.764644, 3.18832), Vector3(-0.0890303, 0.769852, 3.21511), Vector3(-0.0849262, 0.775262, 3.24296), Vector3(-0.0806609, 0.780845, 3.27172), Vector3(-0.0762569, 0.786566, 3.30123), Vector3(-0.0717371, 0.792396, 3.33132), Vector3(-0.0482659, 0.82205, 3.48504), Vector3(-0.0435806, 0.827861, 3.5153), Vector3(-0.0389623, 0.833559, 3.54502), Vector3(-0.0344392, 0.839112, 3.57405), Vector3(-0.0300399, 0.844489, 3.6022), Vector3(-0.0257929, 0.849659, 3.62932), Vector3(-0.021727, 0.854592, 3.65524), Vector3(-0.0178706, 0.859257, 3.67979), Vector3(-0.014252, 0.863622, 3.70281), Vector3(-0.0108993, 0.867658, 3.72412), Vector3(-0.00784031, 0.871334, 3.74356), Vector3(-0.00510251, 0.874619, 3.76095), Vector3(-0.00271304, 0.877482, 3.77613), Vector3(-0.000698822, 0.879894, 3.78893), Vector3(0.000913552, 0.881823, 3.79917), Vector3(0.00209767, 0.88324, 3.8067), Vector3(0.00282729, 0.884112, 3.81134), Vector3(0.00307628, 0.884409, 3.81292)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoveDatabase:transitions_to_queued")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.04143),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoveDatabase:accepts_queueing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0911246),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6591, 0.7853),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MoveDatabase:is_parryable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MoveDatabase:is_vulnerable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MoveDatabase:is_interruptable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/8/path = NodePath("MoveDatabase:is_grabable")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.41223, 0.499051),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MoveDatabase:ff_gapcloses")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.439236, 0.799166),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -1110,110 +1224,122 @@ length = 2.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MoveDatabase:is_parryable")
+tracks/0/path = NodePath("MoveDatabase:root_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveDatabase:is_vulnerable")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoveDatabase:is_interruptable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoveDatabase:is_grabable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MoveDatabase:root_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1, 1.03333, 1.06667, 1.1, 1.13333, 1.16667, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.6, 1.63333, 1.66667, 1.7, 1.73333, 1.76667, 1.9, 1.93333, 1.96667, 2, 2.03333, 2.06667, 2.1, 2.13333, 2.16667, 2.2, 2.23333, 2.26667, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.118655, 0.729533, 3.00801), Vector3(-0.118655, 0.729533, 3.00801), Vector3(-0.118598, 0.73024, 3.01977), Vector3(-0.118418, 0.732236, 3.05309), Vector3(-0.118086, 0.735333, 3.1051), Vector3(-0.11756, 0.73934, 3.17289), Vector3(-0.116807, 0.744061, 3.2536), Vector3(-0.115812, 0.7493, 3.34435), Vector3(-0.11459, 0.754858, 3.44228), Vector3(-0.113184, 0.760541, 3.5445), Vector3(-0.111667, 0.766157, 3.64812), Vector3(-0.110125, 0.771527, 3.75018), Vector3(-0.10865, 0.776477, 3.84772), Vector3(-0.107326, 0.780842, 3.93775), Vector3(-0.10622, 0.784463, 4.01722), Vector3(-0.105384, 0.787181, 4.08311), Vector3(-0.104856, 0.788834, 4.13239), Vector3(-0.104672, 0.789261, 4.16204), Vector3(-0.104672, 0.788265, 4.1792), Vector3(-0.104672, 0.785962, 4.19323), Vector3(-0.104672, 0.782646, 4.20444), Vector3(-0.104672, 0.778614, 4.21316), Vector3(-0.104672, 0.77416, 4.21969), Vector3(-0.104672, 0.769581, 4.22435), Vector3(-0.104672, 0.765172, 4.22746), Vector3(-0.104672, 0.761228, 4.22933), Vector3(-0.104672, 0.758045, 4.23027), Vector3(-0.104672, 0.755919, 4.23061), Vector3(-0.104264, 0.755627, 4.23105), Vector3(-0.10308, 0.757029, 4.23221), Vector3(-0.101181, 0.759279, 4.23408), Vector3(-0.0986264, 0.762307, 4.23659), Vector3(-0.0954775, 0.766042, 4.23969), Vector3(-0.0917948, 0.770414, 4.24331), Vector3(-0.0876391, 0.77535, 4.24739), Vector3(-0.0830714, 0.780782, 4.25188), Vector3(-0.0781523, 0.786639, 4.25671), Vector3(-0.0729427, 0.792849, 4.26183), Vector3(-0.0675029, 0.799341, 4.26718), Vector3(-0.0618933, 0.806046, 4.27269), Vector3(-0.0389517, 0.833566, 4.29528), Vector3(-0.033386, 0.840267, 4.30077), Vector3(-0.0280049, 0.846756, 4.30609), Vector3(-0.0228662, 0.85296, 4.31117), Vector3(-0.0180272, 0.858811, 4.31595), Vector3(-0.0135449, 0.864236, 4.32039), Vector3(-0.00947638, 0.869166, 4.32443), Vector3(-0.00587806, 0.873531, 4.328), Vector3(-0.00280664, 0.87726, 4.33105), Vector3(-0.000318655, 0.880282, 4.33353), Vector3(0.00152919, 0.882528, 4.33536), Vector3(0.0026799, 0.883927, 4.33651), Vector3(0.00307628, 0.884409, 4.33691)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MoveDatabase:transitions_to_queued")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoveDatabase:transitions_to_queued")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.02841),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MoveDatabase:accepts_queueing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoveDatabase:accepts_queueing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0954638),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6591, 0.7853),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MoveDatabase:is_parryable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MoveDatabase:is_vulnerable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MoveDatabase:is_interruptable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("MoveDatabase:tracks_input_vector")
+tracks/8/path = NodePath("MoveDatabase:is_grabable")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.689943),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MoveDatabase:ff_gapcloses")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.539895, 1.07369),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_hvv52"]
@@ -3274,59 +3400,6 @@ _data = {
 "withdraw_params": SubResource("Animation_ssti6")
 }
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_0wjol"]
-filter_enabled = true
-filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftIndexDistal", "%GeneralSkeleton:LeftIndexIntermediate", "%GeneralSkeleton:LeftIndexProximal", "%GeneralSkeleton:LeftLittleDistal", "%GeneralSkeleton:LeftLittleIntermediate", "%GeneralSkeleton:LeftLittleProximal", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftMiddleDistal", "%GeneralSkeleton:LeftMiddleIntermediate", "%GeneralSkeleton:LeftMiddleProximal", "%GeneralSkeleton:LeftRingDistal", "%GeneralSkeleton:LeftRingIntermediate", "%GeneralSkeleton:LeftRingProximal", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftThumbDistal", "%GeneralSkeleton:LeftThumbMetacarpal", "%GeneralSkeleton:LeftThumbProximal", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightIndexDistal", "%GeneralSkeleton:RightIndexIntermediate", "%GeneralSkeleton:RightIndexProximal", "%GeneralSkeleton:RightLittleDistal", "%GeneralSkeleton:RightLittleIntermediate", "%GeneralSkeleton:RightLittleProximal", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightMiddleDistal", "%GeneralSkeleton:RightMiddleIntermediate", "%GeneralSkeleton:RightMiddleProximal", "%GeneralSkeleton:RightRingDistal", "%GeneralSkeleton:RightRingIntermediate", "%GeneralSkeleton:RightRingProximal", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightThumbDistal", "%GeneralSkeleton:RightThumbMetacarpal", "%GeneralSkeleton:RightThumbProximal", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", "%GeneralSkeleton:UpperChest", "%GeneralSkeleton:mixamorig_HeadTop_End", "%GeneralSkeleton:mixamorig_LeftHandIndex1", "%GeneralSkeleton:mixamorig_LeftHandMiddle1", "%GeneralSkeleton:mixamorig_LeftHandPinky1", "%GeneralSkeleton:mixamorig_LeftHandRing1", "%GeneralSkeleton:mixamorig_LeftHandThumb1", "%GeneralSkeleton:mixamorig_RightHandIndex1", "%GeneralSkeleton:mixamorig_RightHandMiddle1", "%GeneralSkeleton:mixamorig_RightHandPinky1", "%GeneralSkeleton:mixamorig_RightHandRing1", "%GeneralSkeleton:mixamorig_RightHandThumb1"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l2dlw"]
-animation = &"idle_longsword"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tnvjr"]
-animation = &"run"
-
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_nid50"]
-xfade_time = 0.15
-input_0/name = "Legs1"
-input_0/auto_advance = false
-input_0/reset = true
-input_1/name = "Legs2"
-input_1/auto_advance = false
-input_1/reset = true
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cirkj"]
-animation = &"withdraw"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nb8c0"]
-animation = &"idle_longsword"
-
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_kya4w"]
-xfade_time = 0.15
-input_0/name = "Torso1"
-input_0/auto_advance = false
-input_0/reset = true
-input_1/name = "Torso2"
-input_1/auto_advance = false
-input_1/reset = true
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tydsu"]
-graph_offset = Vector2(-265.779, -17.9539)
-nodes/BodyBlend/node = SubResource("AnimationNodeBlend2_0wjol")
-nodes/BodyBlend/position = Vector2(960, 360)
-nodes/Legs1/node = SubResource("AnimationNodeAnimation_l2dlw")
-nodes/Legs1/position = Vector2(460, 220)
-nodes/Legs2/node = SubResource("AnimationNodeAnimation_tnvjr")
-nodes/Legs2/position = Vector2(500, 360)
-nodes/LegsTransition/node = SubResource("AnimationNodeTransition_nid50")
-nodes/LegsTransition/position = Vector2(720, 260)
-nodes/Torso1/node = SubResource("AnimationNodeAnimation_cirkj")
-nodes/Torso1/position = Vector2(520, 500)
-nodes/Torso2/node = SubResource("AnimationNodeAnimation_nb8c0")
-nodes/Torso2/position = Vector2(480, 640)
-nodes/TorsoTransition/node = SubResource("AnimationNodeTransition_kya4w")
-nodes/TorsoTransition/position = Vector2(720, 520)
-nodes/output/position = Vector2(1180, 420)
-node_connections = [&"BodyBlend", 0, &"LegsTransition", &"BodyBlend", 1, &"TorsoTransition", &"LegsTransition", 0, &"Legs1", &"LegsTransition", 1, &"Legs2", &"TorsoTransition", 0, &"Torso1", &"TorsoTransition", 1, &"Torso2", &"output", 0, &"BodyBlend"]
-
 [node name="Model" type="Node3D"]
 script = ExtResource("1_mokw1")
 
@@ -3341,6 +3414,9 @@ script = ExtResource("2_vd0q8")
 
 [node name="AreaAwareness" type="Node" parent="."]
 script = ExtResource("5_mjhxp")
+
+[node name="FreeFlowCombat" type="Node" parent="."]
+script = ExtResource("6_4f0n5")
 
 [node name="Legs" type="Node" parent="." node_paths=PackedStringArray("model")]
 script = ExtResource("6_rt6e3")
@@ -3380,43 +3456,43 @@ bones/0/name = "Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72729e-08, 1.04275, 0.0155432)
 bones/0/enabled = true
-bones/0/position = Vector3(0.00396735, 0.743544, 0.00461654)
-bones/0/rotation = Quaternion(0.0508626, -0.424135, 0.0470197, 0.902946)
+bones/0/position = Vector3(-0.108521, 0.830392, 0.0573513)
+bones/0/rotation = Quaternion(0.292325, 0.144487, 0.0491367, 0.944063)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Spine"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.10163e-08, 0.101816, 0.00131521)
 bones/1/enabled = true
 bones/1/position = Vector3(-5.10163e-08, 0.101816, 0.00131521)
-bones/1/rotation = Quaternion(0.10074, 0.0273985, -0.000566747, 0.994535)
+bones/1/rotation = Quaternion(0.096308, -0.108671, 0.00188494, 0.9894)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Chest"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03918e-10, 0.0989396, -0.0147071)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.03918e-10, 0.0989396, -0.0147071)
-bones/2/rotation = Quaternion(0.0625096, 0.05348, -0.00360367, 0.996604)
+bones/2/rotation = Quaternion(0.0125873, 0.0179203, -0.0155647, 0.999639)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "UpperChest"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.67888e-11, 0.0922075, -0.0137064)
 bones/3/enabled = true
 bones/3/position = Vector3(-9.67888e-11, 0.0922075, -0.0137064)
-bones/3/rotation = Quaternion(-0.0406812, 0.0535664, 0.00195584, 0.997733)
+bones/3/rotation = Quaternion(0.16351, -0.0717058, 0.0506247, 0.982629)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Neck"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21672e-08, 0.167404, -0.0204904)
 bones/4/enabled = true
 bones/4/position = Vector3(1.21672e-08, 0.167404, -0.0204904)
-bones/4/rotation = Quaternion(0.00334329, 0.195275, 0.0184643, 0.980569)
+bones/4/rotation = Quaternion(-0.158243, 0.355186, -0.113456, 0.914292)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Head"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64533e-09, 0.0961786, 0.0168501)
 bones/5/enabled = true
 bones/5/position = Vector3(4.64533e-09, 0.0961786, 0.0168501)
-bones/5/rotation = Quaternion(-0.00615488, 0.0980365, -0.0917483, 0.990925)
+bones/5/rotation = Quaternion(-0.291532, -0.353758, -0.00510342, 0.888728)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "mixamorig_HeadTop_End"
 bones/6/parent = 5
@@ -3430,364 +3506,364 @@ bones/7/parent = 3
 bones/7/rest = Transform3D(0, -1, 0, 0, 0, 1, -1, 0, 0, -0.0456997, 0.110149, -0.0216088)
 bones/7/enabled = true
 bones/7/position = Vector3(-0.0456997, 0.110149, -0.0216088)
-bones/7/rotation = Quaternion(0.363096, -0.619125, -0.590323, -0.369276)
+bones/7/rotation = Quaternion(0.34758, -0.729624, -0.422494, -0.410287)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "RightUpperArm"
 bones/8/parent = 7
 bones/8/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.022321, 0.105929, -0.00524812)
 bones/8/enabled = true
 bones/8/position = Vector3(0.022321, 0.105929, -0.00524812)
-bones/8/rotation = Quaternion(-0.624449, 0.734523, -0.221723, -0.146215)
+bones/8/rotation = Quaternion(-0.444882, 0.654811, -0.418733, -0.444932)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "RightLowerArm"
 bones/9/parent = 8
 bones/9/rest = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -5.23155e-08, 0.278415, -1.16599e-07)
 bones/9/enabled = true
 bones/9/position = Vector3(-5.23155e-08, 0.278415, -1.16599e-07)
-bones/9/rotation = Quaternion(0.264144, 0.699808, -0.210247, 0.629518)
+bones/9/rotation = Quaternion(0.096145, 0.928309, -0.118425, 0.339078)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "RightHand"
 bones/10/parent = 9
 bones/10/rest = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -1.99183e-07, 0.283288, 1.66412e-07)
 bones/10/enabled = true
 bones/10/position = Vector3(-1.99183e-07, 0.283288, 1.66412e-07)
-bones/10/rotation = Quaternion(-0.0655233, -0.697257, -0.199325, 0.685426)
+bones/10/rotation = Quaternion(-0.149538, -0.735151, 0.193623, 0.63222)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "mixamorig_RightHandThumb1"
 bones/11/parent = 10
 bones/11/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0268185, 0.0246481, 0.0157399)
 bones/11/enabled = true
 bones/11/position = Vector3(0.0268185, 0.0246481, 0.0157399)
-bones/11/rotation = Quaternion(-0.151662, -0.404726, -0.255893, 0.864705)
+bones/11/rotation = Quaternion(-0.00152329, -0.00275061, 0.0062872, 0.999975)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "RightThumbMetacarpal"
 bones/12/parent = 11
 bones/12/rest = Transform3D(0, 0.577, -0.816, 0, 0.816, 0.577, 1, 0, 0, 0.0192429, 0.0321519, 0.0187278)
 bones/12/enabled = true
 bones/12/position = Vector3(0.0192429, 0.0321519, 0.0187278)
-bones/12/rotation = Quaternion(-0.0887989, -0.672139, -0.169727, 0.715218)
+bones/12/rotation = Quaternion(-0.214187, -0.673887, -0.214187, 0.673887)
 bones/12/scale = Vector3(1, 0.999392, 0.999392)
 bones/13/name = "RightThumbProximal"
 bones/13/parent = 12
 bones/13/rest = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.0152798, 0.0304281, 0.00297908)
 bones/13/enabled = true
 bones/13/position = Vector3(0.0152798, 0.0304281, 0.00297908)
-bones/13/rotation = Quaternion(0.261651, -0.115466, -0.116484, 0.951124)
+bones/13/rotation = Quaternion(-1.49012e-08, -5.96047e-08, -8.88179e-16, 1)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/name = "RightThumbDistal"
 bones/14/parent = 13
 bones/14/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01152, 0.0228948, 0.00261003)
 bones/14/enabled = true
 bones/14/position = Vector3(0.01152, 0.0228948, 0.00261003)
-bones/14/rotation = Quaternion(-4.47035e-08, 1.49012e-08, -5.96046e-08, 1)
+bones/14/rotation = Quaternion(0, 5.96046e-08, 5.96046e-08, 1)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "mixamorig_RightHandIndex1"
 bones/15/parent = 10
 bones/15/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0225984, 0.0910829, 0.0051787)
 bones/15/enabled = true
-bones/15/position = Vector3(0.022598, 0.0910831, 0.00517883)
-bones/15/rotation = Quaternion(0.318041, -0.0677272, -0.0470718, 0.944482)
+bones/15/position = Vector3(0.0225984, 0.0910829, 0.0051787)
+bones/15/rotation = Quaternion(0.407011, -0.000133604, 1.49012e-07, 0.913423)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/name = "RightIndexProximal"
 bones/16/parent = 15
 bones/16/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21507e-05, 0.0369999, 1.10012e-08)
 bones/16/enabled = true
 bones/16/position = Vector3(1.21507e-05, 0.0369999, 1.10012e-08)
-bones/16/rotation = Quaternion(0.565602, -0.0264303, -0.0223333, 0.823952)
+bones/16/rotation = Quaternion(0.615174, 0.000112534, 5.96047e-08, 0.788392)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/name = "RightIndexIntermediate"
 bones/17/parent = 16
 bones/17/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.22082e-06, 0.0285001, -2.98977e-07)
 bones/17/enabled = true
 bones/17/position = Vector3(-5.22082e-06, 0.0285001, -2.98977e-07)
-bones/17/rotation = Quaternion(0.516421, -0.0173693, -0.0203585, 0.855917)
+bones/17/rotation = Quaternion(0.509089, 3.50177e-06, 8.9407e-08, 0.860714)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "RightIndexDistal"
 bones/18/parent = 17
 bones/18/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94722e-07, 0.0277219, 1.04072e-07)
 bones/18/enabled = true
 bones/18/position = Vector3(-1.94722e-07, 0.0277219, 1.04072e-07)
-bones/18/rotation = Quaternion(-1.49012e-08, 1.49012e-08, 1.49012e-08, 1)
+bones/18/rotation = Quaternion(2.98023e-08, 2.98023e-08, 2.98023e-08, 1)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "mixamorig_RightHandMiddle1"
 bones/19/parent = 10
 bones/19/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41259e-07, 0.0953251, 4.76945e-07)
 bones/19/enabled = true
-bones/19/position = Vector3(-2.24381e-07, 0.0953252, 3.21894e-07)
-bones/19/rotation = Quaternion(0.38262, -0.00528535, -0.0156256, 0.923758)
+bones/19/position = Vector3(-2.41259e-07, 0.0953251, 4.76945e-07)
+bones/19/rotation = Quaternion(0.407011, -0.000408381, 2.98023e-08, 0.913423)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "RightMiddleProximal"
 bones/20/parent = 19
 bones/20/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71295e-05, 0.0370001, 1.58706e-07)
 bones/20/enabled = true
 bones/20/position = Vector3(3.71295e-05, 0.0370001, 1.58706e-07)
-bones/20/rotation = Quaternion(0.561726, -0.0072864, -0.028857, 0.826788)
+bones/20/rotation = Quaternion(0.615173, 0.000428353, 0, 0.788392)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/name = "RightMiddleIntermediate"
 bones/21/parent = 20
 bones/21/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05475e-05, 0.0295, -2.02593e-07)
 bones/21/enabled = true
 bones/21/position = Vector3(-2.05475e-05, 0.0295, -2.02593e-07)
-bones/21/rotation = Quaternion(0.35091, 0.00209476, -0.0176871, 0.93624)
+bones/21/rotation = Quaternion(0.509089, 2.6688e-05, 1.78814e-07, 0.860714)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/name = "RightMiddleDistal"
 bones/22/parent = 21
 bones/22/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5502e-06, 0.0294664, 1.75463e-08)
 bones/22/enabled = true
 bones/22/position = Vector3(-1.5502e-06, 0.0294664, 1.75463e-08)
-bones/22/rotation = Quaternion(-1.49012e-08, 1.49012e-08, 1.49012e-08, 1)
+bones/22/rotation = Quaternion(0, 0, 0, 1)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/name = "mixamorig_RightHandRing1"
 bones/23/parent = 10
 bones/23/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0186514, 0.0910361, 0.000430622)
 bones/23/enabled = true
-bones/23/position = Vector3(-0.0186514, 0.0910361, 0.000430494)
-bones/23/rotation = Quaternion(0.487707, 0.0352439, -0.0318976, 0.871713)
+bones/23/position = Vector3(-0.0186514, 0.0910361, 0.000430622)
+bones/23/rotation = Quaternion(0.407011, 0.000127032, 0, 0.913423)
 bones/23/scale = Vector3(1, 1, 1)
 bones/24/name = "RightRingProximal"
 bones/24/parent = 23
 bones/24/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05366e-05, 0.0337928, -4.87465e-09)
 bones/24/enabled = true
 bones/24/position = Vector3(-1.05366e-05, 0.0337928, -4.87465e-09)
-bones/24/rotation = Quaternion(0.406688, 2.01613e-05, -0.0159384, 0.913428)
+bones/24/rotation = Quaternion(0.615174, -8.06972e-05, -1.49012e-07, 0.788392)
 bones/24/scale = Vector3(1, 1, 1)
 bones/25/name = "RightRingIntermediate"
 bones/25/parent = 24
 bones/25/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.78334e-06, 0.0288968, -1.66129e-07)
 bones/25/enabled = true
 bones/25/position = Vector3(3.78334e-06, 0.0288968, -1.66129e-07)
-bones/25/rotation = Quaternion(0.451224, -0.000893004, -0.0175488, 0.892238)
+bones/25/rotation = Quaternion(0.509089, -0.000181451, 5.96046e-08, 0.860714)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/name = "RightRingDistal"
 bones/26/parent = 25
 bones/26/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40791e-06, 0.0263881, -1.61367e-07)
 bones/26/enabled = true
 bones/26/position = Vector3(9.40791e-06, 0.0263881, -1.61367e-07)
-bones/26/rotation = Quaternion(-1.49012e-08, 1.49012e-08, 1.49012e-08, 1)
+bones/26/rotation = Quaternion(1.49012e-08, 1.49012e-08, -1.49012e-08, 1)
 bones/26/scale = Vector3(1, 1, 1)
 bones/27/name = "mixamorig_RightHandPinky1"
 bones/27/parent = 10
 bones/27/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0380628, 0.0807669, 0.00486712)
 bones/27/enabled = true
-bones/27/position = Vector3(-0.0380629, 0.0807668, 0.00486686)
-bones/27/rotation = Quaternion(0.403669, 0.0944484, 0.0476848, 0.908767)
+bones/27/position = Vector3(-0.0380628, 0.0807669, 0.00486712)
+bones/27/rotation = Quaternion(0.407011, 0.000423625, 1.19209e-07, 0.913423)
 bones/27/scale = Vector3(1, 1, 1)
 bones/28/name = "RightLittleProximal"
 bones/28/parent = 27
 bones/28/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74698e-05, 0.036, 2.89028e-07)
 bones/28/enabled = true
 bones/28/position = Vector3(-3.74698e-05, 0.036, 2.89028e-07)
-bones/28/rotation = Quaternion(0.387424, -0.000981018, -0.0141803, 0.921792)
+bones/28/rotation = Quaternion(0.615171, 0.00168142, -8.9407e-08, 0.788392)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/name = "RightLittleIntermediate"
 bones/29/parent = 28
 bones/29/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.74139e-05, 0.0209998, 5.22878e-08)
 bones/29/enabled = true
 bones/29/position = Vector3(-5.74139e-05, 0.0209998, 5.22878e-08)
-bones/29/rotation = Quaternion(0.216288, 0.00281271, -0.00780442, 0.976294)
+bones/29/rotation = Quaternion(0.509088, 0.000885502, 1.19209e-07, 0.860714)
 bones/29/scale = Vector3(1, 1, 1)
 bones/30/name = "RightLittleDistal"
 bones/30/parent = 29
 bones/30/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68148e-05, 0.0211577, 2.64372e-07)
 bones/30/enabled = true
 bones/30/position = Vector3(-3.68148e-05, 0.0211577, 2.64372e-07)
-bones/30/rotation = Quaternion(-1.49012e-08, 1.49012e-08, 1.49012e-08, 1)
+bones/30/rotation = Quaternion(0, 0, 0, 1)
 bones/30/scale = Vector3(1, 1, 1)
 bones/31/name = "LeftShoulder"
 bones/31/parent = 3
 bones/31/rest = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 0.0457045, 0.110147, -0.0216086)
 bones/31/enabled = true
 bones/31/position = Vector3(0.0457045, 0.110147, -0.0216086)
-bones/31/rotation = Quaternion(0.504619, 0.506241, 0.480483, -0.508149)
+bones/31/rotation = Quaternion(0.440177, 0.645717, 0.504014, -0.367783)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/name = "LeftUpperArm"
 bones/32/parent = 31
 bones/32/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0223212, 0.105924, -0.00524594)
 bones/32/enabled = true
 bones/32/position = Vector3(-0.0223212, 0.105924, -0.00524594)
-bones/32/rotation = Quaternion(-0.00343545, 0.792049, -0.0739971, 0.605946)
+bones/32/rotation = Quaternion(0.318259, 0.809797, -0.487763, 0.0709072)
 bones/32/scale = Vector3(1, 1, 1)
 bones/33/name = "LeftLowerArm"
 bones/33/parent = 32
 bones/33/rest = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -2.63542e-07, 0.278415, 2.1265e-07)
 bones/33/enabled = true
 bones/33/position = Vector3(-2.63542e-07, 0.278415, 2.1265e-07)
-bones/33/rotation = Quaternion(0.391008, -0.186124, 0.670432, 0.602488)
+bones/33/rotation = Quaternion(0.432205, -0.559642, 0.432206, 0.55964)
 bones/33/scale = Vector3(1, 1, 1)
 bones/34/name = "LeftHand"
 bones/34/parent = 33
 bones/34/rest = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 5.16903e-07, 0.283288, 2.13481e-07)
 bones/34/enabled = true
 bones/34/position = Vector3(5.16903e-07, 0.283288, 2.13481e-07)
-bones/34/rotation = Quaternion(-0.0651253, 0.821892, 0.292237, 0.484612)
+bones/34/rotation = Quaternion(0.206817, 0.933767, 0.203921, -0.209098)
 bones/34/scale = Vector3(1, 1, 1)
 bones/35/name = "mixamorig_LeftHandThumb1"
 bones/35/parent = 34
 bones/35/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0268173, 0.0246614, 0.0157618)
 bones/35/enabled = true
-bones/35/position = Vector3(-0.0268171, 0.024661, 0.015762)
-bones/35/rotation = Quaternion(-0.0503229, 0.175593, 0.104707, 0.977584)
+bones/35/position = Vector3(-0.0268173, 0.0246615, 0.015762)
+bones/35/rotation = Quaternion(-0.00131847, 0.00237343, -0.00542869, 0.999982)
 bones/35/scale = Vector3(1, 1, 1)
 bones/36/name = "LeftThumbMetacarpal"
 bones/36/parent = 35
 bones/36/rest = Transform3D(0, -0.577, 0.816, 0, 0.816, 0.577, -1, 0, 0, -0.0191649, 0.0321781, 0.0187204)
 bones/36/enabled = true
 bones/36/position = Vector3(-0.0191649, 0.0321781, 0.0187204)
-bones/36/rotation = Quaternion(-0.101038, 0.66217, 0.193254, 0.716921)
+bones/36/rotation = Quaternion(-0.214187, 0.673887, 0.214187, 0.673887)
 bones/36/scale = Vector3(1, 0.999392, 0.999392)
 bones/37/name = "LeftThumbProximal"
 bones/37/parent = 36
 bones/37/rest = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.0152881, 0.0304488, 0.00297036)
 bones/37/enabled = true
 bones/37/position = Vector3(-0.0152881, 0.0304488, 0.00297036)
-bones/37/rotation = Quaternion(0.0742235, 0.0381064, 0.0311733, 0.996026)
+bones/37/rotation = Quaternion(-2.98023e-08, 1.49012e-08, 2.98023e-08, 1)
 bones/37/scale = Vector3(1, 1, 1)
 bones/38/name = "LeftThumbDistal"
 bones/38/parent = 37
 bones/38/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115406, 0.0229527, 0.00256418)
 bones/38/enabled = true
 bones/38/position = Vector3(-0.0115406, 0.0229527, 0.00256418)
-bones/38/rotation = Quaternion(-5.96046e-08, 1.78814e-07, 2.98023e-08, 1)
+bones/38/rotation = Quaternion(-2.98023e-08, 5.96046e-08, 2.98023e-08, 1)
 bones/38/scale = Vector3(1, 1, 1)
 bones/39/name = "mixamorig_LeftHandIndex1"
 bones/39/parent = 34
 bones/39/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0225987, 0.0910931, 0.00518025)
 bones/39/enabled = true
-bones/39/position = Vector3(-0.022599, 0.091093, 0.00518007)
-bones/39/rotation = Quaternion(0.00113487, -0.0106599, 0.0503635, 0.998673)
+bones/39/position = Vector3(-0.0225988, 0.0910933, 0.00518041)
+bones/39/rotation = Quaternion(-8.04663e-07, 8.9407e-08, 4.45545e-05, 1)
 bones/39/scale = Vector3(1, 1, 1)
 bones/40/name = "LeftIndexProximal"
 bones/40/parent = 39
 bones/40/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2241e-06, 0.0370001, -1.06908e-07)
 bones/40/enabled = true
 bones/40/position = Vector3(3.2241e-06, 0.0370001, -1.06908e-07)
-bones/40/rotation = Quaternion(0.0401526, 0.00123651, 0.00167674, 0.999191)
+bones/40/rotation = Quaternion(0, 0, -1.49012e-08, 1)
 bones/40/scale = Vector3(1, 1, 1)
 bones/41/name = "LeftIndexIntermediate"
 bones/41/parent = 40
 bones/41/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50661e-06, 0.0285002, 7.15847e-08)
 bones/41/enabled = true
 bones/41/position = Vector3(-3.50661e-06, 0.0285002, 7.15847e-08)
-bones/41/rotation = Quaternion(0.0659981, 0.000743494, 0.00387028, 0.997812)
+bones/41/rotation = Quaternion(-2.98023e-08, 2.98023e-08, 2.98023e-08, 1)
 bones/41/scale = Vector3(1, 1, 1)
 bones/42/name = "LeftIndexDistal"
 bones/42/parent = 41
 bones/42/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66647e-07, 0.0277487, 2.42676e-07)
 bones/42/enabled = true
 bones/42/position = Vector3(2.66647e-07, 0.0277487, 2.42676e-07)
-bones/42/rotation = Quaternion(0, 1.49012e-08, 0, 1)
+bones/42/rotation = Quaternion(1.49012e-08, -1.49012e-08, -2.98023e-08, 1)
 bones/42/scale = Vector3(1, 1, 1)
 bones/43/name = "mixamorig_LeftHandMiddle1"
 bones/43/parent = 34
 bones/43/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5353e-07, 0.095334, -5.67491e-07)
 bones/43/enabled = true
 bones/43/position = Vector3(-4.45727e-07, 0.0953341, -2.94579e-07)
-bones/43/rotation = Quaternion(0.039402, 0.0147879, -0.041305, 0.99826)
+bones/43/rotation = Quaternion(5.96046e-08, 5.96046e-08, 3.14415e-05, 1)
 bones/43/scale = Vector3(1, 1, 1)
 bones/44/name = "LeftMiddleProximal"
 bones/44/parent = 43
 bones/44/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31023e-06, 0.0370001, -7.75219e-09)
 bones/44/enabled = true
 bones/44/position = Vector3(2.31023e-06, 0.0370001, -7.75219e-09)
-bones/44/rotation = Quaternion(0.113117, 0.0051297, 0.00828481, 0.993534)
+bones/44/rotation = Quaternion(5.96046e-08, 0, 0, 1)
 bones/44/scale = Vector3(1, 1, 1)
 bones/45/name = "LeftMiddleIntermediate"
 bones/45/parent = 44
 bones/45/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.74331e-07, 0.0295, 2.05993e-07)
 bones/45/enabled = true
 bones/45/position = Vector3(5.74331e-07, 0.0295, 2.05993e-07)
-bones/45/rotation = Quaternion(0.144011, 0.00711905, 0.0108392, 0.989491)
+bones/45/rotation = Quaternion(2.98023e-08, -2.98023e-08, 2.98023e-08, 1)
 bones/45/scale = Vector3(1, 1, 1)
 bones/46/name = "LeftMiddleDistal"
 bones/46/parent = 45
 bones/46/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32358e-07, 0.0295288, -2.23647e-08)
 bones/46/enabled = true
 bones/46/position = Vector3(-6.32358e-07, 0.0295288, -2.23647e-08)
-bones/46/rotation = Quaternion(5.96046e-08, -1.49012e-08, 4.47035e-08, 1)
+bones/46/rotation = Quaternion(-1.49012e-08, 0, -1.49012e-08, 1)
 bones/46/scale = Vector3(1, 1, 1)
 bones/47/name = "mixamorig_LeftHandRing1"
 bones/47/parent = 34
 bones/47/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0186507, 0.0910454, 0.000430032)
 bones/47/enabled = true
 bones/47/position = Vector3(0.0186507, 0.0910455, 0.000430322)
-bones/47/rotation = Quaternion(0.120615, 0.0176337, -0.0719098, 0.989934)
+bones/47/rotation = Quaternion(0, 0, 0, 1)
 bones/47/scale = Vector3(1, 1, 1)
 bones/48/name = "LeftRingProximal"
 bones/48/parent = 47
 bones/48/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17294e-07, 0.0315002, 2.50695e-09)
 bones/48/enabled = true
 bones/48/position = Vector3(-4.17294e-07, 0.0315002, 2.50695e-09)
-bones/48/rotation = Quaternion(0.164115, -0.00528364, 0.00588825, 0.98641)
+bones/48/rotation = Quaternion(-2.98023e-08, -5.96046e-08, -2.98023e-08, 1)
 bones/48/scale = Vector3(1, 1, 1)
 bones/49/name = "LeftRingIntermediate"
 bones/49/parent = 48
 bones/49/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01297e-07, 0.0295, 9.90183e-08)
 bones/49/enabled = true
 bones/49/position = Vector3(-4.01297e-07, 0.0295, 9.90183e-08)
-bones/49/rotation = Quaternion(0.191264, -0.00504443, 0.00725117, 0.981499)
+bones/49/rotation = Quaternion(-1.49012e-08, 0, -1.49012e-08, 1)
 bones/49/scale = Vector3(1, 1, 1)
 bones/50/name = "LeftRingDistal"
 bones/50/parent = 49
 bones/50/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65873e-07, 0.0264433, -6.12613e-08)
 bones/50/enabled = true
 bones/50/position = Vector3(-5.65873e-07, 0.0264433, -6.12613e-08)
-bones/50/rotation = Quaternion(5.96046e-08, -1.49012e-08, 4.47035e-08, 1)
+bones/50/rotation = Quaternion(-1.49012e-08, 0, -1.49012e-08, 1)
 bones/50/scale = Vector3(1, 1, 1)
 bones/51/name = "mixamorig_LeftHandPinky1"
 bones/51/parent = 34
 bones/51/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0380626, 0.0807779, 0.0048685)
 bones/51/enabled = true
-bones/51/position = Vector3(0.038063, 0.0807781, 0.00486895)
-bones/51/rotation = Quaternion(0.129361, 0.0495093, -0.141083, 0.98026)
+bones/51/position = Vector3(0.0380626, 0.080778, 0.00486881)
+bones/51/rotation = Quaternion(5.126e-06, 1.19209e-07, -0.00204466, 0.999998)
 bones/51/scale = Vector3(1, 1, 1)
 bones/52/name = "LeftLittleProximal"
 bones/52/parent = 51
 bones/52/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000147263, 0.0359996, -1.41196e-07)
 bones/52/enabled = true
 bones/52/position = Vector3(-0.000147263, 0.0359996, -1.41196e-07)
-bones/52/rotation = Quaternion(0.112844, -0.00692914, 0.00135699, 0.993588)
+bones/52/rotation = Quaternion(-2.98023e-08, -2.98023e-08, 2.98023e-08, 1)
 bones/52/scale = Vector3(1, 1, 1)
 bones/53/name = "LeftLittleIntermediate"
 bones/53/parent = 52
 bones/53/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.70531e-05, 0.0210001, -1.80497e-07)
 bones/53/enabled = true
 bones/53/position = Vector3(-7.70531e-05, 0.0210001, -1.80497e-07)
-bones/53/rotation = Quaternion(0.230985, -0.0186486, 0.00323206, 0.972773)
+bones/53/rotation = Quaternion(-4.47035e-08, -4.47035e-08, 0, 1)
 bones/53/scale = Vector3(1, 1, 1)
 bones/54/name = "LeftLittleDistal"
 bones/54/parent = 53
 bones/54/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51584e-05, 0.0212551, -8.43068e-08)
 bones/54/enabled = true
 bones/54/position = Vector3(-7.51584e-05, 0.0212551, -8.43068e-08)
-bones/54/rotation = Quaternion(1.49012e-08, 4.47035e-08, 1.49012e-08, 1)
+bones/54/rotation = Quaternion(-1.49012e-08, 1.49012e-08, 1.49012e-08, 1)
 bones/54/scale = Vector3(1, 1, 1)
 bones/55/name = "RightUpperLeg"
 bones/55/parent = 0
 bones/55/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, -0.0820778, -0.0675166, -0.0159956)
 bones/55/enabled = true
 bones/55/position = Vector3(-0.0820778, -0.0675166, -0.0159956)
-bones/55/rotation = Quaternion(-0.0244264, 0.398505, 0.891082, 0.215804)
+bones/55/rotation = Quaternion(-0.0965324, -0.14449, 0.984184, 0.0344305)
 bones/55/scale = Vector3(1, 1, 1)
 bones/56/name = "RightLowerLeg"
 bones/56/parent = 55
 bones/56/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1.39782e-08, 0.443701, 0.00345939)
 bones/56/enabled = true
 bones/56/position = Vector3(1.39782e-08, 0.443701, 0.00345939)
-bones/56/rotation = Quaternion(0.0379616, 0.758339, -0.647808, 0.0618627)
+bones/56/rotation = Quaternion(1.15355e-05, 0.99825, -0.0591284, 0.000172094)
 bones/56/scale = Vector3(1, 1, 1)
 bones/57/name = "RightFoot"
 bones/57/parent = 56
 bones/57/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 2.09612e-08, 0.444237, 0.0304354)
 bones/57/enabled = true
 bones/57/position = Vector3(2.09612e-08, 0.444237, 0.0304354)
-bones/57/rotation = Quaternion(0.1737, 0.403827, -0.887183, -0.140208)
+bones/57/rotation = Quaternion(0.00108354, 0.772681, -0.634794, -0.00029869)
 bones/57/scale = Vector3(1, 1, 1)
 bones/58/name = "RightToes"
 bones/58/parent = 57
 bones/58/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3.29817e-08, 0.107106, -0.0872867)
 bones/58/enabled = true
 bones/58/position = Vector3(3.29817e-08, 0.107106, -0.0872867)
-bones/58/rotation = Quaternion(-0.0258554, 0.99957, -0.00494108, -0.0129548)
+bones/58/rotation = Quaternion(1.00329e-06, 0.998209, 0.0598229, 9.76905e-07)
 bones/58/scale = Vector3(1, 1, 1)
 bones/59/name = "mixamorig_RightToe_End"
 bones/59/parent = 58
@@ -3801,28 +3877,28 @@ bones/60/parent = 0
 bones/60/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, 0.0820779, -0.0675169, -0.0159956)
 bones/60/enabled = true
 bones/60/position = Vector3(0.0820779, -0.0675169, -0.0159956)
-bones/60/rotation = Quaternion(0.338487, 0.54169, 0.73847, -0.21601)
+bones/60/rotation = Quaternion(-0.0617048, 0.678718, 0.728415, 0.0703261)
 bones/60/scale = Vector3(1, 1, 1)
 bones/61/name = "LeftLowerLeg"
 bones/61/parent = 60
 bones/61/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2.46084e-08, 0.4437, 0.00346958)
 bones/61/enabled = true
 bones/61/position = Vector3(2.46084e-08, 0.4437, 0.00346958)
-bones/61/rotation = Quaternion(0.0635885, 0.785128, -0.59781, -0.14884)
+bones/61/rotation = Quaternion(-9.10433e-08, 0.861684, -0.507446, -2.6664e-07)
 bones/61/scale = Vector3(1, 1, 1)
 bones/62/name = "LeftFoot"
 bones/62/parent = 61
 bones/62/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 2.91411e-09, 0.444237, 0.0304439)
 bones/62/enabled = true
 bones/62/position = Vector3(2.91411e-09, 0.444237, 0.0304439)
-bones/62/rotation = Quaternion(-0.0354705, 0.652603, -0.755385, 0.0473892)
+bones/62/rotation = Quaternion(-0.000312556, 0.641184, -0.764341, -0.0683092)
 bones/62/scale = Vector3(1, 1, 1)
 bones/63/name = "LeftToes"
 bones/63/parent = 62
 bones/63/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3.50223e-08, 0.107106, -0.0872867)
 bones/63/enabled = true
 bones/63/position = Vector3(3.50223e-08, 0.107106, -0.0872867)
-bones/63/rotation = Quaternion(0.0532047, 0.998501, 0.00697941, -0.0108332)
+bones/63/rotation = Quaternion(0.0266046, 0.998504, 0.0332717, -0.0342923)
 bones/63/scale = Vector3(1, 1, 1)
 bones/64/name = "mixamorig_LeftToe_End"
 bones/64/parent = 63
@@ -3834,7 +3910,7 @@ bones/64/scale = Vector3(1, 1, 1)
 script = ExtResource("11_chgqi")
 
 [node name="Root" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.635797, -0.128058, -0.761159, 0.0417673, 0.990404, -0.131738, 0.770725, 0.051967, 0.635045, 0.00396735, 0.743544, 0.00461654)
+transform = Transform3D(0.953418, -0.00830203, 0.301538, 0.177251, 0.824264, -0.537746, -0.244083, 0.566145, 0.78734, -0.108521, 0.830392, 0.0573513)
 bone_name = "Hips"
 bone_idx = 0
 use_external_skeleton = true
@@ -3845,7 +3921,7 @@ processor = NodePath("../..")
 ignored_spell_groups = Array[String](["players_spell"])
 
 [node name="RightWrist" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.504674, 0.114438, 0.855691, 0.752396, 0.427719, -0.500955, -0.423324, 0.896638, 0.129757, -0.161757, 1.01953, 0.495413)
+transform = Transform3D(-0.081659, 0.275103, 0.957941, 0.346484, -0.893364, 0.286093, 0.934495, 0.355274, -0.0223675, -0.193203, 0.711343, 0.713614)
 bone_name = "RightHand"
 bone_idx = 10
 use_external_skeleton = true
@@ -3860,7 +3936,7 @@ collision_mask = 4
 holder = NodePath("../../..")
 
 [node name="LeftWrist" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.444374, -0.892934, 0.072112, 0.858336, 0.447436, 0.251117, -0.256496, -0.0496937, 0.965267, 0.107644, 1.36001, 0.402208)
+transform = Transform3D(0.211072, -0.967838, 0.136889, 0.234528, -0.0858093, -0.968314, 0.948918, 0.236488, 0.208874, -0.11313, 0.716179, 0.450345)
 bone_name = "LeftHand"
 bone_idx = 34
 use_external_skeleton = true
@@ -3871,6 +3947,7 @@ transform = Transform3D(1, -1.78814e-07, -9.31323e-09, 0, 1, -9.96515e-08, -1.86
 
 [node name="Shield" type="MeshInstance3D" parent="LeftWrist/ShieldSocket"]
 transform = Transform3D(0.983325, -0.00519968, 0.181782, -0.179677, 0.126485, 0.975561, -0.0280654, -0.991955, 0.123441, -0.000131972, -0.001284, 0.0052008)
+visible = false
 mesh = SubResource("CylinderMesh_2h7bn")
 
 [node name="Downcast" type="RayCast3D" parent="."]
@@ -3888,7 +3965,25 @@ visible = false
 material_override = SubResource("StandardMaterial3D_vsr0n")
 radius = 0.1
 
-[node name="States" parent="." node_paths=PackedStringArray("animator", "skeleton", "resources", "combat", "area_awareness", "moves_data_repo", "legs", "left_wrist") instance=ExtResource("30_xkqvj")]
+[node name="CringeJailForBadInterfaces" type="AnimationTree" parent="." node_paths=PackedStringArray("model")]
+tree_root = SubResource("AnimationNodeBlendTree_tydsu")
+parameters/BodyBlend/blend_amount = 1.0
+parameters/LegsTransition/current_state = "Legs1"
+parameters/LegsTransition/transition_request = ""
+parameters/LegsTransition/current_index = 0
+parameters/TorsoTransition/current_state = "Torso1"
+parameters/TorsoTransition/transition_request = ""
+parameters/TorsoTransition/current_index = 0
+script = ExtResource("8_jgg12")
+model = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CringeJailForBadInterfaces"]
+root_node = NodePath("../../States/Death")
+libraries = {
+"": ExtResource("44_ydfq3")
+}
+
+[node name="States" parent="." node_paths=PackedStringArray("animator", "skeleton", "resources", "combat", "area_awareness", "moves_data_repo", "legs", "left_wrist", "free_flow") instance=ExtResource("30_xkqvj")]
 animator = NodePath("../SplitBodyAnimator")
 skeleton = NodePath("../GeneralSkeleton")
 resources = NodePath("../Resources")
@@ -3897,6 +3992,7 @@ area_awareness = NodePath("../AreaAwareness")
 moves_data_repo = NodePath("MovesData")
 legs = NodePath("../Legs")
 left_wrist = NodePath("../LeftWrist")
+free_flow = NodePath("../FreeFlowCombat")
 
 [node name="MovesData" type="Node" parent="States" node_paths=PackedStringArray("move_database")]
 script = ExtResource("31_l4eyu")
@@ -3907,11 +4003,13 @@ libraries = {
 "": SubResource("AnimationLibrary_udg8f")
 }
 script = ExtResource("32_yw3h7")
+root_position = Vector3(-0.103429, 0.885306, 1.70199)
 is_vulnerable = true
 is_interruptable = true
 is_grabable = true
 tracks_input_vector = true
 accepts_tracking_direction = true
+ff_gapcloses = true
 
 [node name="Idle" type="Node" parent="States"]
 script = ExtResource("33_8hd6j")
@@ -3995,6 +4093,106 @@ animation = "landing_sprint"
 move_name = "landing_sprint"
 priority = 10
 backend_animation = "landing_sprint_params"
+
+[node name="GS_FF_L1" parent="States" instance=ExtResource("31_jqukw")]
+RELEASES_PRIORITY = 2.1
+hit_damage = 20
+gapcloses = true
+base_length = 1.1
+animation = "greatsword_light_1_hackwork_Z_PROJECTED"
+move_name = "GS_FF_L1"
+priority = 15
+backend_animation = "greatsword_light_1_params"
+tracking_angular_speed = 10.0
+stamina_cost = 0.0
+
+[node name="light" parent="States/GS_FF_L1" instance=ExtResource("43_cefv8")]
+primary_input = "GS_FF_L1"
+triggered_move = "GS_FF_L2"
+
+[node name="heavy" parent="States/GS_FF_L1" instance=ExtResource("43_cefv8")]
+primary_input = "GS_FF_H1"
+triggered_move = "GS_FF_H1"
+
+[node name="GS_FF_L2" parent="States" instance=ExtResource("31_jqukw")]
+RELEASES_PRIORITY = 2.1
+hit_damage = 20
+gapcloses = true
+base_length = 1.1
+animation = "greatsword_light_2_hackwork_Z_PROJECTED"
+move_name = "GS_FF_L2"
+priority = 15
+backend_animation = "greatsword_light_2_params"
+tracking_angular_speed = 10.0
+stamina_cost = 0.0
+
+[node name="light" parent="States/GS_FF_L2" instance=ExtResource("43_cefv8")]
+primary_input = "GS_FF_L1"
+triggered_move = "GS_FF_L3"
+
+[node name="GS_FF_L3" parent="States" instance=ExtResource("31_jqukw")]
+RELEASES_PRIORITY = 2.2
+hit_damage = 20
+gapcloses = true
+base_length = 1.1
+animation = "greatsword_light_3_hackwork_Z_PROJECTED"
+move_name = "GS_FF_L3"
+priority = 15
+backend_animation = "greatsword_light_3_params"
+tracking_angular_speed = 10.0
+stamina_cost = 0.0
+
+[node name="light" parent="States/GS_FF_L3" instance=ExtResource("43_cefv8")]
+primary_input = "GS_FF_L1"
+triggered_move = "GS_FF_L4"
+
+[node name="heavy" parent="States/GS_FF_L3" instance=ExtResource("43_cefv8")]
+primary_input = "GS_FF_H1"
+triggered_move = "GS_FF_H2"
+
+[node name="GS_FF_L4" parent="States" instance=ExtResource("31_jqukw")]
+RELEASES_PRIORITY = 2.1
+hit_damage = 20
+gapcloses = true
+base_length = 1.4
+animation = "greatsword_light_4_hackwork_Z_PROJECTED"
+move_name = "GS_FF_L4"
+priority = 15
+backend_animation = "greatsword_light_4_params"
+tracking_angular_speed = 10.0
+stamina_cost = 0.0
+
+[node name="GS_FF_H1" parent="States" instance=ExtResource("31_jqukw")]
+RELEASES_PRIORITY = 2.4
+hit_damage = 30
+gapcloses = true
+base_length = 1.2
+animation = "greatsword_heavy_1_hackwork_Z_PROJECTED"
+move_name = "GS_FF_H1"
+priority = 15
+backend_animation = "greatsword_heavy_1_params"
+tracking_angular_speed = 10.0
+stamina_cost = 0.0
+
+[node name="heavy" parent="States/GS_FF_H1" instance=ExtResource("43_cefv8")]
+primary_input = "GS_FF_H1"
+triggered_move = "GS_FF_H2"
+
+[node name="light" parent="States/GS_FF_H1" instance=ExtResource("43_cefv8")]
+primary_input = "GS_FF_L1"
+triggered_move = "GS_FF_L3"
+
+[node name="GS_FF_H2" parent="States" instance=ExtResource("31_jqukw")]
+RELEASES_PRIORITY = 2.4
+hit_damage = 30
+gapcloses = true
+base_length = 1.2
+animation = "greatsword_heavy_2_hackwork_Z_PROJECTED"
+move_name = "GS_FF_H2"
+priority = 15
+backend_animation = "greatsword_heavy_2_params"
+tracking_angular_speed = 10.0
+stamina_cost = 0.0
 
 [node name="Longsword1" parent="States" instance=ExtResource("42_bnot5")]
 RELEASES_PRIORITY = 1.2
@@ -4106,23 +4304,5 @@ animation = "death"
 move_name = "death"
 priority = 200
 backend_animation = "death_params"
-
-[node name="CringeJailForBadInterfaces" type="AnimationTree" parent="." node_paths=PackedStringArray("model")]
-tree_root = SubResource("AnimationNodeBlendTree_tydsu")
-parameters/BodyBlend/blend_amount = 1.0
-parameters/LegsTransition/current_state = "Legs1"
-parameters/LegsTransition/transition_request = ""
-parameters/LegsTransition/current_index = 0
-parameters/TorsoTransition/current_state = "Torso1"
-parameters/TorsoTransition/transition_request = ""
-parameters/TorsoTransition/current_index = 0
-script = ExtResource("8_jgg12")
-model = NodePath("..")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CringeJailForBadInterfaces"]
-root_node = NodePath("../../States/Death")
-libraries = {
-"controller_lib": ExtResource("44_ydfq3")
-}
 
 [editable path="States/Longsword1"]

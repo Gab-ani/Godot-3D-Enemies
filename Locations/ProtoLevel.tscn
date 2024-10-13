@@ -56,6 +56,26 @@ use_collision = true
 collision_layer = 3
 mesh = SubResource("CylinderMesh_lahs1")
 
-[node name="Opponent" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_ma22g")]
+[node name="Opponent" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0352197, -0.500001, 0.233718)
+player = NodePath("../Player")
+
+[node name="Opponent2" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30496, -0.500001, 0.233718)
+player = NodePath("../Player")
+
+[node name="Opponent3" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.528, -0.500001, -4.54419)
+player = NodePath("../Player")
+
+[node name="Opponent4" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49178, -0.500001, -3.51451)
+player = NodePath("../Player")
+
+[node name="Opponent5" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51051, -0.500001, 4.06947)
+player = NodePath("../Player")
+
+[node name="Opponent6" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.843624, -0.500001, 6.04706)
 player = NodePath("../Player")

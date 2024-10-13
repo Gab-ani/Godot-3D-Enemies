@@ -11,6 +11,8 @@ class_name PlayerModel
 @onready var hurtbox = $Root/Hurtbox as Hurtbox
 @onready var legs = $Legs as Legs
 @onready var area_awareness = $AreaAwareness as AreaAwareness
+@onready var free_flow_combat = $FreeFlowCombat as FreeFlowCombat
+
 
 @onready var active_weapon : Weapon = $RightWrist/WeaponSocket/Sword as Sword
 #@onready var weapons = {
@@ -30,9 +32,11 @@ func _ready():
 	current_move = moves_container.moves["idle"]
 	legs.current_legs_move = moves_container.get_move_by_name("idle")
 	legs.accept_behaviours()
-
+	
+	free_flow_combat.humanoid = player
 
 func update(input : InputPackage, delta : float):
+	free_flow_combat.change_target(input)
 	input = combat.contextualize(input)
 	area_awareness.last_input_package = input
 	var relevance = current_move.check_relevance(input)

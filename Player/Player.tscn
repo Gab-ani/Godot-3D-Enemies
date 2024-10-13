@@ -25,7 +25,7 @@ top_level = true
 script = ExtResource("5_ye3f7")
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraMount"]
-transform = Transform3D(-1, -5.07667e-08, 7.11722e-08, -2.11539e-08, 0.930437, 0.366453, -8.48248e-08, 0.366453, -0.930437, 0, 3.23726, -2.49333)
+transform = Transform3D(-1, -5.07667e-08, 7.11722e-08, -2.11539e-08, 0.930437, 0.366453, -8.48248e-08, 0.366453, -0.930437, 0, 4.10257, -4.91435)
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.900688, 0)

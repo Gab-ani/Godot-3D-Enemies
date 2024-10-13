@@ -5,8 +5,8 @@ class_name Sword
 func _ready():
 	base_damage = 10
 	basic_attacks = {
-		"light_attack_pressed" : "longsword_1",
-		#"heavy_attack_pressed" : "greatsword_heavy_1"
+		"light_attack_pressed" : "GS_FF_L1",
+		"heavy_attack_pressed" : "GS_FF_H1"
 	}
 
 

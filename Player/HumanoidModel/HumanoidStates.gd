@@ -12,6 +12,7 @@ class_name HumanoidStates
 @export var moves_data_repo : MovesDataRepository
 @export var legs : Legs
 @export var left_wrist : BoneAttachment3D
+@export var free_flow : FreeFlowCombat
 
 var moves : Dictionary # { string : Move }, where string is Move heirs name
 
@@ -26,6 +27,7 @@ func accept_moves():
 #			child.base_animator = base_animator
 			child.resources = resources
 			child.combat = combat
+			child.free_flow = free_flow
 			child.moves_data_repo = moves_data_repo
 			child.container = self
 			child.DURATION = moves_data_repo.get_duration(child.backend_animation)

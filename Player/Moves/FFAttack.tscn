@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbxlcaerwq186"]
+
+[ext_resource type="Script" path="res://Player/Moves/FFAttack.gd" id="1_ai85k"]
+
+[node name="FFAttack" type="Node"]
+script = ExtResource("1_ai85k")
+RELEASES_PRIORITY = null
+hit_damage = null
+animation = null
+move_name = null
+priority = null
+backend_animation = null
+tracking_angular_speed = null
+stamina_cost = null

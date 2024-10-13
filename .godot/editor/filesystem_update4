@@ -1,17 +1,31 @@
 res://Enemies/Opponent/Opponent.tscn
 res://Enemies/GundyrHFSM/SerialAttack.gd
-res://Assets/Textures/fancy floor/floor.tres
-res://Enemies/Opponent/Brain/ReactionIntentions/Reaction.gd
-res://Locations/ProtoLevel.tscn
-res://Player/Player.tscn
-res://Player/HumanoidModel/HumanoidModel.tscn
-res://Enemies/Opponent/Behaviours/GuaranteedStrike.gd
-res://Enemies/Opponent/Brain/Brain.gd
-res://Enemies/Opponent/Behaviours/Block.gd
-res://Enemies/Opponent/Brain/Beliefs.gd
-res://Enemies/Opponent/Brain/ReactionIntentions/GuaranteedStrike.gd
-res://Enemies/MobFSM/MobFSM.gd
-res://Locations/ProtoLevel.gd
 res://Enemies/MobFSM/MobFSM.tscn
-res://Enemies/MobFSM/Idle.gd
-res://Enemies/MobFSM/MobStateMachine.gd
+res://Player/HumanoidModel/HumanoidModel.tscn
+res://Locations/ProtoLevel.tscn
+res://Assets/Textures/fancy floor/floor.tres
+res://Player/HumanoidModel/FreeFlowCombat.gd
+res://Player/HumanoidModel/Model.gd
+res://Player/HumanoidModel/DEV_ROOTFORGE.gd
+res://Assets/Ready Animations/controller_lib.res
+res://Player/Player.tscn
+res://Assets/Ready Animations/mixamo_torso_animations/torso_controller_lib.res
+res://Assets/Ready Animations/mixamo_legs_animations/legs_controller_lib.res
+res://Player/Input/Input.gd
+res://Weapons/Models/Sword.gd
+res://Assets/Ready Animations/mixamo_torso_animations/greatsword_heavy_1_hackwork_Z_PROJECTED_torso.res
+res://Assets/Ready Animations/mixamo_torso_animations/greatsword_heavy_2_hackwork_Z_PROJECTED_torso.res
+res://Assets/Ready Animations/mixamo_torso_animations/greatsword_light_1_hackwork_Z_PROJECTED_torso.res
+res://Assets/Ready Animations/mixamo_torso_animations/greatsword_light_2_hackwork_Z_PROJECTED_torso.res
+res://Assets/Ready Animations/mixamo_torso_animations/greatsword_light_3_hackwork_Z_PROJECTED_torso.res
+res://Assets/Ready Animations/mixamo_torso_animations/greatsword_light_4_hackwork_Z_PROJECTED_torso.res
+res://Assets/Ready Animations/mixamo_legs_animations/greatsword_heavy_1_hackwork_Z_PROJECTED_legs.res
+res://Assets/Ready Animations/mixamo_legs_animations/greatsword_heavy_2_hackwork_Z_PROJECTED_legs.res
+res://Assets/Ready Animations/mixamo_legs_animations/greatsword_light_1_hackwork_Z_PROJECTED_legs.res
+res://Assets/Ready Animations/mixamo_legs_animations/greatsword_light_2_hackwork_Z_PROJECTED_legs.res
+res://Assets/Ready Animations/mixamo_legs_animations/greatsword_light_3_hackwork_Z_PROJECTED_legs.res
+res://Assets/Ready Animations/mixamo_legs_animations/greatsword_light_4_hackwork_Z_PROJECTED_legs.res
+res://Locations/ProtoLevel.gd
+res://Player/Moves/FFAttack.gd
+res://Player/HumanoidModel/MovesData.gd
+res://Player/HumanoidModel/MovesDataStorage.gd

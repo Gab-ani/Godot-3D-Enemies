@@ -62,6 +62,8 @@ func time_til_next_controllable_frame(animation : String, timecode : float) -> f
 			return data.track_get_key_time(track, key) - timecode
 	return data.length - timecode
 
-
-
+func ff_gapcloses(animation : String, timecode : float) -> bool:
+	var data = move_database.get_animation(animation)
+	var track = data.find_track("MoveDatabase:ff_gapcloses", Animation.TYPE_VALUE)
+	return move_database.get_boolean_value(animation, track, timecode)
 

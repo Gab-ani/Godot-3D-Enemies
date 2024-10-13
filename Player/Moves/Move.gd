@@ -12,6 +12,7 @@ var container : HumanoidStates
 var area_awareness : AreaAwareness
 var legs : Legs
 var left_wrist : BoneAttachment3D
+var free_flow : FreeFlowCombat
 
 @export var animation : String
 @export var move_name : String

@@ -1,16 +1,16 @@
+res://Assets/Ready Animations/mixamo_legs_animations
+res://Assets/Ready Animations/mixamo_torso_animations
+res://Assets/Ready Animations
+res://Player/Moves
 res://Locations
 res://Enemies/Opponent/Behaviours
 res://Enemies/Opponent/Brain/ProactiveIntention
 res://Enemies/Opponent/Actions
 res://Enemies/Opponent/Brain/ReactionIntentions
 res://Enemies/Opponent/Brain/Feelings
-res://Assets/Ready Animations
 res://Enemies/Opponent
-res://Assets/Ready Animations/mixamo_torso_animations
 res://Enemies/Opponent/Brain
-res://Player/Moves
 res://Assets
-res://Assets/Ready Animations/mixamo_legs_animations
 res://Player/Spells
 res://Player/Moves/BackendAnimations
 res://Player/Moves/Legs
