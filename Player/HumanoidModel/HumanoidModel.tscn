@@ -644,7 +644,7 @@ tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6591, 0.7853),
+"times": PackedFloat32Array(0, 0.8, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -768,7 +768,7 @@ tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6591, 0.7853),
+"times": PackedFloat32Array(0, 0.9, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -940,7 +940,7 @@ tracks/7/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.6591, 0.7853),
+"times": PackedFloat32Array(0, 0.6, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -1016,7 +1016,7 @@ tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6591, 0.7853),
+"times": PackedFloat32Array(0, 0.6, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -1140,7 +1140,7 @@ tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6591, 0.7853),
+"times": PackedFloat32Array(0, 0.4, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -1264,7 +1264,7 @@ tracks/3/path = NodePath("MoveDatabase:right_hand_weapon_hurts")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6591, 0.7853),
+"times": PackedFloat32Array(0, 0.6, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -3910,7 +3910,7 @@ bones/64/scale = Vector3(1, 1, 1)
 script = ExtResource("11_chgqi")
 
 [node name="Root" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.953418, -0.00830203, 0.301538, 0.177251, 0.824264, -0.537746, -0.244083, 0.566145, 0.78734, -0.108521, 0.830392, 0.0573513)
+transform = Transform3D(0.953418, -0.00830197, 0.301537, 0.177251, 0.824263, -0.537747, -0.244082, 0.566146, 0.787339, -0.108521, 0.830392, 0.0573513)
 bone_name = "Hips"
 bone_idx = 0
 use_external_skeleton = true
@@ -3921,7 +3921,7 @@ processor = NodePath("../..")
 ignored_spell_groups = Array[String](["players_spell"])
 
 [node name="RightWrist" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-0.081659, 0.275103, 0.957941, 0.346484, -0.893364, 0.286093, 0.934495, 0.355274, -0.0223675, -0.193203, 0.711343, 0.713614)
+transform = Transform3D(-0.0816596, 0.275103, 0.957941, 0.346482, -0.893365, 0.286094, 0.934496, 0.355271, -0.0223663, -0.193202, 0.711342, 0.713614)
 bone_name = "RightHand"
 bone_idx = 10
 use_external_skeleton = true
@@ -3936,7 +3936,7 @@ collision_mask = 4
 holder = NodePath("../../..")
 
 [node name="LeftWrist" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.211072, -0.967838, 0.136889, 0.234528, -0.0858093, -0.968314, 0.948918, 0.236488, 0.208874, -0.11313, 0.716179, 0.450345)
+transform = Transform3D(0.211071, -0.967838, 0.136891, 0.234527, -0.0858116, -0.968315, 0.948919, 0.236488, 0.208871, -0.113128, 0.716179, 0.450345)
 bone_name = "LeftHand"
 bone_idx = 34
 use_external_skeleton = true
@@ -4003,13 +4003,10 @@ libraries = {
 "": SubResource("AnimationLibrary_udg8f")
 }
 script = ExtResource("32_yw3h7")
-root_position = Vector3(-0.103429, 0.885306, 1.70199)
+root_position = Vector3(-0.111869, 0.923413, 1.70986)
 is_vulnerable = true
-is_interruptable = true
 is_grabable = true
-tracks_input_vector = true
 accepts_tracking_direction = true
-ff_gapcloses = true
 
 [node name="Idle" type="Node" parent="States"]
 script = ExtResource("33_8hd6j")

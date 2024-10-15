@@ -38,7 +38,7 @@ shadow_enabled = true
 environment = SubResource("Environment_8ihuv")
 
 [node name="Player" parent="." instance=ExtResource("1_86wwi")]
-transform = Transform3D(0.534544, 0, 0.845141, 0, 1, 0, -0.845141, 0, 0.534544, -7.9867, -0.5, -2.60028)
+transform = Transform3D(0.534544, 0, 0.845141, 0, 1, 0, -0.845141, 0, 0.534544, -5.51793, -0.5, 0.588717)
 
 [node name="player_debug_sphere" type="CSGSphere3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974622, 0)
@@ -57,25 +57,25 @@ collision_layer = 3
 mesh = SubResource("CylinderMesh_lahs1")
 
 [node name="Opponent" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0352197, -0.500001, 0.233718)
+transform = Transform3D(0.00841234, 0, -0.999965, 0, 1, 0, 0.999965, 0, 0.00841234, -0.0352197, -0.500001, 0.233718)
 player = NodePath("../Player")
 
 [node name="Opponent2" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30496, -0.500001, 0.233718)
+transform = Transform3D(-0.114278, 0, 0.993449, 0, 1, 0, -0.993449, 0, -0.114278, -9.21338, -0.500001, 0.233718)
 player = NodePath("../Player")
 
 [node name="Opponent3" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.528, -0.500001, -4.54419)
+transform = Transform3D(0.980608, 0, -0.19598, 0, 1, 0, 0.19598, 0, 0.980608, -3.57406, -0.500001, -5.04302)
 player = NodePath("../Player")
 
 [node name="Opponent4" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49178, -0.500001, -3.51451)
+transform = Transform3D(-0.840141, 0, -0.542368, 0, 1, 0, 0.542368, 0, -0.840141, -1.91668, -0.500001, 6.36654)
 player = NodePath("../Player")
 
 [node name="Opponent5" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51051, -0.500001, 4.06947)
+transform = Transform3D(-0.768875, 0, 0.639399, 0, 1, 0, -0.639399, 0, -0.768875, -6.80028, -0.500001, 3.75993)
 player = NodePath("../Player")
 
 [node name="Opponent6" parent="." node_paths=PackedStringArray("player") groups=["free_flow_target"] instance=ExtResource("3_ma22g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.843624, -0.500001, 6.04706)
+transform = Transform3D(0.716716, 0, 0.697365, 0, 1, 0, -0.697365, 0, 0.716716, -6.38142, -0.500001, -3.3461)
 player = NodePath("../Player")
